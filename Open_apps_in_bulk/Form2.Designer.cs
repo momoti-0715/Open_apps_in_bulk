@@ -30,25 +30,25 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.listViewCmd = new System.Windows.Forms.ListView();
+            this.buttonCmdNew = new System.Windows.Forms.Button();
+            this.buttonCmdEdit = new System.Windows.Forms.Button();
+            this.buttonCmdDel = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.listView4 = new System.Windows.Forms.ListView();
+            this.buttonAppDel = new System.Windows.Forms.Button();
+            this.buttonAppEdit = new System.Windows.Forms.Button();
+            this.buttonAppNew = new System.Windows.Forms.Button();
+            this.listViewApp = new System.Windows.Forms.ListView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.buttonWebDel = new System.Windows.Forms.Button();
+            this.buttonWebEdit = new System.Windows.Forms.Button();
+            this.buttonWebNew = new System.Windows.Forms.Button();
+            this.listViewWeb = new System.Windows.Forms.ListView();
             this.buttonCansel = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxSName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,10 +68,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.buttonCmdDel);
+            this.groupBox1.Controls.Add(this.buttonCmdEdit);
+            this.groupBox1.Controls.Add(this.buttonCmdNew);
+            this.groupBox1.Controls.Add(this.listViewCmd);
             this.groupBox1.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox1.Location = new System.Drawing.Point(17, 669);
             this.groupBox1.Name = "groupBox1";
@@ -80,48 +80,48 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "コマンド";
             // 
-            // listView1
+            // listViewCmd
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(25, 34);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(915, 180);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewCmd.HideSelection = false;
+            this.listViewCmd.Location = new System.Drawing.Point(25, 34);
+            this.listViewCmd.Name = "listViewCmd";
+            this.listViewCmd.Size = new System.Drawing.Size(915, 180);
+            this.listViewCmd.TabIndex = 0;
+            this.listViewCmd.UseCompatibleStateImageBehavior = false;
             // 
-            // button2
+            // buttonCmdNew
             // 
-            this.button2.Location = new System.Drawing.Point(599, 230);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 29);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "新規";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonCmdNew.Location = new System.Drawing.Point(599, 230);
+            this.buttonCmdNew.Name = "buttonCmdNew";
+            this.buttonCmdNew.Size = new System.Drawing.Size(115, 29);
+            this.buttonCmdNew.TabIndex = 3;
+            this.buttonCmdNew.Text = "新規";
+            this.buttonCmdNew.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonCmdEdit
             // 
-            this.button3.Location = new System.Drawing.Point(720, 230);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(115, 29);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "編集";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonCmdEdit.Location = new System.Drawing.Point(720, 230);
+            this.buttonCmdEdit.Name = "buttonCmdEdit";
+            this.buttonCmdEdit.Size = new System.Drawing.Size(115, 29);
+            this.buttonCmdEdit.TabIndex = 4;
+            this.buttonCmdEdit.Text = "編集";
+            this.buttonCmdEdit.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonCmdDel
             // 
-            this.button4.Location = new System.Drawing.Point(841, 230);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(115, 29);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "削除";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonCmdDel.Location = new System.Drawing.Point(841, 230);
+            this.buttonCmdDel.Name = "buttonCmdDel";
+            this.buttonCmdDel.Size = new System.Drawing.Size(115, 29);
+            this.buttonCmdDel.TabIndex = 5;
+            this.buttonCmdDel.Text = "削除";
+            this.buttonCmdDel.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button10);
-            this.groupBox4.Controls.Add(this.button11);
-            this.groupBox4.Controls.Add(this.button12);
-            this.groupBox4.Controls.Add(this.listView4);
+            this.groupBox4.Controls.Add(this.buttonAppDel);
+            this.groupBox4.Controls.Add(this.buttonAppEdit);
+            this.groupBox4.Controls.Add(this.buttonAppNew);
+            this.groupBox4.Controls.Add(this.listViewApp);
             this.groupBox4.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox4.Location = new System.Drawing.Point(17, 375);
             this.groupBox4.Name = "groupBox4";
@@ -130,48 +130,48 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "アプリケーション";
             // 
-            // button10
+            // buttonAppDel
             // 
-            this.button10.Location = new System.Drawing.Point(841, 230);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(115, 29);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "削除";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonAppDel.Location = new System.Drawing.Point(841, 230);
+            this.buttonAppDel.Name = "buttonAppDel";
+            this.buttonAppDel.Size = new System.Drawing.Size(115, 29);
+            this.buttonAppDel.TabIndex = 5;
+            this.buttonAppDel.Text = "削除";
+            this.buttonAppDel.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // buttonAppEdit
             // 
-            this.button11.Location = new System.Drawing.Point(720, 230);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(115, 29);
-            this.button11.TabIndex = 4;
-            this.button11.Text = "編集";
-            this.button11.UseVisualStyleBackColor = true;
+            this.buttonAppEdit.Location = new System.Drawing.Point(720, 230);
+            this.buttonAppEdit.Name = "buttonAppEdit";
+            this.buttonAppEdit.Size = new System.Drawing.Size(115, 29);
+            this.buttonAppEdit.TabIndex = 4;
+            this.buttonAppEdit.Text = "編集";
+            this.buttonAppEdit.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // buttonAppNew
             // 
-            this.button12.Location = new System.Drawing.Point(599, 230);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(115, 29);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "新規";
-            this.button12.UseVisualStyleBackColor = true;
+            this.buttonAppNew.Location = new System.Drawing.Point(599, 230);
+            this.buttonAppNew.Name = "buttonAppNew";
+            this.buttonAppNew.Size = new System.Drawing.Size(115, 29);
+            this.buttonAppNew.TabIndex = 3;
+            this.buttonAppNew.Text = "新規";
+            this.buttonAppNew.UseVisualStyleBackColor = true;
             // 
-            // listView4
+            // listViewApp
             // 
-            this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(25, 34);
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(915, 180);
-            this.listView4.TabIndex = 0;
-            this.listView4.UseCompatibleStateImageBehavior = false;
+            this.listViewApp.HideSelection = false;
+            this.listViewApp.Location = new System.Drawing.Point(25, 34);
+            this.listViewApp.Name = "listViewApp";
+            this.listViewApp.Size = new System.Drawing.Size(915, 180);
+            this.listViewApp.TabIndex = 0;
+            this.listViewApp.UseCompatibleStateImageBehavior = false;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.listView2);
+            this.groupBox2.Controls.Add(this.buttonWebDel);
+            this.groupBox2.Controls.Add(this.buttonWebEdit);
+            this.groupBox2.Controls.Add(this.buttonWebNew);
+            this.groupBox2.Controls.Add(this.listViewWeb);
             this.groupBox2.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox2.Location = new System.Drawing.Point(17, 67);
             this.groupBox2.Name = "groupBox2";
@@ -180,41 +180,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ウェブサイト";
             // 
-            // button1
+            // buttonWebDel
             // 
-            this.button1.Location = new System.Drawing.Point(841, 230);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 29);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "削除";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonWebDel.Location = new System.Drawing.Point(841, 230);
+            this.buttonWebDel.Name = "buttonWebDel";
+            this.buttonWebDel.Size = new System.Drawing.Size(115, 29);
+            this.buttonWebDel.TabIndex = 5;
+            this.buttonWebDel.Text = "削除";
+            this.buttonWebDel.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // buttonWebEdit
             // 
-            this.button5.Location = new System.Drawing.Point(720, 230);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(115, 29);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "編集";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonWebEdit.Location = new System.Drawing.Point(720, 230);
+            this.buttonWebEdit.Name = "buttonWebEdit";
+            this.buttonWebEdit.Size = new System.Drawing.Size(115, 29);
+            this.buttonWebEdit.TabIndex = 4;
+            this.buttonWebEdit.Text = "編集";
+            this.buttonWebEdit.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // buttonWebNew
             // 
-            this.button6.Location = new System.Drawing.Point(599, 230);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(115, 29);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "新規";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonWebNew.Location = new System.Drawing.Point(599, 230);
+            this.buttonWebNew.Name = "buttonWebNew";
+            this.buttonWebNew.Size = new System.Drawing.Size(115, 29);
+            this.buttonWebNew.TabIndex = 3;
+            this.buttonWebNew.Text = "新規";
+            this.buttonWebNew.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // listViewWeb
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(25, 34);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(915, 180);
-            this.listView2.TabIndex = 0;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listViewWeb.HideSelection = false;
+            this.listViewWeb.Location = new System.Drawing.Point(25, 34);
+            this.listViewWeb.Name = "listViewWeb";
+            this.listViewWeb.Size = new System.Drawing.Size(915, 180);
+            this.listViewWeb.TabIndex = 0;
+            this.listViewWeb.UseCompatibleStateImageBehavior = false;
             // 
             // buttonCansel
             // 
@@ -250,7 +250,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBoxSName);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.groupBox2);
@@ -260,13 +260,13 @@
             this.panel2.Size = new System.Drawing.Size(1031, 736);
             this.panel2.TabIndex = 6;
             // 
-            // textBox1
+            // textBoxSName
             // 
-            this.textBox1.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox1.Location = new System.Drawing.Point(168, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(330, 26);
-            this.textBox1.TabIndex = 0;
+            this.textBoxSName.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxSName.Location = new System.Drawing.Point(168, 21);
+            this.textBoxSName.Name = "textBoxSName";
+            this.textBoxSName.Size = new System.Drawing.Size(330, 26);
+            this.textBoxSName.TabIndex = 0;
             // 
             // Form2
             // 
@@ -290,24 +290,24 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button buttonCmdDel;
+        private System.Windows.Forms.Button buttonCmdEdit;
+        private System.Windows.Forms.Button buttonCmdNew;
+        private System.Windows.Forms.ListView listViewCmd;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.Button buttonAppDel;
+        private System.Windows.Forms.Button buttonAppEdit;
+        private System.Windows.Forms.Button buttonAppNew;
+        private System.Windows.Forms.ListView listViewApp;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.Button buttonWebDel;
+        private System.Windows.Forms.Button buttonWebEdit;
+        private System.Windows.Forms.Button buttonWebNew;
+        private System.Windows.Forms.ListView listViewWeb;
         private System.Windows.Forms.Button buttonCansel;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxSName;
     }
 }
