@@ -36,39 +36,45 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Font = new System.Drawing.Font("Noto Sans JP", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonNew.Location = new System.Drawing.Point(633, 33);
+            this.buttonNew.Font = new System.Drawing.Font("Noto Sans JP", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonNew.Location = new System.Drawing.Point(657, 30);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(148, 49);
+            this.buttonNew.Size = new System.Drawing.Size(137, 38);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "新規";
             this.buttonNew.UseVisualStyleBackColor = true;
             // 
             // shortcutList
             // 
+            this.shortcutList.Font = new System.Drawing.Font("Noto Sans JP", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.shortcutList.FormattingEnabled = true;
-            this.shortcutList.ItemHeight = 15;
-            this.shortcutList.Location = new System.Drawing.Point(47, 33);
+            this.shortcutList.HorizontalScrollbar = true;
+            this.shortcutList.ItemHeight = 26;
+            this.shortcutList.Items.AddRange(new object[] {
+            "ああああ",
+            "いいいいい",
+            "うううう"});
+            this.shortcutList.Location = new System.Drawing.Point(31, 30);
             this.shortcutList.Name = "shortcutList";
-            this.shortcutList.Size = new System.Drawing.Size(546, 469);
+            this.shortcutList.Size = new System.Drawing.Size(593, 472);
             this.shortcutList.TabIndex = 3;
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Font = new System.Drawing.Font("Noto Sans JP", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonEdit.Location = new System.Drawing.Point(633, 115);
+            this.buttonEdit.Font = new System.Drawing.Font("Noto Sans JP", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonEdit.Location = new System.Drawing.Point(657, 112);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(148, 49);
+            this.buttonEdit.Size = new System.Drawing.Size(137, 38);
             this.buttonEdit.TabIndex = 4;
             this.buttonEdit.Text = "編集";
             this.buttonEdit.UseVisualStyleBackColor = true;
             // 
             // buttonDel
             // 
-            this.buttonDel.Font = new System.Drawing.Font("Noto Sans JP", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonDel.Location = new System.Drawing.Point(633, 453);
+            this.buttonDel.Font = new System.Drawing.Font("Noto Sans JP", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonDel.Location = new System.Drawing.Point(657, 464);
             this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(148, 49);
+            this.buttonDel.Size = new System.Drawing.Size(137, 38);
             this.buttonDel.TabIndex = 5;
             this.buttonDel.Text = "削除";
             this.buttonDel.UseVisualStyleBackColor = true;
