@@ -109,13 +109,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Setting\ショートカット1.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Setting\" />
-    <Folder Include="Shortcut\" />
+    <Content Include="open_all_at_once.exe" />
+    <Content Include="origin.exe" />
+    <Content Include="Shortcut\ショートカット1.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
