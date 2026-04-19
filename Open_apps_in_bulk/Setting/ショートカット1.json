@@ -1,0 +1,19 @@
+{
+    "web_open": {
+        "browser": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "url_list": [
+            "https://www.google.com"
+        ]
+    },
+    "cmd_open": {
+        "p_c_list": [
+            {
+                "path": null,
+                "command": "ls"
+            }
+        ]
+    },
+    "task_open": {
+        "task_list": []
+    }
+}
