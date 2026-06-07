@@ -26,5 +26,10 @@ namespace Open_apps_in_bulk
         {
 
         }
+
+        private void buttonCansel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

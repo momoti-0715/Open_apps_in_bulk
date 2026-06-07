@@ -44,6 +44,7 @@
             this.buttonCansel.TabIndex = 3;
             this.buttonCansel.Text = "キャンセル";
             this.buttonCansel.UseVisualStyleBackColor = true;
+            this.buttonCansel.Click += new System.EventHandler(this.buttonCansel_Click);
             // 
             // buttonCreate
             // 

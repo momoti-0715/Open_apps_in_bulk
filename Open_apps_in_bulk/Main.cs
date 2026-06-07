@@ -50,7 +50,16 @@ namespace Open_apps_in_bulk
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
+            var form2 = new Form2();
+            form2.ShowDialog();
+            form2.Dispose();
+        }
 
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            var form3 = new Form3();
+            form3.ShowDialog();
+            form3.Dispose();
         }
     }
 }
