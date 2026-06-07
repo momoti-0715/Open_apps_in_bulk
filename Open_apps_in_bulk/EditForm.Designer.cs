@@ -75,14 +75,14 @@
             this.userControl11.Size = new System.Drawing.Size(1031, 697);
             this.userControl11.TabIndex = 15;
             // 
-            // Form3
+            // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 764);
             this.Controls.Add(this.userControl11);
             this.Controls.Add(this.panel1);
-            this.Name = "Form3";
+            this.Name = "EditForm";
             this.Text = "編集";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

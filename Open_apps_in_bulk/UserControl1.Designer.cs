@@ -50,6 +50,7 @@
             this.listBoxWeb = new System.Windows.Forms.ListBox();
             this.textBoxBrowserPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxCmd.SuspendLayout();
             this.groupBoxTask.SuspendLayout();
             this.groupBoxWeb.SuspendLayout();
@@ -170,6 +171,7 @@
             // 
             // groupBoxWeb
             // 
+            this.groupBoxWeb.Controls.Add(this.button1);
             this.groupBoxWeb.Controls.Add(this.textBoxBrowserPass);
             this.groupBoxWeb.Controls.Add(this.label2);
             this.groupBoxWeb.Controls.Add(this.listBoxWeb);
@@ -252,9 +254,9 @@
             // textBoxBrowserPass
             // 
             this.textBoxBrowserPass.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxBrowserPass.Location = new System.Drawing.Point(139, 34);
+            this.textBoxBrowserPass.Location = new System.Drawing.Point(138, 34);
             this.textBoxBrowserPass.Name = "textBoxBrowserPass";
-            this.textBoxBrowserPass.Size = new System.Drawing.Size(650, 26);
+            this.textBoxBrowserPass.Size = new System.Drawing.Size(697, 26);
             this.textBoxBrowserPass.TabIndex = 15;
             // 
             // label2
@@ -266,6 +268,15 @@
             this.label2.Size = new System.Drawing.Size(111, 22);
             this.label2.TabIndex = 16;
             this.label2.Text = "ブラウザパス";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(841, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 29);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "参照";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // UserControl1
             // 
@@ -312,5 +323,6 @@
         private System.Windows.Forms.ListBox listBoxWeb;
         private System.Windows.Forms.TextBox textBoxBrowserPass;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
