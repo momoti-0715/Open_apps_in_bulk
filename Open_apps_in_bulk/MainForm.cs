@@ -67,6 +67,7 @@ namespace Open_apps_in_bulk
         {
             var eForm = new EditForm();
             eForm.userControl11.TextBoxSName_InputText = shortcutList.Text; // 編集フォームのショートカット名に選択されているショートカット名を入力
+            
             eForm.ShowDialog();
             eForm.Dispose();
 
@@ -87,6 +88,17 @@ namespace Open_apps_in_bulk
                 buttonEdit.Enabled = false;
                 buttonDel.Enabled = false;
             }
+        }
+
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+            // 実行ファイルと設定ファイルの削除
+            File.Delete(@".\Shortcut\" + shortcutList.Text + ".exe"); 
+            File.Delete(@".\Setting\" + shortcutList.Text + ".json");
+
+            buttonEdit.Enabled = false;
+            buttonDel.Enabled = false;
+            Display_ShortcutList();
         }
     }
 }
