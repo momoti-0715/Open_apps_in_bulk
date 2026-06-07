@@ -125,7 +125,7 @@
             this.groupBoxTask.Controls.Add(this.buttonAppEdit);
             this.groupBoxTask.Controls.Add(this.buttonAppNew);
             this.groupBoxTask.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBoxTask.Location = new System.Drawing.Point(20, 459);
+            this.groupBoxTask.Location = new System.Drawing.Point(20, 454);
             this.groupBoxTask.Name = "groupBoxTask";
             this.groupBoxTask.Size = new System.Drawing.Size(972, 342);
             this.groupBoxTask.TabIndex = 16;
