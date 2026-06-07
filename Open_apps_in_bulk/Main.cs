@@ -26,6 +26,12 @@ namespace Open_apps_in_bulk
                 Directory.CreateDirectory(folderPath);  // フォルダ生成
             }
 
+            Display_ShortcutList();
+        }
+
+        void Display_ShortcutList()
+        {
+            string folderPath = @".\Shortcut\";
             shortcutList.Items.Clear(); // 一度リストの中身をリセット
 
             if (Directory.EnumerateFiles(folderPath).Any()) // フォルダ内にファイルがあるとき
@@ -53,6 +59,8 @@ namespace Open_apps_in_bulk
             var form2 = new Form2();
             form2.ShowDialog();
             form2.Dispose();
+
+            Display_ShortcutList();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -60,6 +68,8 @@ namespace Open_apps_in_bulk
             var form3 = new Form3();
             form3.ShowDialog();
             form3.Dispose();
+
+            Display_ShortcutList();
         }
     }
 }
