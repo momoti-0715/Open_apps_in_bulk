@@ -26,6 +26,8 @@ namespace Open_apps_in_bulk
                 Directory.CreateDirectory(folderPath);  // フォルダ生成
             }
 
+            shortcutList.Items.Clear(); // 一度リストの中身をリセット
+
             if (Directory.EnumerateFiles(folderPath).Any()) // フォルダ内にファイルがあるとき
             {
                 string[] files = Directory.GetFiles(folderPath, "*");
