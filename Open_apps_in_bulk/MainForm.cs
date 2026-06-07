@@ -54,9 +54,9 @@ namespace Open_apps_in_bulk
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            var form2 = new RegisterForm();
-            form2.ShowDialog();
-            form2.Dispose();
+            var rForm = new RegisterForm();
+            rForm.ShowDialog();
+            rForm.Dispose();
 
             buttonEdit.Enabled = false; // 編集と削除ボタンの無効化
             buttonDel.Enabled = false;
@@ -65,9 +65,10 @@ namespace Open_apps_in_bulk
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            var form3 = new EditForm();
-            form3.ShowDialog();
-            form3.Dispose();
+            var eForm = new EditForm();
+            eForm.userControl11.TextBoxSName_InputText = shortcutList.Text; // 編集フォームのショートカット名に選択されているショートカット名を入力
+            eForm.ShowDialog();
+            eForm.Dispose();
 
             buttonEdit.Enabled = false; // 編集と削除ボタンの無効化
             buttonDel.Enabled = false;

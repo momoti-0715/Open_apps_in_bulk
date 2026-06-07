@@ -212,6 +212,7 @@
             this.buttonWebNew.TabIndex = 3;
             this.buttonWebNew.Text = "新規";
             this.buttonWebNew.UseVisualStyleBackColor = true;
+            this.buttonWebNew.Click += new System.EventHandler(this.buttonWebNew_Click);
             // 
             // label1
             // 

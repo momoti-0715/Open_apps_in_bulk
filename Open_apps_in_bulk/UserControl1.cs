@@ -16,5 +16,21 @@ namespace Open_apps_in_bulk
         {
             InitializeComponent();
         }
+
+        public string TextBoxSName_InputText    // 外部からの入出力用
+        {
+            get { return textBoxSName.Text; }
+            set { textBoxSName.Text = value; }
+        }
+        public string TextBoxBrowserPass_InputText
+        {
+            get { return textBoxBrowserPass.Text; }
+            set { textBoxBrowserPass.Text = value; }
+        }
+
+        private void buttonWebNew_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
