@@ -1,6 +1,6 @@
 ﻿namespace Open_apps_in_bulk
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -43,6 +43,7 @@
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "新規";
             this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // shortcutList
             // 
@@ -50,10 +51,6 @@
             this.shortcutList.FormattingEnabled = true;
             this.shortcutList.HorizontalScrollbar = true;
             this.shortcutList.ItemHeight = 26;
-            this.shortcutList.Items.AddRange(new object[] {
-            "ああああ",
-            "いいいいい",
-            "うううう"});
             this.shortcutList.Location = new System.Drawing.Point(31, 30);
             this.shortcutList.Name = "shortcutList";
             this.shortcutList.Size = new System.Drawing.Size(593, 472);
@@ -79,7 +76,7 @@
             this.buttonDel.Text = "削除";
             this.buttonDel.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,7 +85,7 @@
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.shortcutList);
             this.Controls.Add(this.buttonNew);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
