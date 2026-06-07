@@ -21,5 +21,10 @@ namespace Open_apps_in_bulk
         {
             this.Close();
         }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
