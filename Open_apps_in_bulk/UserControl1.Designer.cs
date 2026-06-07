@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.textBoxSName = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCmd = new System.Windows.Forms.GroupBox();
             this.buttonCmdDel = new System.Windows.Forms.Button();
             this.buttonCmdEdit = new System.Windows.Forms.Button();
             this.buttonCmdNew = new System.Windows.Forms.Button();
             this.listViewCmd = new System.Windows.Forms.ListView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTask = new System.Windows.Forms.GroupBox();
             this.buttonAppRef = new System.Windows.Forms.Button();
             this.buttonAppDel = new System.Windows.Forms.Button();
             this.buttonAppEdit = new System.Windows.Forms.Button();
             this.buttonAppNew = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxWeb = new System.Windows.Forms.GroupBox();
             this.buttonWebDel = new System.Windows.Forms.Button();
             this.buttonWebEdit = new System.Windows.Forms.Button();
             this.buttonWebNew = new System.Windows.Forms.Button();
@@ -48,9 +48,11 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listBoxTask = new System.Windows.Forms.ListBox();
             this.listBoxWeb = new System.Windows.Forms.ListBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.textBoxBrowserPass = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBoxCmd.SuspendLayout();
+            this.groupBoxTask.SuspendLayout();
+            this.groupBoxWeb.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxSName
@@ -61,23 +63,23 @@
             this.textBoxSName.Size = new System.Drawing.Size(330, 26);
             this.textBoxSName.TabIndex = 13;
             // 
-            // groupBox1
+            // groupBoxCmd
             // 
-            this.groupBox1.Controls.Add(this.buttonCmdDel);
-            this.groupBox1.Controls.Add(this.buttonCmdEdit);
-            this.groupBox1.Controls.Add(this.buttonCmdNew);
-            this.groupBox1.Controls.Add(this.listViewCmd);
-            this.groupBox1.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox1.Location = new System.Drawing.Point(20, 662);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(972, 275);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "コマンド";
+            this.groupBoxCmd.Controls.Add(this.buttonCmdDel);
+            this.groupBoxCmd.Controls.Add(this.buttonCmdEdit);
+            this.groupBoxCmd.Controls.Add(this.buttonCmdNew);
+            this.groupBoxCmd.Controls.Add(this.listViewCmd);
+            this.groupBoxCmd.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBoxCmd.Location = new System.Drawing.Point(20, 810);
+            this.groupBoxCmd.Name = "groupBoxCmd";
+            this.groupBoxCmd.Size = new System.Drawing.Size(972, 342);
+            this.groupBoxCmd.TabIndex = 15;
+            this.groupBoxCmd.TabStop = false;
+            this.groupBoxCmd.Text = "コマンド";
             // 
             // buttonCmdDel
             // 
-            this.buttonCmdDel.Location = new System.Drawing.Point(841, 230);
+            this.buttonCmdDel.Location = new System.Drawing.Point(841, 302);
             this.buttonCmdDel.Name = "buttonCmdDel";
             this.buttonCmdDel.Size = new System.Drawing.Size(115, 29);
             this.buttonCmdDel.TabIndex = 5;
@@ -86,7 +88,7 @@
             // 
             // buttonCmdEdit
             // 
-            this.buttonCmdEdit.Location = new System.Drawing.Point(720, 230);
+            this.buttonCmdEdit.Location = new System.Drawing.Point(720, 302);
             this.buttonCmdEdit.Name = "buttonCmdEdit";
             this.buttonCmdEdit.Size = new System.Drawing.Size(115, 29);
             this.buttonCmdEdit.TabIndex = 4;
@@ -95,7 +97,7 @@
             // 
             // buttonCmdNew
             // 
-            this.buttonCmdNew.Location = new System.Drawing.Point(599, 230);
+            this.buttonCmdNew.Location = new System.Drawing.Point(599, 302);
             this.buttonCmdNew.Name = "buttonCmdNew";
             this.buttonCmdNew.Size = new System.Drawing.Size(115, 29);
             this.buttonCmdNew.TabIndex = 3;
@@ -110,29 +112,29 @@
             this.listViewCmd.HideSelection = false;
             this.listViewCmd.Location = new System.Drawing.Point(25, 34);
             this.listViewCmd.Name = "listViewCmd";
-            this.listViewCmd.Size = new System.Drawing.Size(915, 180);
+            this.listViewCmd.Size = new System.Drawing.Size(915, 256);
             this.listViewCmd.TabIndex = 0;
             this.listViewCmd.UseCompatibleStateImageBehavior = false;
             this.listViewCmd.View = System.Windows.Forms.View.Details;
             // 
-            // groupBox4
+            // groupBoxTask
             // 
-            this.groupBox4.Controls.Add(this.listBoxTask);
-            this.groupBox4.Controls.Add(this.buttonAppRef);
-            this.groupBox4.Controls.Add(this.buttonAppDel);
-            this.groupBox4.Controls.Add(this.buttonAppEdit);
-            this.groupBox4.Controls.Add(this.buttonAppNew);
-            this.groupBox4.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox4.Location = new System.Drawing.Point(20, 368);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(972, 275);
-            this.groupBox4.TabIndex = 16;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "アプリケーション";
+            this.groupBoxTask.Controls.Add(this.listBoxTask);
+            this.groupBoxTask.Controls.Add(this.buttonAppRef);
+            this.groupBoxTask.Controls.Add(this.buttonAppDel);
+            this.groupBoxTask.Controls.Add(this.buttonAppEdit);
+            this.groupBoxTask.Controls.Add(this.buttonAppNew);
+            this.groupBoxTask.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBoxTask.Location = new System.Drawing.Point(20, 459);
+            this.groupBoxTask.Name = "groupBoxTask";
+            this.groupBoxTask.Size = new System.Drawing.Size(972, 342);
+            this.groupBoxTask.TabIndex = 16;
+            this.groupBoxTask.TabStop = false;
+            this.groupBoxTask.Text = "アプリケーション";
             // 
             // buttonAppRef
             // 
-            this.buttonAppRef.Location = new System.Drawing.Point(720, 230);
+            this.buttonAppRef.Location = new System.Drawing.Point(720, 304);
             this.buttonAppRef.Name = "buttonAppRef";
             this.buttonAppRef.Size = new System.Drawing.Size(115, 29);
             this.buttonAppRef.TabIndex = 6;
@@ -141,7 +143,7 @@
             // 
             // buttonAppDel
             // 
-            this.buttonAppDel.Location = new System.Drawing.Point(841, 230);
+            this.buttonAppDel.Location = new System.Drawing.Point(841, 304);
             this.buttonAppDel.Name = "buttonAppDel";
             this.buttonAppDel.Size = new System.Drawing.Size(115, 29);
             this.buttonAppDel.TabIndex = 5;
@@ -150,7 +152,7 @@
             // 
             // buttonAppEdit
             // 
-            this.buttonAppEdit.Location = new System.Drawing.Point(599, 230);
+            this.buttonAppEdit.Location = new System.Drawing.Point(599, 304);
             this.buttonAppEdit.Name = "buttonAppEdit";
             this.buttonAppEdit.Size = new System.Drawing.Size(115, 29);
             this.buttonAppEdit.TabIndex = 4;
@@ -159,30 +161,32 @@
             // 
             // buttonAppNew
             // 
-            this.buttonAppNew.Location = new System.Drawing.Point(478, 230);
+            this.buttonAppNew.Location = new System.Drawing.Point(478, 304);
             this.buttonAppNew.Name = "buttonAppNew";
             this.buttonAppNew.Size = new System.Drawing.Size(115, 29);
             this.buttonAppNew.TabIndex = 3;
             this.buttonAppNew.Text = "新規";
             this.buttonAppNew.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // groupBoxWeb
             // 
-            this.groupBox2.Controls.Add(this.listBoxWeb);
-            this.groupBox2.Controls.Add(this.buttonWebDel);
-            this.groupBox2.Controls.Add(this.buttonWebEdit);
-            this.groupBox2.Controls.Add(this.buttonWebNew);
-            this.groupBox2.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox2.Location = new System.Drawing.Point(20, 60);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(972, 278);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ウェブサイト";
+            this.groupBoxWeb.Controls.Add(this.textBoxBrowserPass);
+            this.groupBoxWeb.Controls.Add(this.label2);
+            this.groupBoxWeb.Controls.Add(this.listBoxWeb);
+            this.groupBoxWeb.Controls.Add(this.buttonWebDel);
+            this.groupBoxWeb.Controls.Add(this.buttonWebEdit);
+            this.groupBoxWeb.Controls.Add(this.buttonWebNew);
+            this.groupBoxWeb.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBoxWeb.Location = new System.Drawing.Point(20, 60);
+            this.groupBoxWeb.Name = "groupBoxWeb";
+            this.groupBoxWeb.Size = new System.Drawing.Size(972, 379);
+            this.groupBoxWeb.TabIndex = 17;
+            this.groupBoxWeb.TabStop = false;
+            this.groupBoxWeb.Text = "ウェブサイト";
             // 
             // buttonWebDel
             // 
-            this.buttonWebDel.Location = new System.Drawing.Point(841, 230);
+            this.buttonWebDel.Location = new System.Drawing.Point(841, 340);
             this.buttonWebDel.Name = "buttonWebDel";
             this.buttonWebDel.Size = new System.Drawing.Size(115, 29);
             this.buttonWebDel.TabIndex = 5;
@@ -191,7 +195,7 @@
             // 
             // buttonWebEdit
             // 
-            this.buttonWebEdit.Location = new System.Drawing.Point(720, 230);
+            this.buttonWebEdit.Location = new System.Drawing.Point(720, 340);
             this.buttonWebEdit.Name = "buttonWebEdit";
             this.buttonWebEdit.Size = new System.Drawing.Size(115, 29);
             this.buttonWebEdit.TabIndex = 4;
@@ -200,7 +204,7 @@
             // 
             // buttonWebNew
             // 
-            this.buttonWebNew.Location = new System.Drawing.Point(599, 230);
+            this.buttonWebNew.Location = new System.Drawing.Point(599, 340);
             this.buttonWebNew.Name = "buttonWebNew";
             this.buttonWebNew.Size = new System.Drawing.Size(115, 29);
             this.buttonWebNew.TabIndex = 3;
@@ -233,17 +237,35 @@
             this.listBoxTask.ItemHeight = 18;
             this.listBoxTask.Location = new System.Drawing.Point(25, 34);
             this.listBoxTask.Name = "listBoxTask";
-            this.listBoxTask.Size = new System.Drawing.Size(915, 184);
+            this.listBoxTask.Size = new System.Drawing.Size(915, 256);
             this.listBoxTask.TabIndex = 7;
             // 
             // listBoxWeb
             // 
             this.listBoxWeb.FormattingEnabled = true;
             this.listBoxWeb.ItemHeight = 18;
-            this.listBoxWeb.Location = new System.Drawing.Point(25, 34);
+            this.listBoxWeb.Location = new System.Drawing.Point(25, 69);
             this.listBoxWeb.Name = "listBoxWeb";
-            this.listBoxWeb.Size = new System.Drawing.Size(915, 184);
+            this.listBoxWeb.Size = new System.Drawing.Size(915, 256);
             this.listBoxWeb.TabIndex = 8;
+            // 
+            // textBoxBrowserPass
+            // 
+            this.textBoxBrowserPass.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxBrowserPass.Location = new System.Drawing.Point(139, 34);
+            this.textBoxBrowserPass.Name = "textBoxBrowserPass";
+            this.textBoxBrowserPass.Size = new System.Drawing.Size(650, 26);
+            this.textBoxBrowserPass.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(21, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 22);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "ブラウザパス";
             // 
             // UserControl1
             // 
@@ -251,15 +273,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.textBoxSName);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxCmd);
+            this.Controls.Add(this.groupBoxTask);
+            this.Controls.Add(this.groupBoxWeb);
             this.Controls.Add(this.label1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1019, 944);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(1019, 1175);
+            this.groupBoxCmd.ResumeLayout(false);
+            this.groupBoxTask.ResumeLayout(false);
+            this.groupBoxWeb.ResumeLayout(false);
+            this.groupBoxWeb.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,17 +291,17 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBoxSName;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxCmd;
         private System.Windows.Forms.Button buttonCmdDel;
         private System.Windows.Forms.Button buttonCmdEdit;
         private System.Windows.Forms.Button buttonCmdNew;
         private System.Windows.Forms.ListView listViewCmd;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBoxTask;
         private System.Windows.Forms.Button buttonAppRef;
         private System.Windows.Forms.Button buttonAppDel;
         private System.Windows.Forms.Button buttonAppEdit;
         private System.Windows.Forms.Button buttonAppNew;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxWeb;
         private System.Windows.Forms.Button buttonWebDel;
         private System.Windows.Forms.Button buttonWebEdit;
         private System.Windows.Forms.Button buttonWebNew;
@@ -287,5 +310,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ListBox listBoxTask;
         private System.Windows.Forms.ListBox listBoxWeb;
+        private System.Windows.Forms.TextBox textBoxBrowserPass;
+        private System.Windows.Forms.Label label2;
     }
 }
