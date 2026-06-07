@@ -55,9 +55,11 @@
             this.shortcutList.Name = "shortcutList";
             this.shortcutList.Size = new System.Drawing.Size(593, 472);
             this.shortcutList.TabIndex = 3;
+            this.shortcutList.SelectedIndexChanged += new System.EventHandler(this.shortcutList_SelectedIndexChanged_1);
             // 
             // buttonEdit
             // 
+            this.buttonEdit.Enabled = false;
             this.buttonEdit.Font = new System.Drawing.Font("Noto Sans JP", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonEdit.Location = new System.Drawing.Point(657, 112);
             this.buttonEdit.Name = "buttonEdit";
@@ -69,6 +71,7 @@
             // 
             // buttonDel
             // 
+            this.buttonDel.Enabled = false;
             this.buttonDel.Font = new System.Drawing.Font("Noto Sans JP", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonDel.Location = new System.Drawing.Point(657, 464);
             this.buttonDel.Name = "buttonDel";
@@ -77,7 +80,7 @@
             this.buttonDel.Text = "削除";
             this.buttonDel.UseVisualStyleBackColor = true;
             // 
-            // Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -86,7 +89,7 @@
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.shortcutList);
             this.Controls.Add(this.buttonNew);
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
 

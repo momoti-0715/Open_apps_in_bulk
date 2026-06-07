@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Shapes;
 using Path = System.IO.Path;
@@ -37,8 +39,6 @@ namespace Open_apps_in_bulk
             if (Directory.EnumerateFiles(folderPath).Any()) // フォルダ内にファイルがあるとき
             {
                 string[] files = Directory.GetFiles(folderPath, "*");
-                buttonEdit.Enabled = true;
-                buttonDel.Enabled = true;
 
                 foreach (string file in files)
                 {
@@ -49,8 +49,6 @@ namespace Open_apps_in_bulk
             {
                 shortcutList.Items.Add("ショートカットはありません");
                 shortcutList.Items.Add("新規作成してください");
-                buttonEdit.Enabled = false;
-                buttonDel.Enabled = false;
             }
         }
 
@@ -60,6 +58,8 @@ namespace Open_apps_in_bulk
             form2.ShowDialog();
             form2.Dispose();
 
+            buttonEdit.Enabled = false;
+            buttonDel.Enabled = false;
             Display_ShortcutList();
         }
 
@@ -69,7 +69,23 @@ namespace Open_apps_in_bulk
             form3.ShowDialog();
             form3.Dispose();
 
+            buttonEdit.Enabled = false;
+            buttonDel.Enabled = false;
             Display_ShortcutList();
+        }
+
+        private void shortcutList_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (shortcutList.SelectedIndex != -1)
+            {
+                buttonEdit.Enabled = true;
+                buttonDel.Enabled = true;
+            }
+            else
+            {
+                buttonEdit.Enabled = false;
+                buttonDel.Enabled = false;
+            }
         }
     }
 }

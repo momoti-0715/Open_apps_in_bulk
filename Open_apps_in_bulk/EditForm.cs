@@ -24,7 +24,7 @@ namespace Open_apps_in_bulk
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
