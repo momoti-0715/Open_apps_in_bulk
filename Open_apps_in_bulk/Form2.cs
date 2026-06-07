@@ -38,8 +38,10 @@ namespace Open_apps_in_bulk
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             SettingJson setting = new SettingJson();
+            // JSON データにシリアライズ
+            var jsonWriteData = JsonConvert.SerializeObject(setting);
 
-            using (var sw = new StreamWriter(@",\Setting\"+"", false, System.Text.Encoding.UTF8))
+            using (var sw = new StreamWriter(@",\Setting\"+"", false, Encoding.UTF8))
             {
                 // JSON データをファイルに書き込み
                 sw.Write(jsonWriteData);
