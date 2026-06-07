@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JsonFileIO.Jsons;
+using Newtonsoft.Json;
 
 namespace Open_apps_in_bulk
 {
@@ -29,6 +32,19 @@ namespace Open_apps_in_bulk
 
         private void buttonCansel_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+            SettingJson setting = new SettingJson();
+
+            using (var sw = new StreamWriter(@",\Setting\"+"", false, System.Text.Encoding.UTF8))
+            {
+                // JSON データをファイルに書き込み
+                sw.Write(jsonWriteData);
+            }
+
             this.Close();
         }
     }
