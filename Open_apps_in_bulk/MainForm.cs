@@ -38,16 +38,16 @@ namespace Open_apps_in_bulk
 
             if (Directory.EnumerateFiles(folderPath).Any()) // フォルダ内にファイルがあるとき
             {
-                string[] files = Directory.GetFiles(folderPath, "*");
+                string[] files = Directory.GetFiles(folderPath, "*.exe");   // exeファイルを取得
 
                 foreach (string file in files)
                 {
-                    shortcutList.Items.Add(Path.GetFileNameWithoutExtension(file));
+                    shortcutList.Items.Add(Path.GetFileNameWithoutExtension(file)); // ショートカットの名前をリストに追加
                 }
             }
             else
             {
-                shortcutList.Items.Add("ショートカットはありません");
+                shortcutList.Items.Add("ショートカットはありません");    // ショートカットがないときにリストにメッセージを追加する
                 shortcutList.Items.Add("新規作成してください");
             }
         }
@@ -58,7 +58,7 @@ namespace Open_apps_in_bulk
             form2.ShowDialog();
             form2.Dispose();
 
-            buttonEdit.Enabled = false;
+            buttonEdit.Enabled = false; // 編集と削除ボタンの無効化
             buttonDel.Enabled = false;
             Display_ShortcutList();
         }
@@ -69,7 +69,7 @@ namespace Open_apps_in_bulk
             form3.ShowDialog();
             form3.Dispose();
 
-            buttonEdit.Enabled = false;
+            buttonEdit.Enabled = false; // 編集と削除ボタンの無効化
             buttonDel.Enabled = false;
             Display_ShortcutList();
         }
