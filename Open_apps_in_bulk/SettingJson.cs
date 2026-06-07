@@ -61,7 +61,7 @@ namespace JsonFileIO.Jsons
 //        "p_c_list": [
 //            {
 //            "path": null,
-//                "command": "ls"
+//            "command": "ls"
 //            }
 //        ]
 //    },

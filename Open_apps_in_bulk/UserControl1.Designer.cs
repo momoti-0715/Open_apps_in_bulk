@@ -39,13 +39,15 @@
             this.buttonAppDel = new System.Windows.Forms.Button();
             this.buttonAppEdit = new System.Windows.Forms.Button();
             this.buttonAppNew = new System.Windows.Forms.Button();
-            this.listViewApp = new System.Windows.Forms.ListView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonWebDel = new System.Windows.Forms.Button();
             this.buttonWebEdit = new System.Windows.Forms.Button();
             this.buttonWebNew = new System.Windows.Forms.Button();
-            this.listViewWeb = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -102,20 +104,24 @@
             // 
             // listViewCmd
             // 
+            this.listViewCmd.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
             this.listViewCmd.HideSelection = false;
             this.listViewCmd.Location = new System.Drawing.Point(25, 34);
             this.listViewCmd.Name = "listViewCmd";
             this.listViewCmd.Size = new System.Drawing.Size(915, 180);
             this.listViewCmd.TabIndex = 0;
             this.listViewCmd.UseCompatibleStateImageBehavior = false;
+            this.listViewCmd.View = System.Windows.Forms.View.Details;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.listBox1);
             this.groupBox4.Controls.Add(this.buttonAppRef);
             this.groupBox4.Controls.Add(this.buttonAppDel);
             this.groupBox4.Controls.Add(this.buttonAppEdit);
             this.groupBox4.Controls.Add(this.buttonAppNew);
-            this.groupBox4.Controls.Add(this.listViewApp);
             this.groupBox4.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox4.Location = new System.Drawing.Point(20, 368);
             this.groupBox4.Name = "groupBox4";
@@ -160,21 +166,12 @@
             this.buttonAppNew.Text = "新規";
             this.buttonAppNew.UseVisualStyleBackColor = true;
             // 
-            // listViewApp
-            // 
-            this.listViewApp.HideSelection = false;
-            this.listViewApp.Location = new System.Drawing.Point(25, 34);
-            this.listViewApp.Name = "listViewApp";
-            this.listViewApp.Size = new System.Drawing.Size(915, 180);
-            this.listViewApp.TabIndex = 0;
-            this.listViewApp.UseCompatibleStateImageBehavior = false;
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Controls.Add(this.buttonWebDel);
             this.groupBox2.Controls.Add(this.buttonWebEdit);
             this.groupBox2.Controls.Add(this.buttonWebNew);
-            this.groupBox2.Controls.Add(this.listViewWeb);
             this.groupBox2.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox2.Location = new System.Drawing.Point(20, 60);
             this.groupBox2.Name = "groupBox2";
@@ -210,15 +207,6 @@
             this.buttonWebNew.Text = "新規";
             this.buttonWebNew.UseVisualStyleBackColor = true;
             // 
-            // listViewWeb
-            // 
-            this.listViewWeb.HideSelection = false;
-            this.listViewWeb.Location = new System.Drawing.Point(25, 34);
-            this.listViewWeb.Name = "listViewWeb";
-            this.listViewWeb.Size = new System.Drawing.Size(915, 180);
-            this.listViewWeb.TabIndex = 0;
-            this.listViewWeb.UseCompatibleStateImageBehavior = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -228,6 +216,33 @@
             this.label1.Size = new System.Drawing.Size(140, 22);
             this.label1.TabIndex = 14;
             this.label1.Text = "ショートカット名";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "カレントディレクトリ";
+            this.columnHeader1.Width = 345;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "コマンド";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 18;
+            this.listBox1.Location = new System.Drawing.Point(25, 34);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(915, 184);
+            this.listBox1.TabIndex = 7;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 18;
+            this.listBox2.Location = new System.Drawing.Point(25, 34);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(915, 184);
+            this.listBox2.TabIndex = 8;
             // 
             // UserControl1
             // 
@@ -262,12 +277,14 @@
         private System.Windows.Forms.Button buttonAppDel;
         private System.Windows.Forms.Button buttonAppEdit;
         private System.Windows.Forms.Button buttonAppNew;
-        private System.Windows.Forms.ListView listViewApp;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonWebDel;
         private System.Windows.Forms.Button buttonWebEdit;
         private System.Windows.Forms.Button buttonWebNew;
-        private System.Windows.Forms.ListView listViewWeb;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }

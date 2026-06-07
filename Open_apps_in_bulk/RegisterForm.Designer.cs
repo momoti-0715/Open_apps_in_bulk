@@ -1,6 +1,6 @@
 ﻿namespace Open_apps_in_bulk
 {
-    partial class Form2
+    partial class RegisterForm
     {
         /// <summary>
         /// Required designer variable.

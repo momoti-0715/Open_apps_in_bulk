@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Open_apps_in_bulk
 {
-    public partial class Form3 : Form
+    public partial class EditForm : Form
     {
-        public Form3()
+        public EditForm()
         {
             InitializeComponent();
         }

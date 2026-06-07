@@ -1,6 +1,6 @@
 ﻿namespace Open_apps_in_bulk
 {
-    partial class Form3
+    partial class EditForm
     {
         /// <summary>
         /// Required designer variable.

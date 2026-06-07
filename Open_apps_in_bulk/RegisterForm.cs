@@ -13,9 +13,9 @@ using Newtonsoft.Json;
 
 namespace Open_apps_in_bulk
 {
-    public partial class Form2 : Form
+    public partial class RegisterForm : Form
     {
-        public Form2()
+        public RegisterForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Open_apps_in_bulk
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// 必要なデザイナー変数です。

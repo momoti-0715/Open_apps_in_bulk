@@ -13,9 +13,9 @@ using Path = System.IO.Path;
 
 namespace Open_apps_in_bulk
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -56,7 +56,7 @@ namespace Open_apps_in_bulk
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            var form2 = new Form2();
+            var form2 = new RegisterForm();
             form2.ShowDialog();
             form2.Dispose();
 
@@ -65,7 +65,7 @@ namespace Open_apps_in_bulk
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            var form3 = new Form3();
+            var form3 = new EditForm();
             form3.ShowDialog();
             form3.Dispose();
 
