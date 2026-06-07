@@ -46,8 +46,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBoxTask = new System.Windows.Forms.ListBox();
+            this.listBoxWeb = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -117,7 +117,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.listBox1);
+            this.groupBox4.Controls.Add(this.listBoxTask);
             this.groupBox4.Controls.Add(this.buttonAppRef);
             this.groupBox4.Controls.Add(this.buttonAppDel);
             this.groupBox4.Controls.Add(this.buttonAppEdit);
@@ -168,7 +168,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listBox2);
+            this.groupBox2.Controls.Add(this.listBoxWeb);
             this.groupBox2.Controls.Add(this.buttonWebDel);
             this.groupBox2.Controls.Add(this.buttonWebEdit);
             this.groupBox2.Controls.Add(this.buttonWebNew);
@@ -225,24 +225,25 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "コマンド";
+            this.columnHeader2.Width = 565;
             // 
-            // listBox1
+            // listBoxTask
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(25, 34);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(915, 184);
-            this.listBox1.TabIndex = 7;
+            this.listBoxTask.FormattingEnabled = true;
+            this.listBoxTask.ItemHeight = 18;
+            this.listBoxTask.Location = new System.Drawing.Point(25, 34);
+            this.listBoxTask.Name = "listBoxTask";
+            this.listBoxTask.Size = new System.Drawing.Size(915, 184);
+            this.listBoxTask.TabIndex = 7;
             // 
-            // listBox2
+            // listBoxWeb
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 18;
-            this.listBox2.Location = new System.Drawing.Point(25, 34);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(915, 184);
-            this.listBox2.TabIndex = 8;
+            this.listBoxWeb.FormattingEnabled = true;
+            this.listBoxWeb.ItemHeight = 18;
+            this.listBoxWeb.Location = new System.Drawing.Point(25, 34);
+            this.listBoxWeb.Name = "listBoxWeb";
+            this.listBoxWeb.Size = new System.Drawing.Size(915, 184);
+            this.listBoxWeb.TabIndex = 8;
             // 
             // UserControl1
             // 
@@ -284,7 +285,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBoxTask;
+        private System.Windows.Forms.ListBox listBoxWeb;
     }
 }
