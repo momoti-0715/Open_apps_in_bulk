@@ -39,6 +39,11 @@ namespace Open_apps_in_bulk
             set { textBoxBrowserPass.Text = value; }
         }
 
+        public ListView.ListViewItemCollection ListViewWeb_Get
+        {
+            get { return listViewWeb.Items; }
+        }
+
         private void ButtonWebNew_Click(object sender, EventArgs e)
         {
             listViewWeb.Items.Add("");

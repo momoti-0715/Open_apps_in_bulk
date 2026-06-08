@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JsonFileIO.Jsons;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,20 +9,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
-using JsonFileIO.Jsons;
-using Newtonsoft.Json;
 
 namespace Open_apps_in_bulk
 {
     public partial class RegisterForm : Form
     {
+        private UserControl1 uc;
+
         public RegisterForm()
         {
             InitializeComponent();
 
             MaximizeBox = false;    // 最大化を禁止
             FormBorderStyle = FormBorderStyle.FixedSingle;  // サイズ変更禁止
+
+            uc = new UserControl1();
         }
 
         private void ButtonCansel_Click(object sender, EventArgs e)
@@ -30,7 +35,7 @@ namespace Open_apps_in_bulk
 
         private void ButtonCreate_Click(object sender, EventArgs e)
         {
-            string sName = userControl11.TextBoxSName_InputText;
+            string sName = uc.TextBoxSName_InputText;
             string[] unusableChars = new string[] { "/", "?", "<", ">", "\\", ":", "*", "|", "\"",};
 
             if (string.IsNullOrWhiteSpace(sName))
@@ -57,6 +62,28 @@ namespace Open_apps_in_bulk
             }
 
             SettingJson setting = new SettingJson();
+            // データ設定
+
+            // ブラウザ登録
+            string browserPass = uc.TextBoxBrowserPass_InputText;
+            if (!string.IsNullOrWhiteSpace(browserPass))
+            {
+                setting.Web_open.Browser = browserPass;
+            }
+
+            // urlの登録
+            ListView.ListViewItemCollection listViewWeb = uc.ListViewWeb_Get;
+
+            if (listViewWeb?.Count > 0)
+            {
+                List<string> allValues = listViewWeb.Cast<ListViewItem>()
+                    .Select(item => item.Text)
+                    .ToList();
+
+                setting.Web_open.Url_list = allValues;
+
+            }
+
             // JSON データにシリアライズ
             var jsonWriteData = JsonConvert.SerializeObject(setting);
 
