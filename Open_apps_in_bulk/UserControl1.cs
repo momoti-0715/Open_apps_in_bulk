@@ -19,6 +19,13 @@ namespace Open_apps_in_bulk
             listViewWeb.EnableInPlaceEdit();
             listViewTask.EnableInPlaceEdit();
             listViewCmd.EnableInPlaceEdit();
+
+            buttonWebEdit.Enabled = false;
+            buttonWebDel.Enabled = false;
+            buttonTaskEdit.Enabled = false;
+            buttonTaskDel.Enabled = false;
+            buttonCmdEdit.Enabled = false;
+            buttonCmdDel.Enabled = false;
         }
 
         public string TextBoxSName_InputText    // 外部からの入出力用

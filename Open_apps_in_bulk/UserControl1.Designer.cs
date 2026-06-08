@@ -182,7 +182,7 @@
             // 
             // buttonTaskRef
             // 
-            this.buttonTaskRef.Location = new System.Drawing.Point(720, 304);
+            this.buttonTaskRef.Location = new System.Drawing.Point(599, 304);
             this.buttonTaskRef.Name = "buttonTaskRef";
             this.buttonTaskRef.Size = new System.Drawing.Size(115, 29);
             this.buttonTaskRef.TabIndex = 11;
@@ -202,7 +202,7 @@
             // 
             // buttonTaskEdit
             // 
-            this.buttonTaskEdit.Location = new System.Drawing.Point(599, 304);
+            this.buttonTaskEdit.Location = new System.Drawing.Point(720, 304);
             this.buttonTaskEdit.Name = "buttonTaskEdit";
             this.buttonTaskEdit.Size = new System.Drawing.Size(115, 29);
             this.buttonTaskEdit.TabIndex = 10;
