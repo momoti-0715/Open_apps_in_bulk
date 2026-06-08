@@ -42,17 +42,17 @@ namespace Open_apps_in_bulk
             set { labelWarning.Visible = value; }
         }
 
-        private void buttonWebNew_Click(object sender, EventArgs e)
+        private void ButtonWebNew_Click(object sender, EventArgs e)
         {
             listViewWeb.Items.Add("");
         }
 
-        private void buttonAppNew_Click(object sender, EventArgs e)
+        private void ButtonAppNew_Click(object sender, EventArgs e)
         {
             listViewTask.Items.Add("");
         }
 
-        private void buttonCmdNew_Click(object sender, EventArgs e)
+        private void ButtonCmdNew_Click(object sender, EventArgs e)
         {
             string[] row = {"A1", "B1"};
             listViewCmd.Items.Add(new ListViewItem(row));

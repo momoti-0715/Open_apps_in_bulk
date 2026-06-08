@@ -32,7 +32,7 @@ namespace Open_apps_in_bulk
 
         private void buttonCansel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -70,13 +70,13 @@ namespace Open_apps_in_bulk
             using (var sw = new StreamWriter(@".\Setting\" + sName + ".json", false, Encoding.UTF8))
             {
                 // JSON データをファイルに書き込み
-                sw.Write("jsonWriteData");
+                sw.Write(jsonWriteData);
             }
 
 
             File.Copy(@".\origin.exe", @".\Shortcut\" + sName + ".exe");
 
-            this.Close();
+            Close();
         }
 
         private void printWarning(string message)
