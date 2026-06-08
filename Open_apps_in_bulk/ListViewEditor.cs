@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,154 +12,209 @@ public static class ListViewEditor
         listView.MultiSelect = false;
         listView.LabelEdit = false;
 
-        TextBox editTextBox = new TextBox
-        {
-            Visible = false,
-            BorderStyle = BorderStyle.FixedSingle
-        };
+        if (listView.Tag is ListViewRowEditController) return;
 
-        var state = new EditState();
+        // ListView専用の行編集コントローラーを生成
+        var controller = new ListViewRowEditController(listView);
+        listView.Tag = controller;
+    }
 
-        // --- ★追加：画面外のクリックを検知するフィルター ---
-        var mouseFilter = new ClickMessageFilter(editTextBox, () =>
+    // ボタン等から呼び出す用の外部メソッド（行全体の編集）
+    public static void BeginEditSelectedRow(this ListView listView)
+    {
+        if (listView.Tag is ListViewRowEditController controller)
         {
-            if (editTextBox.Visible && state.EditingItem != null && state.EditingSubItemIndex >= 0)
+            controller.BeginEdit();
+        }
+    }
+
+    // クラスの内部（インナークラス）として定義
+    private class ListViewRowEditController
+    {
+        private readonly ListView _listView;
+        private readonly List<TextBox> _textBoxes = new List<TextBox>();
+        private ListViewItem _editingItem;
+
+        public ListViewRowEditController(ListView listView)
+        {
+            _listView = listView;
+
+            // ダブルクリック時のイベント
+            _listView.MouseDoubleClick += (sender, e) =>
             {
-                state.EditingItem.SubItems[state.EditingSubItemIndex].Text = editTextBox.Text;
-                editTextBox.Visible = false;
-                state.Reset();
-            }
-        });
+                ListViewItem item = _listView.GetItemAt(e.X, e.Y);
+                if (item == null) return;
 
-        // フォームがロードされた時の処理
-        listView.HandleCreated += (s, e) =>
-        {
-            Form mainForm = listView.FindForm();
-            if (mainForm != null)
+                ListViewHitTestInfo hitInfo = _listView.HitTest(e.X, e.Y);
+                int subItemIndex = item.SubItems.IndexOf(hitInfo.SubItem);
+
+                // 0列目、1列目、2列目のいずれかであれば編集を許可する
+                bool isAllowedColumn = (subItemIndex == 0 || subItemIndex == 1 || subItemIndex == 2);
+
+                if (!isAllowedColumn) return;
+
+                // 許可された列のみ、ピンポイントでそのセルだけ編集を開始
+                StartRowEdit(item, specificColumnIndex: subItemIndex);
+            };
+
+            // 選択行が変わったら（外れたら）編集を終了して保存
+            _listView.SelectedIndexChanged += (sender, e) =>
             {
-                mainForm.Controls.Add(editTextBox);
-
-                // フォームが開いている間、マウス監視を開始
-                Application.AddMessageFilter(mouseFilter);
-
-                // フォームが閉じるときに監視を解除
-                mainForm.FormClosed += (sender, args) =>
+                if (_editingItem != null && (!_editingItem.Selected || _listView.SelectedItems.Count == 0))
                 {
-                    Application.RemoveMessageFilter(mouseFilter);
-                };
-            }
-        };
+                    SaveAndCloseEdit();
+                }
+            };
 
-        listView.MouseDoubleClick += (sender, e) =>
+            // ListView自体がスクロールされた時や、サイズが変わった時も位置を追従、または閉じる
+            _listView.SizeChanged += (sender, e) => SaveAndCloseEdit();
+        }
+
+        public void BeginEdit()
         {
-            ListViewItem item = listView.GetItemAt(e.X, e.Y);
-            if (item == null) return;
-
-            ListViewHitTestInfo hitInfo = listView.HitTest(e.X, e.Y);
-            int subItemIndex = item.SubItems.IndexOf(hitInfo.SubItem);
-
-            if (subItemIndex >= 0)
+            if (_listView.SelectedItems.Count == 0)
             {
-                state.EditingItem = item;
-                state.EditingSubItemIndex = subItemIndex;
+                MessageBox.Show("編集する行を選択してください。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // ★修正箇所1: [0] を追加して、最初の選択行オブジェクトを確実に渡す
+            StartRowEdit(_listView.SelectedItems[0], specificColumnIndex: -1);
+        }
 
+        // 編集を開始するコアロジック（特定の列のみ、または全列に対応）
+        private void StartRowEdit(ListViewItem item, int specificColumnIndex = -1)
+        {
+            if (_editingItem == item) return;
+            if (_editingItem != null) SaveAndCloseEdit();
+
+            _editingItem = item;
+            Form mainForm = _listView.FindForm();
+            if (mainForm == null) return;
+
+            int columnCount = _listView.Columns.Count;
+
+            for (int i = 0; i < columnCount; i++)
+            {
+                if (specificColumnIndex != -1 && i != specificColumnIndex)
+                {
+                    _textBoxes.Add(null);
+                    continue;
+                }
+
+                TextBox txt = new TextBox
+                {
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Text = item.SubItems[i].Text
+                };
+
+                // セルの位置とサイズ（横幅）を計算
                 Rectangle bounds;
-                if (subItemIndex == 0)
+                if (i == 0)
                 {
                     bounds = item.Bounds;
-                    bounds.Width = listView.Columns[0].Width; // インデックス0を明示
+                    // ★修正箇所2: [0] を追加して、1列目のヘッダー幅を正しく取得
+                    bounds.Width = _listView.Columns[0].Width;
                 }
                 else
                 {
-                    bounds = hitInfo.SubItem.Bounds;
+                    bounds = item.SubItems[i].Bounds;
                 }
 
-                Form mainForm = listView.FindForm();
-                if (mainForm == null) return;
-
-                Point formPt = mainForm.PointToClient(listView.PointToScreen(bounds.Location));
+                Point formPt = mainForm.PointToClient(_listView.PointToScreen(bounds.Location));
 
                 int textBoxWidth = bounds.Width;
-                Point lvRightBottom = mainForm.PointToClient(listView.PointToScreen(new Point(listView.Width, listView.Height)));
+                Point lvRightBottom = mainForm.PointToClient(_listView.PointToScreen(new Point(_listView.Width, _listView.Height)));
                 int listViewRightEdge = lvRightBottom.X;
 
+                if (formPt.X >= listViewRightEdge)
+                {
+                    _textBoxes.Add(null);
+                    continue;
+                }
                 if (formPt.X + textBoxWidth > listViewRightEdge)
                 {
                     textBoxWidth = listViewRightEdge - formPt.X - 4;
                 }
-                if (textBoxWidth < 10) textBoxWidth = 10;
 
-                editTextBox.SetBounds(formPt.X, formPt.Y, textBoxWidth, bounds.Height);
-                editTextBox.Text = hitInfo.SubItem.Text;
-                editTextBox.Visible = true;
-                editTextBox.Focus();
-                editTextBox.SelectAll();
-                editTextBox.BringToFront();
-            }
-        };
+                txt.SetBounds(formPt.X, formPt.Y, textBoxWidth, bounds.Height);
 
-        void saveAndCloseEdit()
-        {
-            if (editTextBox.Visible && state.EditingItem != null && state.EditingSubItemIndex >= 0)
-            {
-                state.EditingItem.SubItems[state.EditingSubItemIndex].Text = editTextBox.Text;
-                editTextBox.Visible = false;
-                state.Reset();
-            }
-        }
-
-        editTextBox.Leave += (sender, e) => saveAndCloseEdit();
-
-        editTextBox.KeyDown += (sender, e) =>
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                saveAndCloseEdit();
-                e.SuppressKeyPress = true;
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                editTextBox.Visible = false;
-                state.Reset();
-                e.SuppressKeyPress = true;
-            }
-        };
-    }
-
-    private class EditState
-    {
-        public ListViewItem EditingItem { get; set; }
-        public int EditingSubItemIndex { get; set; } = -1;
-        public void Reset() { EditingItem = null; EditingSubItemIndex = -1; }
-    }
-
-    // --- ★追加：アプリ全体の左クリックを監視するインターフェース実装 ---
-    private class ClickMessageFilter : IMessageFilter
-    {
-        private readonly TextBox _targetTextBox;
-        private readonly Action _onOutsideClick;
-        private const int WM_LBUTTONDOWN = 0x0201; // 左マウスボタンが押されたとき
-
-        public ClickMessageFilter(TextBox targetTextBox, Action onOutsideClick)
-        {
-            _targetTextBox = targetTextBox;
-            _onOutsideClick = onOutsideClick;
-        }
-
-        public bool PreFilterMessage(ref Message m)
-        {
-            // 左クリックが押されたとき、かつTextBoxが表示されているときのみ判定
-            if (m.Msg == WM_LBUTTONDOWN && _targetTextBox.Visible)
-            {
-                // クリックされた座標が TextBox の中かどうかを判定
-                Point cursorPt = _targetTextBox.PointToClient(Cursor.Position);
-                if (!_targetTextBox.ClientRectangle.Contains(cursorPt))
+                txt.KeyDown += (s, ex) =>
                 {
-                    // TextBoxの外をクリックした場合は同期的に編集を終了
-                    _onOutsideClick?.Invoke();
+                    if (ex.KeyCode == Keys.Enter)
+                    {
+                        SaveAndCloseEdit();
+                        ex.SuppressKeyPress = true;
+                    }
+                    else if (ex.KeyCode == Keys.Escape)
+                    {
+                        ClearTextBoxes();
+                        _editingItem = null;
+                        ex.SuppressKeyPress = true;
+                    }
+                };
+
+                txt.Leave += (s, ex) =>
+                {
+                    mainForm.BeginInvoke(new Action(() =>
+                    {
+                        if (_editingItem != null && !IsAnyTextBoxFocused())
+                        {
+                            SaveAndCloseEdit();
+                        }
+                    }));
+                };
+
+                mainForm.Controls.Add(txt);
+                txt.BringToFront();
+                _textBoxes.Add(txt);
+            }
+
+            foreach (var txt in _textBoxes)
+            {
+                if (txt != null)
+                {
+                    txt.Focus();
+                    txt.SelectAll();
+                    break;
                 }
             }
-            return false; // 他のコントロールの標準クリックイベントも邪魔しないようにfalseを返す
+        }
+
+        private void SaveAndCloseEdit()
+        {
+            if (_editingItem == null || _textBoxes.Count == 0) return;
+
+            for (int i = 0; i < _textBoxes.Count; i++)
+            {
+                if (_textBoxes[i] != null && i < _editingItem.SubItems.Count)
+                {
+                    _editingItem.SubItems[i].Text = _textBoxes[i].Text;
+                }
+            }
+
+            ClearTextBoxes();
+            _editingItem = null;
+            _listView.Focus();
+        }
+
+        private void ClearTextBoxes()
+        {
+            foreach (var txt in _textBoxes)
+            {
+                if (txt == null) continue;
+                txt.Parent?.Controls.Remove(txt);
+                txt.Dispose();
+            }
+            _textBoxes.Clear();
+        }
+
+        private bool IsAnyTextBoxFocused()
+        {
+            foreach (var txt in _textBoxes)
+            {
+                if (txt != null && txt.Focused) return true;
+            }
+            return false;
         }
     }
 }

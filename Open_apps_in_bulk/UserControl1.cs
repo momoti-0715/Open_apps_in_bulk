@@ -99,7 +99,7 @@ namespace Open_apps_in_bulk
 
         private void ButtonCmdDel_Click(object sender, EventArgs e)
         {
-
+            listViewCmd.BeginEditSelectedRow();
         }
     }
 }
