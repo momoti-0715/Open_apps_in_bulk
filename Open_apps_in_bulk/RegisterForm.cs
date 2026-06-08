@@ -18,6 +18,9 @@ namespace Open_apps_in_bulk
         public RegisterForm()
         {
             InitializeComponent();
+
+            MaximizeBox = false;    // 最大化を禁止
+            FormBorderStyle = FormBorderStyle.FixedSingle;  // サイズ変更禁止
         }
 
         private void ButtonCansel_Click(object sender, EventArgs e)

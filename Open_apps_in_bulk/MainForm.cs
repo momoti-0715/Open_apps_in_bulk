@@ -21,6 +21,9 @@ namespace Open_apps_in_bulk
         {
             InitializeComponent();
 
+            MaximizeBox = false;    // 最大化を禁止
+            FormBorderStyle = FormBorderStyle.FixedSingle;  // サイズ変更禁止
+
             string folderPath = @".\Shortcut\";
 
             if (!Directory.Exists(folderPath))   // フォルダがないとき
