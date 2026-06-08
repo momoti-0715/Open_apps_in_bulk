@@ -65,7 +65,7 @@
             this.textBoxSName.Location = new System.Drawing.Point(171, 14);
             this.textBoxSName.Name = "textBoxSName";
             this.textBoxSName.Size = new System.Drawing.Size(330, 26);
-            this.textBoxSName.TabIndex = 13;
+            this.textBoxSName.TabIndex = 1;
             // 
             // groupBoxCmd
             // 
@@ -86,7 +86,7 @@
             this.buttonCmdDel.Location = new System.Drawing.Point(841, 302);
             this.buttonCmdDel.Name = "buttonCmdDel";
             this.buttonCmdDel.Size = new System.Drawing.Size(115, 29);
-            this.buttonCmdDel.TabIndex = 5;
+            this.buttonCmdDel.TabIndex = 16;
             this.buttonCmdDel.Text = "削除";
             this.buttonCmdDel.UseVisualStyleBackColor = true;
             this.buttonCmdDel.Click += new System.EventHandler(this.ButtonCmdDel_Click);
@@ -96,7 +96,7 @@
             this.buttonCmdEdit.Location = new System.Drawing.Point(720, 302);
             this.buttonCmdEdit.Name = "buttonCmdEdit";
             this.buttonCmdEdit.Size = new System.Drawing.Size(115, 29);
-            this.buttonCmdEdit.TabIndex = 4;
+            this.buttonCmdEdit.TabIndex = 15;
             this.buttonCmdEdit.Text = "編集";
             this.buttonCmdEdit.UseVisualStyleBackColor = true;
             this.buttonCmdEdit.Click += new System.EventHandler(this.ButtonCmdEdit_Click);
@@ -106,13 +106,14 @@
             this.buttonCmdNew.Location = new System.Drawing.Point(599, 302);
             this.buttonCmdNew.Name = "buttonCmdNew";
             this.buttonCmdNew.Size = new System.Drawing.Size(115, 29);
-            this.buttonCmdNew.TabIndex = 3;
+            this.buttonCmdNew.TabIndex = 14;
             this.buttonCmdNew.Text = "新規";
             this.buttonCmdNew.UseVisualStyleBackColor = true;
             this.buttonCmdNew.Click += new System.EventHandler(this.ButtonCmdNew_Click);
             // 
             // listViewCmd
             // 
+            this.listViewCmd.BackColor = System.Drawing.SystemColors.Window;
             this.listViewCmd.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
@@ -129,15 +130,15 @@
             this.listViewCmd.Name = "listViewCmd";
             this.listViewCmd.ShowGroups = false;
             this.listViewCmd.Size = new System.Drawing.Size(915, 256);
-            this.listViewCmd.TabIndex = 0;
+            this.listViewCmd.TabIndex = 13;
             this.listViewCmd.UseCompatibleStateImageBehavior = false;
             this.listViewCmd.View = System.Windows.Forms.View.Details;
             this.listViewCmd.SelectedIndexChanged += new System.EventHandler(this.ButtonWebNew_Click);
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "カレントディレクトリ";
-            this.columnHeader1.Width = 262;
+            this.columnHeader1.Text = "カレントディレクトリ　　　　　";
+            this.columnHeader1.Width = 201;
             // 
             // columnHeader2
             // 
@@ -176,14 +177,15 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Width = 901;
+            this.columnHeader4.Text = "PATH";
+            this.columnHeader4.Width = 900;
             // 
             // buttonTaskRef
             // 
             this.buttonTaskRef.Location = new System.Drawing.Point(720, 304);
             this.buttonTaskRef.Name = "buttonTaskRef";
             this.buttonTaskRef.Size = new System.Drawing.Size(115, 29);
-            this.buttonTaskRef.TabIndex = 6;
+            this.buttonTaskRef.TabIndex = 11;
             this.buttonTaskRef.Text = "参照";
             this.buttonTaskRef.UseVisualStyleBackColor = true;
             this.buttonTaskRef.Click += new System.EventHandler(this.ButtonTaskRef_Click);
@@ -193,7 +195,7 @@
             this.buttonTaskDel.Location = new System.Drawing.Point(841, 304);
             this.buttonTaskDel.Name = "buttonTaskDel";
             this.buttonTaskDel.Size = new System.Drawing.Size(115, 29);
-            this.buttonTaskDel.TabIndex = 5;
+            this.buttonTaskDel.TabIndex = 12;
             this.buttonTaskDel.Text = "削除";
             this.buttonTaskDel.UseVisualStyleBackColor = true;
             this.buttonTaskDel.Click += new System.EventHandler(this.ButtonTaskDel_Click);
@@ -203,7 +205,7 @@
             this.buttonTaskEdit.Location = new System.Drawing.Point(599, 304);
             this.buttonTaskEdit.Name = "buttonTaskEdit";
             this.buttonTaskEdit.Size = new System.Drawing.Size(115, 29);
-            this.buttonTaskEdit.TabIndex = 4;
+            this.buttonTaskEdit.TabIndex = 10;
             this.buttonTaskEdit.Text = "編集";
             this.buttonTaskEdit.UseVisualStyleBackColor = true;
             this.buttonTaskEdit.Click += new System.EventHandler(this.ButtonTaskEdit_Click);
@@ -213,7 +215,7 @@
             this.buttonTaskNew.Location = new System.Drawing.Point(478, 304);
             this.buttonTaskNew.Name = "buttonTaskNew";
             this.buttonTaskNew.Size = new System.Drawing.Size(115, 29);
-            this.buttonTaskNew.TabIndex = 3;
+            this.buttonTaskNew.TabIndex = 9;
             this.buttonTaskNew.Text = "新規";
             this.buttonTaskNew.UseVisualStyleBackColor = true;
             this.buttonTaskNew.Click += new System.EventHandler(this.ButtonAppNew_Click);
@@ -246,20 +248,21 @@
             this.listViewWeb.Location = new System.Drawing.Point(25, 69);
             this.listViewWeb.Name = "listViewWeb";
             this.listViewWeb.Size = new System.Drawing.Size(915, 256);
-            this.listViewWeb.TabIndex = 18;
+            this.listViewWeb.TabIndex = 4;
             this.listViewWeb.UseCompatibleStateImageBehavior = false;
             this.listViewWeb.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Width = 901;
+            this.columnHeader3.Text = "URL";
+            this.columnHeader3.Width = 900;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(841, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 29);
-            this.button1.TabIndex = 17;
+            this.button1.TabIndex = 3;
             this.button1.Text = "参照";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
@@ -270,7 +273,7 @@
             this.textBoxBrowserPass.Location = new System.Drawing.Point(128, 34);
             this.textBoxBrowserPass.Name = "textBoxBrowserPass";
             this.textBoxBrowserPass.Size = new System.Drawing.Size(697, 26);
-            this.textBoxBrowserPass.TabIndex = 15;
+            this.textBoxBrowserPass.TabIndex = 2;
             // 
             // label2
             // 
@@ -287,7 +290,7 @@
             this.buttonWebDel.Location = new System.Drawing.Point(841, 340);
             this.buttonWebDel.Name = "buttonWebDel";
             this.buttonWebDel.Size = new System.Drawing.Size(115, 29);
-            this.buttonWebDel.TabIndex = 5;
+            this.buttonWebDel.TabIndex = 7;
             this.buttonWebDel.Text = "削除";
             this.buttonWebDel.UseVisualStyleBackColor = true;
             this.buttonWebDel.Click += new System.EventHandler(this.ButtonWebDel_Click);
@@ -297,7 +300,7 @@
             this.buttonWebEdit.Location = new System.Drawing.Point(720, 340);
             this.buttonWebEdit.Name = "buttonWebEdit";
             this.buttonWebEdit.Size = new System.Drawing.Size(115, 29);
-            this.buttonWebEdit.TabIndex = 4;
+            this.buttonWebEdit.TabIndex = 6;
             this.buttonWebEdit.Text = "編集";
             this.buttonWebEdit.UseVisualStyleBackColor = true;
             this.buttonWebEdit.Click += new System.EventHandler(this.ButtonWebEdit_Click);
@@ -307,7 +310,7 @@
             this.buttonWebNew.Location = new System.Drawing.Point(599, 340);
             this.buttonWebNew.Name = "buttonWebNew";
             this.buttonWebNew.Size = new System.Drawing.Size(115, 29);
-            this.buttonWebNew.TabIndex = 3;
+            this.buttonWebNew.TabIndex = 5;
             this.buttonWebNew.Text = "新規";
             this.buttonWebNew.UseVisualStyleBackColor = true;
             this.buttonWebNew.Click += new System.EventHandler(this.ButtonWebNew_Click);

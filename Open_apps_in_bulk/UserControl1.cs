@@ -35,17 +35,20 @@ namespace Open_apps_in_bulk
         private void ButtonWebNew_Click(object sender, EventArgs e)
         {
             listViewWeb.Items.Add("");
+            listViewWeb.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void ButtonAppNew_Click(object sender, EventArgs e)
         {
             listViewTask.Items.Add("");
+            listViewTask.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void ButtonCmdNew_Click(object sender, EventArgs e)
         {
             string[] row = {"A1", "B1"};
             listViewCmd.Items.Add(new ListViewItem(row));
+            listViewCmd.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void Button1_Click(object sender, EventArgs e)

@@ -20,16 +20,6 @@ namespace Open_apps_in_bulk
             InitializeComponent();
         }
 
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ButtonCansel_Click(object sender, EventArgs e)
         {
             Close();

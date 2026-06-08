@@ -31,8 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCansel = new System.Windows.Forms.Button();
-            this.userControl11 = new Open_apps_in_bulk.UserControl1();
             this.labelWarning = new System.Windows.Forms.Label();
+            this.userControl11 = new Open_apps_in_bulk.UserControl1();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,19 +67,6 @@
             this.buttonCansel.UseVisualStyleBackColor = true;
             this.buttonCansel.Click += new System.EventHandler(this.ButtonCansel_Click);
             // 
-            // userControl11
-            // 
-            this.userControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userControl11.AutoScroll = true;
-            this.userControl11.Location = new System.Drawing.Point(6, -1);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(1031, 697);
-            this.userControl11.TabIndex = 15;
-            this.userControl11.TextBoxBrowserPass_InputText = "";
-            this.userControl11.TextBoxSName_InputText = "";
-            // 
             // labelWarning
             // 
             this.labelWarning.AutoSize = true;
@@ -90,6 +77,20 @@
             this.labelWarning.Size = new System.Drawing.Size(13, 17);
             this.labelWarning.TabIndex = 20;
             this.labelWarning.Text = " ";
+            // 
+            // userControl11
+            // 
+            this.userControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userControl11.AutoScroll = true;
+            this.userControl11.Location = new System.Drawing.Point(6, -1);
+            this.userControl11.MaximumSize = new System.Drawing.Size(1019, 1175);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(1019, 697);
+            this.userControl11.TabIndex = 15;
+            this.userControl11.TextBoxBrowserPass_InputText = "";
+            this.userControl11.TextBoxSName_InputText = "";
             // 
             // EditForm
             // 
@@ -103,6 +104,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
