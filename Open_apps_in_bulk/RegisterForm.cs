@@ -51,7 +51,7 @@ namespace Open_apps_in_bulk
                 {
                     if (sName.Contains(uChar))
                     {
-                        PrintWarning("以下の文字は使用できません ( / ? < > \\ : * | \" )");
+                        PrintWarning("ショートカット名に以下の文字は使用できません ( / ? < > \\ : * | \" )");
                         return;
                     }
                 }
@@ -81,8 +81,7 @@ namespace Open_apps_in_bulk
 
         private void PrintWarning(string message)
         {
-            userControl11.LabelWarning_InputText = message;
-            userControl11.LabelWarning_Visible = true;
+            labelWarning.Text = message;
         }
     }
 }

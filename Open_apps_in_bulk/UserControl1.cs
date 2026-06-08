@@ -27,16 +27,6 @@ namespace Open_apps_in_bulk
             get { return textBoxBrowserPass.Text; }
             set { textBoxBrowserPass.Text = value; }
         }
-        public string LabelWarning_InputText
-        {
-            get { return labelWarning.Text; }
-            set { labelWarning.Text = value; }
-        }
-        public bool LabelWarning_Visible
-        {
-            get { return labelWarning.Visible; }
-            set { labelWarning.Visible = value; }
-        }
 
         private void ButtonWebNew_Click(object sender, EventArgs e)
         {

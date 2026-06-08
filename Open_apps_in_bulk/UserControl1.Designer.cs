@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("ｚ");
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("ｚ");
             this.textBoxSName = new System.Windows.Forms.TextBox();
             this.groupBoxCmd = new System.Windows.Forms.GroupBox();
             this.buttonCmdDel = new System.Windows.Forms.Button();
@@ -55,7 +55,6 @@
             this.buttonWebEdit = new System.Windows.Forms.Button();
             this.buttonWebNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelWarning = new System.Windows.Forms.Label();
             this.groupBoxCmd.SuspendLayout();
             this.groupBoxTask.SuspendLayout();
             this.groupBoxWeb.SuspendLayout();
@@ -120,14 +119,14 @@
             this.columnHeader2});
             this.listViewCmd.FullRowSelect = true;
             this.listViewCmd.GridLines = true;
-            listViewGroup8.Header = "ListViewGroup";
-            listViewGroup8.Name = "listViewGroup1";
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "listViewGroup1";
             this.listViewCmd.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup8});
+            listViewGroup4});
             this.listViewCmd.HideSelection = false;
-            listViewItem8.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
             this.listViewCmd.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem8});
+            listViewItem4});
             this.listViewCmd.LabelEdit = true;
             this.listViewCmd.Location = new System.Drawing.Point(25, 34);
             this.listViewCmd.MultiSelect = false;
@@ -327,24 +326,11 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "ショートカット名";
             // 
-            // labelWarning
-            // 
-            this.labelWarning.AutoSize = true;
-            this.labelWarning.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.labelWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelWarning.Location = new System.Drawing.Point(529, 19);
-            this.labelWarning.Name = "labelWarning";
-            this.labelWarning.Size = new System.Drawing.Size(44, 17);
-            this.labelWarning.TabIndex = 18;
-            this.labelWarning.Text = "error";
-            this.labelWarning.Visible = false;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.textBoxSName);
             this.Controls.Add(this.groupBoxCmd);
             this.Controls.Add(this.groupBoxTask);
@@ -388,6 +374,5 @@
         private System.Windows.Forms.ListView listViewWeb;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Label labelWarning;
     }
 }

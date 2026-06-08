@@ -31,6 +31,7 @@
             this.buttonCansel = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelWarning = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.userControl11 = new Open_apps_in_bulk.UserControl1();
             this.panel1.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelWarning);
             this.panel1.Controls.Add(this.buttonCreate);
             this.panel1.Controls.Add(this.buttonCansel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -65,6 +67,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1043, 62);
             this.panel1.TabIndex = 13;
+            // 
+            // labelWarning
+            // 
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.Location = new System.Drawing.Point(25, 21);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(13, 17);
+            this.labelWarning.TabIndex = 19;
+            this.labelWarning.Text = " ";
             // 
             // openFileDialog1
             // 
@@ -80,6 +93,8 @@
             this.userControl11.Name = "userControl11";
             this.userControl11.Size = new System.Drawing.Size(1031, 696);
             this.userControl11.TabIndex = 14;
+            this.userControl11.TextBoxBrowserPass_InputText = "";
+            this.userControl11.TextBoxSName_InputText = "";
             // 
             // RegisterForm
             // 
@@ -91,6 +106,7 @@
             this.Name = "RegisterForm";
             this.Text = "新規登録";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -101,5 +117,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private UserControl1 userControl11;
+        private System.Windows.Forms.Label labelWarning;
     }
 }
