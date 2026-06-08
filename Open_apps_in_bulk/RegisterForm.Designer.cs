@@ -44,7 +44,7 @@
             this.buttonCansel.TabIndex = 3;
             this.buttonCansel.Text = "キャンセル";
             this.buttonCansel.UseVisualStyleBackColor = true;
-            this.buttonCansel.Click += new System.EventHandler(this.buttonCansel_Click);
+            this.buttonCansel.Click += new System.EventHandler(this.ButtonCansel_Click);
             // 
             // buttonCreate
             // 
@@ -54,7 +54,7 @@
             this.buttonCreate.TabIndex = 2;
             this.buttonCreate.Text = "作成";
             this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCreate.Click += new System.EventHandler(this.ButtonCreate_Click);
             // 
             // panel1
             // 

@@ -53,7 +53,7 @@
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "保存";
             this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonCansel
             // 
@@ -63,7 +63,7 @@
             this.buttonCansel.TabIndex = 3;
             this.buttonCansel.Text = "キャンセル";
             this.buttonCansel.UseVisualStyleBackColor = true;
-            this.buttonCansel.Click += new System.EventHandler(this.buttonCansel_Click);
+            this.buttonCansel.Click += new System.EventHandler(this.ButtonCansel_Click);
             // 
             // userControl11
             // 

@@ -15,10 +15,6 @@ namespace Open_apps_in_bulk
         public UserControl1()
         {
             InitializeComponent();
-
-            listViewWeb.LabelEdit = true;
-            listViewTask.LabelEdit = true;
-            listViewCmd.LabelEdit = true;
         }
 
         public string TextBoxSName_InputText    // 外部からの入出力用
@@ -56,6 +52,62 @@ namespace Open_apps_in_bulk
         {
             string[] row = {"A1", "B1"};
             listViewCmd.Items.Add(new ListViewItem(row));
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "サイトを開くブラウザを選択してください",  // タイトル
+                Filter = "実行ファイル(*.exe)|*.exe|すべてのファイル(*.*)|*.*",   // 表示するファイルの拡張子
+                RestoreDirectory = true    // 現在のディレクトリを復元
+            };
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                //OKボタンがクリックされたとき、選択されたファイル名を表示する
+                textBoxBrowserPass.Text = ofd.FileName;
+            }
+        }
+
+        private void ListViewCmd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonWebDel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonWebEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonTaskEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonTaskRef_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonTaskDel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonCmdEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonCmdDel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

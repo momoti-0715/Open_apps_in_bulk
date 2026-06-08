@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("ｚ");
             this.textBoxSName = new System.Windows.Forms.TextBox();
             this.groupBoxCmd = new System.Windows.Forms.GroupBox();
             this.buttonCmdDel = new System.Windows.Forms.Button();
@@ -90,6 +91,7 @@
             this.buttonCmdDel.TabIndex = 5;
             this.buttonCmdDel.Text = "削除";
             this.buttonCmdDel.UseVisualStyleBackColor = true;
+            this.buttonCmdDel.Click += new System.EventHandler(this.ButtonCmdDel_Click);
             // 
             // buttonCmdEdit
             // 
@@ -99,6 +101,7 @@
             this.buttonCmdEdit.TabIndex = 4;
             this.buttonCmdEdit.Text = "編集";
             this.buttonCmdEdit.UseVisualStyleBackColor = true;
+            this.buttonCmdEdit.Click += new System.EventHandler(this.ButtonCmdEdit_Click);
             // 
             // buttonCmdNew
             // 
@@ -115,27 +118,36 @@
             this.listViewCmd.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
+            this.listViewCmd.FullRowSelect = true;
+            this.listViewCmd.GridLines = true;
+            listViewGroup8.Header = "ListViewGroup";
+            listViewGroup8.Name = "listViewGroup1";
             this.listViewCmd.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup8});
             this.listViewCmd.HideSelection = false;
+            listViewItem8.StateImageIndex = 0;
+            this.listViewCmd.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem8});
+            this.listViewCmd.LabelEdit = true;
             this.listViewCmd.Location = new System.Drawing.Point(25, 34);
+            this.listViewCmd.MultiSelect = false;
             this.listViewCmd.Name = "listViewCmd";
+            this.listViewCmd.ShowGroups = false;
             this.listViewCmd.Size = new System.Drawing.Size(915, 256);
             this.listViewCmd.TabIndex = 0;
             this.listViewCmd.UseCompatibleStateImageBehavior = false;
             this.listViewCmd.View = System.Windows.Forms.View.Details;
+            this.listViewCmd.SelectedIndexChanged += new System.EventHandler(this.ListViewCmd_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "カレントディレクトリ";
-            this.columnHeader1.Width = 304;
+            this.columnHeader1.Width = 262;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "コマンド";
-            this.columnHeader2.Width = 524;
+            this.columnHeader2.Width = 640;
             // 
             // groupBoxTask
             // 
@@ -156,7 +168,10 @@
             // 
             this.listViewTask.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4});
+            this.listViewTask.FullRowSelect = true;
+            this.listViewTask.GridLines = true;
             this.listViewTask.HideSelection = false;
+            this.listViewTask.LabelEdit = true;
             this.listViewTask.Location = new System.Drawing.Point(25, 34);
             this.listViewTask.Name = "listViewTask";
             this.listViewTask.Size = new System.Drawing.Size(915, 256);
@@ -166,7 +181,7 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Width = 889;
+            this.columnHeader4.Width = 901;
             // 
             // buttonTaskRef
             // 
@@ -176,6 +191,7 @@
             this.buttonTaskRef.TabIndex = 6;
             this.buttonTaskRef.Text = "参照";
             this.buttonTaskRef.UseVisualStyleBackColor = true;
+            this.buttonTaskRef.Click += new System.EventHandler(this.ButtonTaskRef_Click);
             // 
             // buttonTaskDel
             // 
@@ -185,6 +201,7 @@
             this.buttonTaskDel.TabIndex = 5;
             this.buttonTaskDel.Text = "削除";
             this.buttonTaskDel.UseVisualStyleBackColor = true;
+            this.buttonTaskDel.Click += new System.EventHandler(this.ButtonTaskDel_Click);
             // 
             // buttonTaskEdit
             // 
@@ -194,6 +211,7 @@
             this.buttonTaskEdit.TabIndex = 4;
             this.buttonTaskEdit.Text = "編集";
             this.buttonTaskEdit.UseVisualStyleBackColor = true;
+            this.buttonTaskEdit.Click += new System.EventHandler(this.ButtonTaskEdit_Click);
             // 
             // buttonTaskNew
             // 
@@ -226,7 +244,10 @@
             // 
             this.listViewWeb.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3});
+            this.listViewWeb.FullRowSelect = true;
+            this.listViewWeb.GridLines = true;
             this.listViewWeb.HideSelection = false;
+            this.listViewWeb.LabelEdit = true;
             this.listViewWeb.Location = new System.Drawing.Point(25, 69);
             this.listViewWeb.Name = "listViewWeb";
             this.listViewWeb.Size = new System.Drawing.Size(915, 256);
@@ -236,7 +257,7 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Width = 887;
+            this.columnHeader3.Width = 901;
             // 
             // button1
             // 
@@ -246,6 +267,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "参照";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // textBoxBrowserPass
             // 
@@ -273,6 +295,7 @@
             this.buttonWebDel.TabIndex = 5;
             this.buttonWebDel.Text = "削除";
             this.buttonWebDel.UseVisualStyleBackColor = true;
+            this.buttonWebDel.Click += new System.EventHandler(this.ButtonWebDel_Click);
             // 
             // buttonWebEdit
             // 
@@ -282,6 +305,7 @@
             this.buttonWebEdit.TabIndex = 4;
             this.buttonWebEdit.Text = "編集";
             this.buttonWebEdit.UseVisualStyleBackColor = true;
+            this.buttonWebEdit.Click += new System.EventHandler(this.ButtonWebEdit_Click);
             // 
             // buttonWebNew
             // 

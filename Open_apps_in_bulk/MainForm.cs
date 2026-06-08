@@ -52,7 +52,7 @@ namespace Open_apps_in_bulk
             }
         }
 
-        private void buttonNew_Click(object sender, EventArgs e)
+        private void ButtonNew_Click(object sender, EventArgs e)
         {
             var rForm = new RegisterForm();
             rForm.ShowDialog();
@@ -63,7 +63,7 @@ namespace Open_apps_in_bulk
             Display_ShortcutList();
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEdit_Click(object sender, EventArgs e)
         {
             var eForm = new EditForm();
             eForm.userControl11.TextBoxSName_InputText = shortcutList.Text; // 編集フォームのショートカット名に選択されているショートカット名を入力
@@ -76,7 +76,7 @@ namespace Open_apps_in_bulk
             Display_ShortcutList();
         }
 
-        private void shortcutList_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ShortcutList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (shortcutList.SelectedIndex != -1)
             {
@@ -90,7 +90,7 @@ namespace Open_apps_in_bulk
             }
         }
 
-        private void buttonDel_Click(object sender, EventArgs e)
+        private void ButtonDel_Click(object sender, EventArgs e)
         {
             // 実行ファイルと設定ファイルの削除
             File.Delete(@".\Shortcut\" + shortcutList.Text + ".exe"); 

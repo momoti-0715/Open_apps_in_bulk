@@ -17,12 +17,12 @@ namespace Open_apps_in_bulk
             InitializeComponent();
         }
 
-        private void buttonCansel_Click(object sender, EventArgs e)
+        private void ButtonCansel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
             this.Close();
         }

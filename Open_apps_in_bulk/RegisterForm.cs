@@ -20,29 +20,29 @@ namespace Open_apps_in_bulk
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void buttonCansel_Click(object sender, EventArgs e)
+        private void ButtonCansel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void ButtonCreate_Click(object sender, EventArgs e)
         {
             string sName = userControl11.TextBoxSName_InputText;
             string[] unusableChars = new string[] { "/", "?", "<", ">", "\\", ":", "*", "|", "\"",};
 
             if (string.IsNullOrWhiteSpace(sName))
             {
-                printWarning("ショートカット名を入力してください");
+                PrintWarning("ショートカット名を入力してください");
                 return;
             }
             else
@@ -51,14 +51,14 @@ namespace Open_apps_in_bulk
                 {
                     if (sName.Contains(uChar))
                     {
-                        printWarning("以下の文字は使用できません ( / ? < > \\ : * | \" )");
+                        PrintWarning("以下の文字は使用できません ( / ? < > \\ : * | \" )");
                         return;
                     }
                 }
 
                 if (File.Exists(@".\Shortcut\" + sName + ".exe"))
                 {
-                    printWarning("このショートカット名は既に存在します");
+                    PrintWarning("このショートカット名は既に存在します");
                     return;
                 }
             }
@@ -79,7 +79,7 @@ namespace Open_apps_in_bulk
             Close();
         }
 
-        private void printWarning(string message)
+        private void PrintWarning(string message)
         {
             userControl11.LabelWarning_InputText = message;
             userControl11.LabelWarning_Visible = true;

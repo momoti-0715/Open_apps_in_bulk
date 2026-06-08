@@ -43,7 +43,7 @@
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "新規";
             this.buttonNew.UseVisualStyleBackColor = true;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            this.buttonNew.Click += new System.EventHandler(this.ButtonNew_Click);
             // 
             // shortcutList
             // 
@@ -55,7 +55,7 @@
             this.shortcutList.Name = "shortcutList";
             this.shortcutList.Size = new System.Drawing.Size(593, 472);
             this.shortcutList.TabIndex = 3;
-            this.shortcutList.SelectedIndexChanged += new System.EventHandler(this.shortcutList_SelectedIndexChanged_1);
+            this.shortcutList.SelectedIndexChanged += new System.EventHandler(this.ShortcutList_SelectedIndexChanged_1);
             // 
             // buttonEdit
             // 
@@ -67,7 +67,7 @@
             this.buttonEdit.TabIndex = 4;
             this.buttonEdit.Text = "編集";
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // buttonDel
             // 
@@ -79,7 +79,7 @@
             this.buttonDel.TabIndex = 5;
             this.buttonDel.Text = "削除";
             this.buttonDel.UseVisualStyleBackColor = true;
-            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
+            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
             // 
             // MainForm
             // 
