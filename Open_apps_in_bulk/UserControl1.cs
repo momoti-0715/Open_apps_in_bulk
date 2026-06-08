@@ -46,7 +46,7 @@ namespace Open_apps_in_bulk
 
         private void ButtonCmdNew_Click(object sender, EventArgs e)
         {
-            string[] row = {"A1", "B1"};
+            string[] row = {"", ""};
             listViewCmd.Items.Add(new ListViewItem(row));
             listViewCmd.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
@@ -67,39 +67,62 @@ namespace Open_apps_in_bulk
             }
         }
 
-        private void ButtonWebDel_Click(object sender, EventArgs e)
+        private void ButtonTaskRef_Click(object sender, EventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "実行するアプリケーションを選択してください",  // タイトル
+                Filter = "すべてのファイル(*.*)|*.*|実行ファイル(*.exe)|*.exe",   // 表示するファイルの拡張子
+                RestoreDirectory = true    // 現在のディレクトリを復元
+            };
 
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                //OKボタンがクリックされたとき、選択されたファイル名をlistに追加
+                listViewTask.Items.Add(ofd.FileName);
+                listViewTask.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
         }
 
         private void ButtonWebEdit_Click(object sender, EventArgs e)
         {
-
+            listViewWeb.BeginEditSelectedRow();
         }
-
         private void ButtonTaskEdit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void ButtonTaskRef_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButtonTaskDel_Click(object sender, EventArgs e)
-        {
-
+            listViewTask.BeginEditSelectedRow();
         }
 
         private void ButtonCmdEdit_Click(object sender, EventArgs e)
         {
+            listViewCmd.BeginEditSelectedRow();
+        }
 
+        private void ButtonWebDel_Click(object sender, EventArgs e)
+        {
+            if (listViewWeb.SelectedItems.Count > 0)
+            {
+                // 選択されたアイテムのインデックスを取得して削除
+                listViewWeb.Items.RemoveAt(listViewWeb.SelectedItems[0].Index);
+            }
+        }
+
+        private void ButtonTaskDel_Click(object sender, EventArgs e)
+        {
+            if (listViewTask.SelectedItems.Count > 0)
+            {
+                // 選択されたアイテムのインデックスを取得して削除
+                listViewTask.Items.RemoveAt(listViewTask.SelectedItems[0].Index);
+            }
         }
 
         private void ButtonCmdDel_Click(object sender, EventArgs e)
         {
-            listViewCmd.BeginEditSelectedRow();
+            if (listViewCmd.SelectedItems.Count > 0)
+            {
+                // 選択されたアイテムのインデックスを取得して削除
+                listViewCmd.Items.RemoveAt(listViewCmd.SelectedItems[0].Index);
+            }
         }
     }
 }
