@@ -73,7 +73,7 @@
             this.labelWarning.AutoSize = true;
             this.labelWarning.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.labelWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelWarning.Location = new System.Drawing.Point(25, 21);
+            this.labelWarning.Location = new System.Drawing.Point(26, 21);
             this.labelWarning.Name = "labelWarning";
             this.labelWarning.Size = new System.Drawing.Size(13, 17);
             this.labelWarning.TabIndex = 19;

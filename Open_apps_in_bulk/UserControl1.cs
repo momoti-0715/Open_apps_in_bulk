@@ -15,6 +15,10 @@ namespace Open_apps_in_bulk
         public UserControl1()
         {
             InitializeComponent();
+
+            listViewWeb.EnableInPlaceEdit();
+            listViewTask.EnableInPlaceEdit();
+            listViewCmd.EnableInPlaceEdit();
         }
 
         public string TextBoxSName_InputText    // 外部からの入出力用
@@ -58,11 +62,6 @@ namespace Open_apps_in_bulk
                 //OKボタンがクリックされたとき、選択されたファイル名を表示する
                 textBoxBrowserPass.Text = ofd.FileName;
             }
-        }
-
-        private void ListViewCmd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void ButtonWebDel_Click(object sender, EventArgs e)

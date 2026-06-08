@@ -32,11 +32,13 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCansel = new System.Windows.Forms.Button();
             this.userControl11 = new Open_apps_in_bulk.UserControl1();
+            this.labelWarning = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelWarning);
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.buttonCansel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -78,6 +80,17 @@
             this.userControl11.TextBoxBrowserPass_InputText = "";
             this.userControl11.TextBoxSName_InputText = "";
             // 
+            // labelWarning
+            // 
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.Location = new System.Drawing.Point(26, 21);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(13, 17);
+            this.labelWarning.TabIndex = 20;
+            this.labelWarning.Text = " ";
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -88,6 +101,7 @@
             this.Name = "EditForm";
             this.Text = "編集";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -98,5 +112,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCansel;
         public UserControl1 userControl11;
+        private System.Windows.Forms.Label labelWarning;
     }
 }
