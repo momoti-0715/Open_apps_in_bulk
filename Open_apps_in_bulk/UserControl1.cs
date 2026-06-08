@@ -131,5 +131,58 @@ namespace Open_apps_in_bulk
                 listViewCmd.Items.RemoveAt(listViewCmd.SelectedItems[0].Index);
             }
         }
+
+        private void ListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            Button buttonEdit = new Button();
+            Button buttonDel = new Button();
+
+            if (sender == listViewWeb)
+            {
+                buttonEdit = buttonWebEdit;
+                buttonDel = buttonWebDel;
+            }
+            else if (sender == listViewTask)
+            {
+                buttonEdit = buttonTaskEdit;
+                buttonDel = buttonTaskDel;
+            }
+            else if (sender == listViewCmd)
+            {
+                buttonEdit = buttonCmdEdit;
+                buttonDel = buttonCmdDel;
+            }
+
+            // 選択が解除されたとき
+            if (!e.IsSelected)
+            {
+                buttonEdit.Enabled = false;
+                buttonDel.Enabled = false;
+            }
+            else
+            {
+                buttonEdit.Enabled = true;
+                buttonDel.Enabled = true;
+            }
+
+        }
+
+        private void ListView_Leave(object sender, EventArgs e)
+        {
+            if(sender == listViewWeb)
+            {
+                buttonWebEdit.Enabled = false;
+                buttonWebDel.Enabled = false;
+            }else if (sender == listViewTask)
+            {
+                buttonTaskEdit.Enabled = false;
+                buttonTaskDel.Enabled = false;
+            }
+            else if(sender == listViewCmd)
+            {
+                buttonCmdEdit.Enabled = false;
+                buttonCmdDel.Enabled = false;
+            }
+        }
     }
 }
