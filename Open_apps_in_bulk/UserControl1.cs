@@ -15,6 +15,10 @@ namespace Open_apps_in_bulk
         public UserControl1()
         {
             InitializeComponent();
+
+            listViewWeb.LabelEdit = true;
+            listViewTask.LabelEdit = true;
+            listViewCmd.LabelEdit = true;
         }
 
         public string TextBoxSName_InputText    // 外部からの入出力用
@@ -27,10 +31,31 @@ namespace Open_apps_in_bulk
             get { return textBoxBrowserPass.Text; }
             set { textBoxBrowserPass.Text = value; }
         }
+        public string LabelWarning_InputText
+        {
+            get { return labelWarning.Text; }
+            set { labelWarning.Text = value; }
+        }
+        public bool LabelWarning_Visible
+        {
+            get { return labelWarning.Visible; }
+            set { labelWarning.Visible = value; }
+        }
 
         private void buttonWebNew_Click(object sender, EventArgs e)
         {
+            listViewWeb.Items.Add("");
+        }
 
+        private void buttonAppNew_Click(object sender, EventArgs e)
+        {
+            listViewTask.Items.Add("");
+        }
+
+        private void buttonCmdNew_Click(object sender, EventArgs e)
+        {
+            string[] row = {"A1", "B1"};
+            listViewCmd.Items.Add(new ListViewItem(row));
         }
     }
 }

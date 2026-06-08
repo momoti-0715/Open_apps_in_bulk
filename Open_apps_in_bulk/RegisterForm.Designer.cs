@@ -81,14 +81,14 @@
             this.userControl11.Size = new System.Drawing.Size(1031, 696);
             this.userControl11.TabIndex = 14;
             // 
-            // Form2
+            // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 764);
             this.Controls.Add(this.userControl11);
             this.Controls.Add(this.panel1);
-            this.Name = "Form2";
+            this.Name = "RegisterForm";
             this.Text = "新規登録";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -35,10 +35,10 @@
             this.buttonCmdNew = new System.Windows.Forms.Button();
             this.listViewCmd = new System.Windows.Forms.ListView();
             this.groupBoxTask = new System.Windows.Forms.GroupBox();
-            this.buttonAppRef = new System.Windows.Forms.Button();
-            this.buttonAppDel = new System.Windows.Forms.Button();
-            this.buttonAppEdit = new System.Windows.Forms.Button();
-            this.buttonAppNew = new System.Windows.Forms.Button();
+            this.buttonTaskRef = new System.Windows.Forms.Button();
+            this.buttonTaskDel = new System.Windows.Forms.Button();
+            this.buttonTaskEdit = new System.Windows.Forms.Button();
+            this.buttonTaskNew = new System.Windows.Forms.Button();
             this.groupBoxWeb = new System.Windows.Forms.GroupBox();
             this.buttonWebDel = new System.Windows.Forms.Button();
             this.buttonWebEdit = new System.Windows.Forms.Button();
@@ -46,11 +46,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listBoxTask = new System.Windows.Forms.ListBox();
-            this.listBoxWeb = new System.Windows.Forms.ListBox();
             this.textBoxBrowserPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.listViewTask = new System.Windows.Forms.ListView();
+            this.listViewWeb = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelWarning = new System.Windows.Forms.Label();
             this.groupBoxCmd.SuspendLayout();
             this.groupBoxTask.SuspendLayout();
             this.groupBoxWeb.SuspendLayout();
@@ -104,6 +107,7 @@
             this.buttonCmdNew.TabIndex = 3;
             this.buttonCmdNew.Text = "新規";
             this.buttonCmdNew.UseVisualStyleBackColor = true;
+            this.buttonCmdNew.Click += new System.EventHandler(this.buttonCmdNew_Click);
             // 
             // listViewCmd
             // 
@@ -120,11 +124,11 @@
             // 
             // groupBoxTask
             // 
-            this.groupBoxTask.Controls.Add(this.listBoxTask);
-            this.groupBoxTask.Controls.Add(this.buttonAppRef);
-            this.groupBoxTask.Controls.Add(this.buttonAppDel);
-            this.groupBoxTask.Controls.Add(this.buttonAppEdit);
-            this.groupBoxTask.Controls.Add(this.buttonAppNew);
+            this.groupBoxTask.Controls.Add(this.listViewTask);
+            this.groupBoxTask.Controls.Add(this.buttonTaskRef);
+            this.groupBoxTask.Controls.Add(this.buttonTaskDel);
+            this.groupBoxTask.Controls.Add(this.buttonTaskEdit);
+            this.groupBoxTask.Controls.Add(this.buttonTaskNew);
             this.groupBoxTask.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBoxTask.Location = new System.Drawing.Point(20, 454);
             this.groupBoxTask.Name = "groupBoxTask";
@@ -133,48 +137,49 @@
             this.groupBoxTask.TabStop = false;
             this.groupBoxTask.Text = "アプリケーション";
             // 
-            // buttonAppRef
+            // buttonTaskRef
             // 
-            this.buttonAppRef.Location = new System.Drawing.Point(720, 304);
-            this.buttonAppRef.Name = "buttonAppRef";
-            this.buttonAppRef.Size = new System.Drawing.Size(115, 29);
-            this.buttonAppRef.TabIndex = 6;
-            this.buttonAppRef.Text = "参照";
-            this.buttonAppRef.UseVisualStyleBackColor = true;
+            this.buttonTaskRef.Location = new System.Drawing.Point(720, 304);
+            this.buttonTaskRef.Name = "buttonTaskRef";
+            this.buttonTaskRef.Size = new System.Drawing.Size(115, 29);
+            this.buttonTaskRef.TabIndex = 6;
+            this.buttonTaskRef.Text = "参照";
+            this.buttonTaskRef.UseVisualStyleBackColor = true;
             // 
-            // buttonAppDel
+            // buttonTaskDel
             // 
-            this.buttonAppDel.Location = new System.Drawing.Point(841, 304);
-            this.buttonAppDel.Name = "buttonAppDel";
-            this.buttonAppDel.Size = new System.Drawing.Size(115, 29);
-            this.buttonAppDel.TabIndex = 5;
-            this.buttonAppDel.Text = "削除";
-            this.buttonAppDel.UseVisualStyleBackColor = true;
+            this.buttonTaskDel.Location = new System.Drawing.Point(841, 304);
+            this.buttonTaskDel.Name = "buttonTaskDel";
+            this.buttonTaskDel.Size = new System.Drawing.Size(115, 29);
+            this.buttonTaskDel.TabIndex = 5;
+            this.buttonTaskDel.Text = "削除";
+            this.buttonTaskDel.UseVisualStyleBackColor = true;
             // 
-            // buttonAppEdit
+            // buttonTaskEdit
             // 
-            this.buttonAppEdit.Location = new System.Drawing.Point(599, 304);
-            this.buttonAppEdit.Name = "buttonAppEdit";
-            this.buttonAppEdit.Size = new System.Drawing.Size(115, 29);
-            this.buttonAppEdit.TabIndex = 4;
-            this.buttonAppEdit.Text = "編集";
-            this.buttonAppEdit.UseVisualStyleBackColor = true;
+            this.buttonTaskEdit.Location = new System.Drawing.Point(599, 304);
+            this.buttonTaskEdit.Name = "buttonTaskEdit";
+            this.buttonTaskEdit.Size = new System.Drawing.Size(115, 29);
+            this.buttonTaskEdit.TabIndex = 4;
+            this.buttonTaskEdit.Text = "編集";
+            this.buttonTaskEdit.UseVisualStyleBackColor = true;
             // 
-            // buttonAppNew
+            // buttonTaskNew
             // 
-            this.buttonAppNew.Location = new System.Drawing.Point(478, 304);
-            this.buttonAppNew.Name = "buttonAppNew";
-            this.buttonAppNew.Size = new System.Drawing.Size(115, 29);
-            this.buttonAppNew.TabIndex = 3;
-            this.buttonAppNew.Text = "新規";
-            this.buttonAppNew.UseVisualStyleBackColor = true;
+            this.buttonTaskNew.Location = new System.Drawing.Point(478, 304);
+            this.buttonTaskNew.Name = "buttonTaskNew";
+            this.buttonTaskNew.Size = new System.Drawing.Size(115, 29);
+            this.buttonTaskNew.TabIndex = 3;
+            this.buttonTaskNew.Text = "新規";
+            this.buttonTaskNew.UseVisualStyleBackColor = true;
+            this.buttonTaskNew.Click += new System.EventHandler(this.buttonAppNew_Click);
             // 
             // groupBoxWeb
             // 
+            this.groupBoxWeb.Controls.Add(this.listViewWeb);
             this.groupBoxWeb.Controls.Add(this.button1);
             this.groupBoxWeb.Controls.Add(this.textBoxBrowserPass);
             this.groupBoxWeb.Controls.Add(this.label2);
-            this.groupBoxWeb.Controls.Add(this.listBoxWeb);
             this.groupBoxWeb.Controls.Add(this.buttonWebDel);
             this.groupBoxWeb.Controls.Add(this.buttonWebEdit);
             this.groupBoxWeb.Controls.Add(this.buttonWebNew);
@@ -227,30 +232,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "カレントディレクトリ";
-            this.columnHeader1.Width = 345;
+            this.columnHeader1.Width = 304;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "コマンド";
-            this.columnHeader2.Width = 565;
-            // 
-            // listBoxTask
-            // 
-            this.listBoxTask.FormattingEnabled = true;
-            this.listBoxTask.ItemHeight = 18;
-            this.listBoxTask.Location = new System.Drawing.Point(25, 34);
-            this.listBoxTask.Name = "listBoxTask";
-            this.listBoxTask.Size = new System.Drawing.Size(915, 256);
-            this.listBoxTask.TabIndex = 7;
-            // 
-            // listBoxWeb
-            // 
-            this.listBoxWeb.FormattingEnabled = true;
-            this.listBoxWeb.ItemHeight = 18;
-            this.listBoxWeb.Location = new System.Drawing.Point(25, 69);
-            this.listBoxWeb.Name = "listBoxWeb";
-            this.listBoxWeb.Size = new System.Drawing.Size(915, 256);
-            this.listBoxWeb.TabIndex = 8;
+            this.columnHeader2.Width = 524;
             // 
             // textBoxBrowserPass
             // 
@@ -279,11 +266,56 @@
             this.button1.Text = "参照";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // listViewTask
+            // 
+            this.listViewTask.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4});
+            this.listViewTask.HideSelection = false;
+            this.listViewTask.Location = new System.Drawing.Point(25, 34);
+            this.listViewTask.Name = "listViewTask";
+            this.listViewTask.Size = new System.Drawing.Size(915, 256);
+            this.listViewTask.TabIndex = 8;
+            this.listViewTask.UseCompatibleStateImageBehavior = false;
+            this.listViewTask.View = System.Windows.Forms.View.Details;
+            // 
+            // listViewWeb
+            // 
+            this.listViewWeb.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3});
+            this.listViewWeb.HideSelection = false;
+            this.listViewWeb.Location = new System.Drawing.Point(25, 69);
+            this.listViewWeb.Name = "listViewWeb";
+            this.listViewWeb.Size = new System.Drawing.Size(915, 256);
+            this.listViewWeb.TabIndex = 18;
+            this.listViewWeb.UseCompatibleStateImageBehavior = false;
+            this.listViewWeb.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Width = 887;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Width = 889;
+            // 
+            // labelWarning
+            // 
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.Location = new System.Drawing.Point(529, 19);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(44, 17);
+            this.labelWarning.TabIndex = 18;
+            this.labelWarning.Text = "error";
+            this.labelWarning.Visible = false;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.textBoxSName);
             this.Controls.Add(this.groupBoxCmd);
             this.Controls.Add(this.groupBoxTask);
@@ -309,10 +341,10 @@
         private System.Windows.Forms.Button buttonCmdNew;
         private System.Windows.Forms.ListView listViewCmd;
         private System.Windows.Forms.GroupBox groupBoxTask;
-        private System.Windows.Forms.Button buttonAppRef;
-        private System.Windows.Forms.Button buttonAppDel;
-        private System.Windows.Forms.Button buttonAppEdit;
-        private System.Windows.Forms.Button buttonAppNew;
+        private System.Windows.Forms.Button buttonTaskRef;
+        private System.Windows.Forms.Button buttonTaskDel;
+        private System.Windows.Forms.Button buttonTaskEdit;
+        private System.Windows.Forms.Button buttonTaskNew;
         private System.Windows.Forms.GroupBox groupBoxWeb;
         private System.Windows.Forms.Button buttonWebDel;
         private System.Windows.Forms.Button buttonWebEdit;
@@ -320,10 +352,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ListBox listBoxTask;
-        private System.Windows.Forms.ListBox listBoxWeb;
         private System.Windows.Forms.TextBox textBoxBrowserPass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listViewTask;
+        private System.Windows.Forms.ListView listViewWeb;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label labelWarning;
     }
 }

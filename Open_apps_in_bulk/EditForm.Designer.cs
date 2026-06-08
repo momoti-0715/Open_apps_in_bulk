@@ -75,6 +75,8 @@
             this.userControl11.Name = "userControl11";
             this.userControl11.Size = new System.Drawing.Size(1031, 697);
             this.userControl11.TabIndex = 15;
+            this.userControl11.TextBoxBrowserPass_InputText = "";
+            this.userControl11.TextBoxSName_InputText = "";
             // 
             // EditForm
             // 

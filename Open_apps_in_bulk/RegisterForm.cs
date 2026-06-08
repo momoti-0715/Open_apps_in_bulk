@@ -37,17 +37,52 @@ namespace Open_apps_in_bulk
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+            string sName = userControl11.TextBoxSName_InputText;
+            string[] unusableChars = new string[] { "/", "?", "<", ">", "\\", ":", "*", "|", "\"",};
+
+            if (string.IsNullOrWhiteSpace(sName))
+            {
+                printWarning("ショートカット名を入力してください");
+                return;
+            }
+            else
+            {
+                foreach (string uChar in unusableChars)
+                {
+                    if (sName.Contains(uChar))
+                    {
+                        printWarning("以下の文字は使用できません ( / ? < > \\ : * | \" )");
+                        return;
+                    }
+                }
+
+                if (File.Exists(@".\Shortcut\" + sName + ".exe"))
+                {
+                    printWarning("このショートカット名は既に存在します");
+                    return;
+                }
+            }
+
             SettingJson setting = new SettingJson();
             // JSON データにシリアライズ
             var jsonWriteData = JsonConvert.SerializeObject(setting);
 
-            using (var sw = new StreamWriter(@",\Setting\"+"", false, Encoding.UTF8))
+            using (var sw = new StreamWriter(@".\Setting\" + sName + ".json", false, Encoding.UTF8))
             {
                 // JSON データをファイルに書き込み
-                sw.Write(jsonWriteData);
+                sw.Write("jsonWriteData");
             }
 
+
+            File.Copy(@".\origin.exe", @".\Shortcut\" + sName + ".exe");
+
             this.Close();
+        }
+
+        private void printWarning(string message)
+        {
+            userControl11.LabelWarning_InputText = message;
+            userControl11.LabelWarning_Visible = true;
         }
     }
 }
