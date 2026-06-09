@@ -133,9 +133,7 @@
             this.listViewCmd.TabIndex = 13;
             this.listViewCmd.UseCompatibleStateImageBehavior = false;
             this.listViewCmd.View = System.Windows.Forms.View.Details;
-            this.listViewCmd.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.ListView_ItemSelectionChanged);
             this.listViewCmd.SelectedIndexChanged += new System.EventHandler(this.ButtonWebNew_Click);
-            this.listViewCmd.Leave += new System.EventHandler(this.ListView_Leave);
             // 
             // columnHeader1
             // 
@@ -176,8 +174,6 @@
             this.listViewTask.TabIndex = 8;
             this.listViewTask.UseCompatibleStateImageBehavior = false;
             this.listViewTask.View = System.Windows.Forms.View.Details;
-            this.listViewTask.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.ListView_ItemSelectionChanged);
-            this.listViewTask.Leave += new System.EventHandler(this.ListView_Leave);
             // 
             // columnHeader4
             // 
@@ -255,8 +251,6 @@
             this.listViewWeb.TabIndex = 4;
             this.listViewWeb.UseCompatibleStateImageBehavior = false;
             this.listViewWeb.View = System.Windows.Forms.View.Details;
-            this.listViewWeb.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.ListView_ItemSelectionChanged);
-            this.listViewWeb.Leave += new System.EventHandler(this.ListView_Leave);
             // 
             // columnHeader3
             // 

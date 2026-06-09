@@ -17,16 +17,16 @@ namespace Open_apps_in_bulk
         {
             InitializeComponent();
 
-            //listViewWeb.EnableInPlaceEdit();
-            //listViewTask.EnableInPlaceEdit();
-            //listViewCmd.EnableInPlaceEdit();
+            listViewWeb.EnableInPlaceEdit();
+            listViewTask.EnableInPlaceEdit();
+            listViewCmd.EnableInPlaceEdit();
 
-            buttonWebEdit.Enabled = false;
-            buttonWebDel.Enabled = false;
-            buttonTaskEdit.Enabled = false;
-            buttonTaskDel.Enabled = false;
-            buttonCmdEdit.Enabled = false;
-            buttonCmdDel.Enabled = false;
+            //buttonWebEdit.Enabled = false;
+            //buttonWebDel.Enabled = false;
+            //buttonTaskEdit.Enabled = false;
+            //buttonTaskDel.Enabled = false;
+            //buttonCmdEdit.Enabled = false;
+            //buttonCmdDel.Enabled = false;
         }
 
         public string TextBoxSName_InputText    // 外部からの入出力用
@@ -109,16 +109,16 @@ namespace Open_apps_in_bulk
 
         private void ButtonWebEdit_Click(object sender, EventArgs e)
         {
-            //listViewWeb.BeginEditSelectedRow();
+            listViewWeb.BeginEditSelectedRow();
         }
         private void ButtonTaskEdit_Click(object sender, EventArgs e)
         {
-            //listViewTask.BeginEditSelectedRow();
+            listViewTask.BeginEditSelectedRow();
         }
 
         private void ButtonCmdEdit_Click(object sender, EventArgs e)
         {
-            //listViewCmd.BeginEditSelectedRow();
+            listViewCmd.BeginEditSelectedRow();
         }
 
         private void ButtonWebDel_Click(object sender, EventArgs e)
@@ -145,59 +145,6 @@ namespace Open_apps_in_bulk
             {
                 // 選択されたアイテムのインデックスを取得して削除
                 listViewCmd.Items.RemoveAt(listViewCmd.SelectedItems[0].Index);
-            }
-        }
-
-        private void ListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            Button buttonEdit = new Button();
-            Button buttonDel = new Button();
-
-            if (sender == listViewWeb)
-            {
-                buttonEdit = buttonWebEdit;
-                buttonDel = buttonWebDel;
-            }
-            else if (sender == listViewTask)
-            {
-                buttonEdit = buttonTaskEdit;
-                buttonDel = buttonTaskDel;
-            }
-            else if (sender == listViewCmd)
-            {
-                buttonEdit = buttonCmdEdit;
-                buttonDel = buttonCmdDel;
-            }
-
-            // 選択が解除されたとき
-            if (!e.IsSelected)
-            {
-                buttonEdit.Enabled = false;
-                buttonDel.Enabled = false;
-            }
-            else
-            {
-                buttonEdit.Enabled = true;
-                buttonDel.Enabled = true;
-            }
-
-        }
-
-        private void ListView_Leave(object sender, EventArgs e)
-        {
-            if(sender == listViewWeb)
-            {
-                buttonWebEdit.Enabled = false;
-                buttonWebDel.Enabled = false;
-            }else if (sender == listViewTask)
-            {
-                buttonTaskEdit.Enabled = false;
-                buttonTaskDel.Enabled = false;
-            }
-            else if(sender == listViewCmd)
-            {
-                buttonCmdEdit.Enabled = false;
-                buttonCmdDel.Enabled = false;
             }
         }
 

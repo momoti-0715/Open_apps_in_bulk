@@ -17,8 +17,6 @@ namespace Open_apps_in_bulk
 {
     public partial class RegisterForm : Form
     {
-        private UserControl1 uc;
-
         public RegisterForm()
         {
             InitializeComponent();
@@ -93,7 +91,7 @@ namespace Open_apps_in_bulk
             }
 
             // コマンドの登録
-            ListView.ListViewItemCollection listViewCmd = uc.ListViewCmd_Get;
+            ListView.ListViewItemCollection listViewCmd = userControl11.ListViewCmd_Get;
             if (listViewCmd?.Count > 0)
             {
                 Console.WriteLine(listViewCmd.Cast<ListViewItem>());
