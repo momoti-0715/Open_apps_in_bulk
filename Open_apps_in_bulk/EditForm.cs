@@ -43,7 +43,11 @@ namespace Open_apps_in_bulk
             ControlJson jsonControl = new ControlJson();
 
             string sName = userControl11.TextBoxSName_InputText;
-            if (jsonControl.PrintError(labelWarning, sName) != 0) return;   // エラー文を表示するときはそのまま関数を終了する
+
+            if (sName != originSName)   // ショートカット名に変更がない場合はエラーチェックしない
+            {
+                if (jsonControl.PrintError(labelWarning, sName) != 0) return;   // エラー文を表示するときはそのまま関数を終了する
+            }
 
             // jsonファイルとexeファイルをリネーム
             File.Move(@".\Setting\" + originSName + ".json", @".\Setting\" + sName + ".json");
