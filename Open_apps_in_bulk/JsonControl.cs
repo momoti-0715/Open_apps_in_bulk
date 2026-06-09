@@ -40,4 +40,72 @@ public class JsonControl
         }
         return 0;
     }
+
+    public void RegisterJson(string sName,
+        string browserPass,
+        ListView.ListViewItemCollection listViewWeb, 
+        ListView.ListViewItemCollection listViewTask, 
+        ListView.ListViewItemCollection listViewCmd)
+    {
+        SettingJson setting = new SettingJson();
+        // データ設定
+        // ブラウザ登録
+        if (!string.IsNullOrWhiteSpace(browserPass))
+        {
+            setting.Web_open.Browser = browserPass;
+        }
+
+        // urlの登録
+        if (listViewWeb?.Count > 0)
+        {
+            List<string> allValues = listViewWeb.Cast<ListViewItem>()
+                .Select(item => item.Text)
+                .ToList();
+
+            setting.Web_open.Url_list = allValues;
+
+        }
+
+        // アプリの登録
+        if (listViewTask?.Count > 0)
+        {
+            List<string> allValues = listViewTask.Cast<ListViewItem>()
+                .Select(item => item.Text)
+                .ToList();
+
+            setting.Task_open.Task_list = allValues;
+        }
+
+        // コマンドの登録
+        if (listViewCmd?.Count > 0)
+        {
+            Console.WriteLine(listViewCmd.Cast<ListViewItem>());
+            foreach (ListViewItem item in listViewCmd)
+            {
+                string mainValue = item.Text;
+                // サブアイテムの取得
+                string subValue = item.SubItems[1].Text;
+
+                setting.Cmd_open.P_c_list.Add(new PCList
+                {
+                    Path = mainValue,
+                    Command = subValue
+                });
+            }
+        }
+
+        // JSON データにシリアライズ
+        var jsonWriteData = JsonConvert.SerializeObject(setting);
+
+        using (var sw = new StreamWriter(@".\Setting\" + sName + ".json", false, Encoding.UTF8))
+        {
+            // JSON データをファイルに書き込み
+            sw.Write(jsonWriteData);
+        }
+    }
+
+    public void ExeCopy(string sName)
+    {
+        File.Copy(@".\origin.exe", @".\Shortcut\" + sName + ".exe");
+    }
 }
