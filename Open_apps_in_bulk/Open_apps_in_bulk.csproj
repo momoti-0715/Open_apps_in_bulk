@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationIcon>3bc3cdda84f524309ff099e8306e8393_xxo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -111,6 +114,7 @@
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -126,9 +130,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="origin.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Setting\ショートカット1.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -147,9 +148,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Shortcut\ショートカット1.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="Setting\" />
+    <Folder Include="Shortcut\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
