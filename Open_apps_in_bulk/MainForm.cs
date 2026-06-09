@@ -104,6 +104,7 @@ namespace Open_apps_in_bulk
             // 実行ファイルと設定ファイルの削除
             File.Delete(@".\Shortcut\" + shortcutList.Text + ".exe"); 
             File.Delete(@".\Setting\" + shortcutList.Text + ".json");
+            DeleteShortcutFile(shortcutList.Text);
 
             buttonEdit.Enabled = false;
             buttonDel.Enabled = false;
@@ -113,10 +114,10 @@ namespace Open_apps_in_bulk
 
         private void buttonCreateShortcut_Click(object sender, EventArgs e)
         {
-            CreateShurtcutFile(shortcutList.Text);  // ショートカット生成
+            CreateShortcutFile(shortcutList.Text);  // ショートカット生成
         }
 
-        private void CreateShurtcutFile(string sName)
+        private void CreateShortcutFile(string sName)
         {
             IWshShell shell = new WshShell();   // シェルオブジェクト
             IWshShortcut sc;    // ショートカットオブジェクト
@@ -130,6 +131,25 @@ namespace Open_apps_in_bulk
             sc.TargetPath = fullPath;   // 実行パス
             sc.WorkingDirectory = workingDirPath;   // 作業フォルダの設定
             sc.Save();
+        }
+
+        private void DeleteShortcutFile(string sName) {
+            // デスクトップにショートカットがあるときに実行パスも変更する
+            IWshShell shell = new WshShell();   // シェルオブジェクト
+            IWshShortcut sc;    // ショートカットオブジェクト
+
+            string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);   // デスクトップの絶対パス
+            string[] sFiles = Directory.GetFiles(sDeskPath, "*.lnk");  // デスクトップにあるショートカットファイルを取得
+            string fullPath = Path.GetFullPath(@".\Shortcut\" + sName + ".exe");
+
+            foreach (string sFile in sFiles)
+            {
+                sc = (IWshShortcut)shell.CreateShortcut(sFile);
+                if (sc.TargetPath == fullPath)    // 取得したショートカットの実行ファイルが選択されたショートカットのパスと同じとき
+                {
+                    File.Delete(sFile); // デスクトップのショートカット削除
+                }
+            }
         }
     }
 }
