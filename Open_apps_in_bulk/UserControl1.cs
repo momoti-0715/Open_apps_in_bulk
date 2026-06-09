@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JsonFileIO.Jsons;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +43,16 @@ namespace Open_apps_in_bulk
         public ListView.ListViewItemCollection ListViewWeb_Get
         {
             get { return listViewWeb.Items; }
+        }
+
+        public ListView.ListViewItemCollection ListViewTask_Get
+        {
+            get { return listViewTask.Items; }
+        }
+
+        public ListView.ListViewItemCollection ListViewCmd_Get
+        {
+            get { return listViewCmd.Items; }
         }
 
         private void ButtonWebNew_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Open_apps_in_bulk
             MaximizeBox = false;    // 最大化を禁止
             FormBorderStyle = FormBorderStyle.FixedSingle;  // サイズ変更禁止
 
-            uc = new UserControl1();
+            uc = userControl11;
         }
 
         private void ButtonCansel_Click(object sender, EventArgs e)
@@ -63,7 +64,6 @@ namespace Open_apps_in_bulk
 
             SettingJson setting = new SettingJson();
             // データ設定
-
             // ブラウザ登録
             string browserPass = uc.TextBoxBrowserPass_InputText;
             if (!string.IsNullOrWhiteSpace(browserPass))
@@ -73,7 +73,6 @@ namespace Open_apps_in_bulk
 
             // urlの登録
             ListView.ListViewItemCollection listViewWeb = uc.ListViewWeb_Get;
-
             if (listViewWeb?.Count > 0)
             {
                 List<string> allValues = listViewWeb.Cast<ListViewItem>()
@@ -82,6 +81,36 @@ namespace Open_apps_in_bulk
 
                 setting.Web_open.Url_list = allValues;
 
+            }
+
+            // アプリの登録
+            ListView.ListViewItemCollection listViewTask = uc.ListViewTask_Get;
+            if (listViewTask?.Count > 0)
+            {
+                List<string> allValues = listViewTask.Cast<ListViewItem>()
+                    .Select(item => item.Text)
+                    .ToList();
+
+                setting.Task_open.Task_list = allValues;
+            }
+
+            // コマンドの登録
+            ListView.ListViewItemCollection listViewCmd = uc.ListViewCmd_Get;
+            if (listViewCmd?.Count > 0)
+            {
+                Console.WriteLine(listViewCmd.Cast<ListViewItem>());
+                foreach (ListViewItem item in listViewCmd)
+                {
+                    string mainValue = item.Text;
+                    // サブアイテムの取得
+                    string subValue = item.SubItems[1].Text;
+
+                    setting.Cmd_open.P_c_list.Add(new PCList
+                    {
+                        Path = mainValue,
+                        Command = subValue
+                    });
+                }
             }
 
             // JSON データにシリアライズ
