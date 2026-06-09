@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBoxSName = new System.Windows.Forms.TextBox();
             this.groupBoxCmd = new System.Windows.Forms.GroupBox();
             this.buttonCmdDel = new System.Windows.Forms.Button();
@@ -119,10 +119,10 @@
             this.columnHeader2});
             this.listViewCmd.FullRowSelect = true;
             this.listViewCmd.GridLines = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup1";
             this.listViewCmd.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup3});
             this.listViewCmd.HideSelection = false;
             this.listViewCmd.LabelEdit = true;
             this.listViewCmd.Location = new System.Drawing.Point(25, 34);
@@ -318,10 +318,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(16, 14);
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.label1.Location = new System.Drawing.Point(18, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 22);
+            this.label1.Size = new System.Drawing.Size(125, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "ショートカット名";
             // 

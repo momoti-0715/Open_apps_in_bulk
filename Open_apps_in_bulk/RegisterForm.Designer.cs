@@ -92,11 +92,11 @@
             this.checkBox.Checked = true;
             this.checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.checkBox.Location = new System.Drawing.Point(555, 21);
+            this.checkBox.Location = new System.Drawing.Point(536, 21);
             this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(178, 21);
+            this.checkBox.Size = new System.Drawing.Size(195, 21);
             this.checkBox.TabIndex = 20;
-            this.checkBox.Text = "デスクトップに作成する";
+            this.checkBox.Text = "デスクトップ上に作成する";
             this.checkBox.UseVisualStyleBackColor = true;
             // 
             // userControl11
