@@ -5,9 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 public class ControlJson
 {
@@ -43,8 +41,8 @@ public class ControlJson
 
     public void RegisterJson(string sName,
         string browserPass,
-        ListView.ListViewItemCollection listViewWeb, 
-        ListView.ListViewItemCollection listViewTask, 
+        ListView.ListViewItemCollection listViewWeb,
+        ListView.ListViewItemCollection listViewTask,
         ListView.ListViewItemCollection listViewCmd)
     {
         SettingJson setting = new SettingJson();

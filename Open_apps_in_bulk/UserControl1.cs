@@ -1,13 +1,6 @@
 ﻿using JsonFileIO.Jsons;
-using Open_apps_in_bulk.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Open_apps_in_bulk
@@ -98,7 +91,7 @@ namespace Open_apps_in_bulk
 
         private void ButtonCmdNew_Click(object sender, EventArgs e)
         {
-            string[] row = {"", ""};
+            string[] row = { "", "" };
             listViewCmd.Items.Add(new ListViewItem(row));
             listViewCmd.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }

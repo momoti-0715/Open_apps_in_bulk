@@ -2,16 +2,8 @@
 using JsonFileIO.Jsons;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 using File = System.IO.File;
 using ListView = System.Windows.Forms.ListView;
@@ -77,7 +69,8 @@ namespace Open_apps_in_bulk
             foreach (string sFile in sFiles)
             {
                 sc = (IWshShortcut)shell.CreateShortcut(sFile);
-                if (sc.TargetPath == oriExeFullPath) {  // 取得したショートカットの実行ファイルが変更前の実行パスと同じとき
+                if (sc.TargetPath == oriExeFullPath)
+                {  // 取得したショートカットの実行ファイルが変更前の実行パスと同じとき
                     sc.TargetPath = exePath;
 
                     if (originSName == Path.GetFileNameWithoutExtension(oriExePath))   // ショートカット名が生成時と同じとき
@@ -96,7 +89,7 @@ namespace Open_apps_in_bulk
         {
             SettingJson pCList = new SettingJson();
 
-            using (var sr = new StreamReader(@".\Setting\" + sName +".json", Encoding.UTF8))
+            using (var sr = new StreamReader(@".\Setting\" + sName + ".json", Encoding.UTF8))
             {
                 // 変数 jsonReadData にファイルの内容を代入 
                 var jsonReadData = sr.ReadToEnd();
@@ -109,7 +102,7 @@ namespace Open_apps_in_bulk
             userControl11.ListViewWeb_Set = pCList.Web_open.Url_list;
             userControl11.ListViewTask_Set = pCList.Task_open.Task_list;
             userControl11.ListViewCmd_Set = pCList.Cmd_open.P_c_list;
-            
+
         }
     }
 }

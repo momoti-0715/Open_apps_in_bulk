@@ -1,17 +1,8 @@
 ﻿using IWshRuntimeLibrary;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Forms;
-using System.Windows.Shapes;
 using File = System.IO.File;
 using Path = System.IO.Path;
 
@@ -73,7 +64,7 @@ namespace Open_apps_in_bulk
         {
             var eForm = new EditForm();
             eForm.userControl11.TextBoxSName_InputText = shortcutList.Text; // 編集フォームのショートカット名に選択されているショートカット名を入力
-            
+
             eForm.ShowDialog();
             eForm.Dispose();
 
@@ -102,7 +93,7 @@ namespace Open_apps_in_bulk
         private void ButtonDel_Click(object sender, EventArgs e)
         {
             // 実行ファイルと設定ファイルの削除
-            File.Delete(@".\Shortcut\" + shortcutList.Text + ".exe"); 
+            File.Delete(@".\Shortcut\" + shortcutList.Text + ".exe");
             File.Delete(@".\Setting\" + shortcutList.Text + ".json");
             DeleteShortcutFile(shortcutList.Text);
 
@@ -112,7 +103,7 @@ namespace Open_apps_in_bulk
             Display_ShortcutList();
         }
 
-        private void buttonCreateShortcut_Click(object sender, EventArgs e)
+        private void ButtonCreateShortcut_Click(object sender, EventArgs e)
         {
             CreateShortcutFile(shortcutList.Text);  // ショートカット生成
         }
@@ -133,7 +124,8 @@ namespace Open_apps_in_bulk
             sc.Save();
         }
 
-        private void DeleteShortcutFile(string sName) {
+        private void DeleteShortcutFile(string sName)
+        {
             // デスクトップにショートカットがあるときに実行パスも変更する
             IWshShell shell = new WshShell();   // シェルオブジェクト
             IWshShortcut sc;    // ショートカットオブジェクト

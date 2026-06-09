@@ -1,18 +1,6 @@
 ﻿using IWshRuntimeLibrary;
-using JsonFileIO.Jsons;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace Open_apps_in_bulk
@@ -62,7 +50,7 @@ namespace Open_apps_in_bulk
 
             string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             string fullPath = Path.GetFullPath(@".\Shortcut\" + sName + ".exe");
-            string workingDirPath = Path.GetFullPath(@".\Shortcut");   
+            string workingDirPath = Path.GetFullPath(@".\Shortcut");
             string shortcutPath = sDeskPath + @"\" + sName + ".lnk";
 
             sc = (IWshShortcut)shell.CreateShortcut(shortcutPath);  // ショートカットのパス

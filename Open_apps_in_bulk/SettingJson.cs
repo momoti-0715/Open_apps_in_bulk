@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Windows.Documents;
-using System.Windows.Forms;
 
 namespace JsonFileIO.Jsons
 {

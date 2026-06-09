@@ -92,7 +92,7 @@
             this.buttonCreateShortcut.TabIndex = 6;
             this.buttonCreateShortcut.Text = "デスクトップ上に生成";
             this.buttonCreateShortcut.UseVisualStyleBackColor = true;
-            this.buttonCreateShortcut.Click += new System.EventHandler(this.buttonCreateShortcut_Click);
+            this.buttonCreateShortcut.Click += new System.EventHandler(this.ButtonCreateShortcut_Click);
             // 
             // MainForm
             // 
