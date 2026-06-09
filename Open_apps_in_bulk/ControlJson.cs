@@ -97,7 +97,9 @@ public class ControlJson
         // JSON データにシリアライズ
         var jsonWriteData = JsonConvert.SerializeObject(setting);
 
-        using (var sw = new StreamWriter(@".\Setting\" + sName + ".json", false, Encoding.UTF8))
+        var utf8WithBom = new UTF8Encoding(false); // BOMなし
+
+        using (var sw = new StreamWriter(@".\Setting\" + sName + ".json", false, utf8WithBom))
         {
             // JSON データをファイルに書き込み
             sw.Write(jsonWriteData);
