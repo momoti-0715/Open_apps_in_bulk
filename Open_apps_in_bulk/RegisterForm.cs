@@ -17,7 +17,6 @@ namespace Open_apps_in_bulk
 {
     public partial class RegisterForm : Form
     {
-        JsonControl jsonControl = new JsonControl();
         public RegisterForm()
         {
             InitializeComponent();
@@ -33,6 +32,8 @@ namespace Open_apps_in_bulk
 
         private void ButtonCreate_Click(object sender, EventArgs e)
         {
+            JsonControl jsonControl = new JsonControl();
+
             string sName = userControl11.TextBoxSName_InputText;
             if (jsonControl.PrintError(labelWarning, sName) != 0) return;   // エラー文を表示するときはそのまま関数を終了する
 
