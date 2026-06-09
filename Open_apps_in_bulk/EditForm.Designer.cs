@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelWarning = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCansel = new System.Windows.Forms.Button();
-            this.labelWarning = new System.Windows.Forms.Label();
             this.userControl11 = new Open_apps_in_bulk.UserControl1();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +46,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1043, 62);
             this.panel1.TabIndex = 14;
+            // 
+            // labelWarning
+            // 
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.Location = new System.Drawing.Point(26, 21);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(13, 17);
+            this.labelWarning.TabIndex = 20;
+            this.labelWarning.Text = " ";
             // 
             // buttonSave
             // 
@@ -66,17 +77,6 @@
             this.buttonCansel.Text = "キャンセル";
             this.buttonCansel.UseVisualStyleBackColor = true;
             this.buttonCansel.Click += new System.EventHandler(this.ButtonCansel_Click);
-            // 
-            // labelWarning
-            // 
-            this.labelWarning.AutoSize = true;
-            this.labelWarning.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.labelWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelWarning.Location = new System.Drawing.Point(26, 21);
-            this.labelWarning.Name = "labelWarning";
-            this.labelWarning.Size = new System.Drawing.Size(13, 17);
-            this.labelWarning.TabIndex = 20;
-            this.labelWarning.Text = " ";
             // 
             // userControl11
             // 
@@ -101,10 +101,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "EditForm";
             this.Text = "編集";
+            this.Shown += new System.EventHandler(this.Form_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

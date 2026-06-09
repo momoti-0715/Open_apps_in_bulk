@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-public class JsonControl
+public class ControlJson
 {
     public int PrintError(Label label, string sName)
     {

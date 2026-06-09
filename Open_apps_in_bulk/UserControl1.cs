@@ -1,4 +1,5 @@
 ﻿using JsonFileIO.Jsons;
+using Open_apps_in_bulk.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace Open_apps_in_bulk
             get { return textBoxSName.Text; }
             set { textBoxSName.Text = value; }
         }
+
         public string TextBoxBrowserPass_InputText
         {
             get { return textBoxBrowserPass.Text; }
@@ -46,6 +48,40 @@ namespace Open_apps_in_bulk
         public ListView.ListViewItemCollection ListViewCmd_Get
         {
             get { return listViewCmd.Items; }
+        }
+
+        public List<string> ListViewWeb_Set
+        {
+            set
+            {
+                foreach (string item in value)
+                {
+                    listViewWeb.Items.Add(new ListViewItem(item));
+                }
+            }
+        }
+        public List<string> ListViewTask_Set
+        {
+            set
+            {
+                foreach (string item in value)
+                {
+                    listViewTask.Items.Add(new ListViewItem(item));
+                }
+            }
+        }
+        public List<PCList> ListViewCmd_Set
+        {
+            set
+            {
+                foreach (PCList item in value)
+                {
+                    ListViewItem lvi = new ListViewItem(item.Path);
+                    lvi.SubItems.Add(item.Command);
+
+                    listViewCmd.Items.Add(lvi);
+                }
+            }
         }
 
         private void ButtonWebNew_Click(object sender, EventArgs e)
