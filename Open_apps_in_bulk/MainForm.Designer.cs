@@ -105,7 +105,7 @@
             this.Controls.Add(this.shortcutList);
             this.Controls.Add(this.buttonNew);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "ショートカット一覧";
             this.ResumeLayout(false);
 
         }
