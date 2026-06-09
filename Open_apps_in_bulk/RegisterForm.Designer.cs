@@ -34,6 +34,7 @@
             this.labelWarning = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.userControl11 = new Open_apps_in_bulk.UserControl1();
+            this.checkBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkBox);
             this.panel1.Controls.Add(this.labelWarning);
             this.panel1.Controls.Add(this.buttonCreate);
             this.panel1.Controls.Add(this.buttonCansel);
@@ -96,6 +98,18 @@
             this.userControl11.TextBoxBrowserPass_InputText = "";
             this.userControl11.TextBoxSName_InputText = "";
             // 
+            // checkBox
+            // 
+            this.checkBox.AutoSize = true;
+            this.checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.checkBox.Location = new System.Drawing.Point(573, 21);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(178, 21);
+            this.checkBox.TabIndex = 20;
+            this.checkBox.Text = "デスクトップに作成する";
+            this.checkBox.UseVisualStyleBackColor = true;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -118,5 +132,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private UserControl1 userControl11;
         private System.Windows.Forms.Label labelWarning;
+        private System.Windows.Forms.CheckBox checkBox;
     }
 }

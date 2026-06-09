@@ -1,4 +1,5 @@
-﻿using JsonFileIO.Jsons;
+﻿using IWshRuntimeLibrary;
+using JsonFileIO.Jsons;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
@@ -45,7 +47,27 @@ namespace Open_apps_in_bulk
             jsonControl.RegisterJson(sName, browserPass, listViewWeb, listViewTask, listViewCmd);   // jsonの登録
             jsonControl.ExeCopy(sName);
 
+            if (checkBox.Checked == true)
+            {
+                CreateShurtcutFile(sName);
+            }
+
             Close();
         }
+
+        private void CreateShurtcutFile(string sName)
+        {
+            IWshShell shell = new WshShell();   // シェルオブジェクト
+            IWshShortcut sc;    // ショートカットオブジェクト
+
+            string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string fullPath = Path.GetFullPath(@".\Shortcut\" + sName + ".exe");
+            string shortcutPath = sDeskPath + @"\" + sName + ".lnk";
+
+            sc = (IWshShortcut)shell.CreateShortcut(shortcutPath);
+            sc.TargetPath = fullPath;
+            sc.Save();
+        }
+
     }
 }

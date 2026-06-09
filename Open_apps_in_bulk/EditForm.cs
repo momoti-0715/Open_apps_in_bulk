@@ -1,4 +1,5 @@
-﻿using JsonFileIO.Jsons;
+﻿using IWshRuntimeLibrary;
+using JsonFileIO.Jsons;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using File = System.IO.File;
 using ListView = System.Windows.Forms.ListView;
 
 namespace Open_apps_in_bulk
@@ -50,8 +52,13 @@ namespace Open_apps_in_bulk
             }
 
             // jsonファイルとexeファイルをリネーム
-            File.Move(@".\Setting\" + originSName + ".json", @".\Setting\" + sName + ".json");
-            File.Move(@".\Shortcut\" + originSName + ".exe", @".\Shortcut\" + sName + ".exe");
+            string oriJsonPath = @".\Setting\" + originSName + ".json";
+            string jsonPath = @".\Setting\" + sName + ".json";
+            string oriExePath = @".\Shortcut\" + originSName + ".exe";
+            string exePath = @".\Shortcut\" + sName + ".exe";
+
+            File.Move(oriJsonPath, jsonPath);
+            File.Move(oriExePath, exePath);
 
             string browserPass = userControl11.TextBoxBrowserPass_InputText;
             ListView.ListViewItemCollection listViewWeb = userControl11.ListViewWeb_Get;
@@ -59,6 +66,28 @@ namespace Open_apps_in_bulk
             ListView.ListViewItemCollection listViewCmd = userControl11.ListViewCmd_Get;
 
             jsonControl.RegisterJson(sName, browserPass, listViewWeb, listViewTask, listViewCmd);   // jsonの登録
+
+            // デスクトップにショートカットがあるときに実行パスも変更する
+            IWshShell shell = new WshShell();   // シェルオブジェクト
+            IWshShortcut sc;    // ショートカットオブジェクト
+            string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);   // デスクトップの絶対パス
+            string[] sFiles = Directory.GetFiles(sDeskPath, "*.lnk");  // デスクトップにあるショートカットファイルを取得
+            string oriExeFullPath = Path.GetFullPath(oriExePath);
+
+            foreach (string sFile in sFiles)
+            {
+                sc = (IWshShortcut)shell.CreateShortcut(sFile);
+                if (sc.TargetPath == oriExeFullPath) {  // 取得したショートカットの実行ファイルが変更前の実行パスと同じとき
+                    sc.TargetPath = exePath;
+
+                    if (originSName == Path.GetFileNameWithoutExtension(oriExePath))   // ショートカット名が生成時と同じとき
+                    {
+                        string newSFile = sDeskPath + @"\" + sName + ".lnk";
+                        File.Move(sFile, newSFile); // リネーム
+                    }
+                    break;
+                }
+            }
 
             Close();
         }
