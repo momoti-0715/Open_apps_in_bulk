@@ -92,13 +92,16 @@ namespace Open_apps_in_bulk
         {
             SettingJson pCList = new SettingJson();
 
-            using (var sr = new StreamReader(@".\Setting\" + sName + ".json", Encoding.UTF8))
+            if (File.Exists(@".\Setting\" + sName + ".json"))
             {
-                // 変数 jsonReadData にファイルの内容を代入 
-                var jsonReadData = sr.ReadToEnd();
+                using (var sr = new StreamReader(@".\Setting\" + sName + ".json", Encoding.UTF8))
+                {
+                    // 変数 jsonReadData にファイルの内容を代入 
+                    var jsonReadData = sr.ReadToEnd();
 
-                // デシリアライズして person にセット
-                pCList = JsonConvert.DeserializeObject<SettingJson>(jsonReadData);
+                    // デシリアライズして person にセット
+                    pCList = JsonConvert.DeserializeObject<SettingJson>(jsonReadData);
+                }
             }
 
             userControl11.TextBoxBrowserPass_InputText = pCList.Web_open.Browser;
