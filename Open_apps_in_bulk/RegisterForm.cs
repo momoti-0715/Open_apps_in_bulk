@@ -25,8 +25,6 @@ namespace Open_apps_in_bulk
 
             MaximizeBox = false;    // 最大化を禁止
             FormBorderStyle = FormBorderStyle.FixedSingle;  // サイズ変更禁止
-
-            uc = userControl11;
         }
 
         private void ButtonCansel_Click(object sender, EventArgs e)
@@ -36,7 +34,7 @@ namespace Open_apps_in_bulk
 
         private void ButtonCreate_Click(object sender, EventArgs e)
         {
-            string sName = uc.TextBoxSName_InputText;
+            string sName = userControl11.TextBoxSName_InputText;
             string[] unusableChars = new string[] { "/", "?", "<", ">", "\\", ":", "*", "|", "\"",};
 
             if (string.IsNullOrWhiteSpace(sName))
@@ -65,14 +63,14 @@ namespace Open_apps_in_bulk
             SettingJson setting = new SettingJson();
             // データ設定
             // ブラウザ登録
-            string browserPass = uc.TextBoxBrowserPass_InputText;
+            string browserPass = userControl11.TextBoxBrowserPass_InputText;
             if (!string.IsNullOrWhiteSpace(browserPass))
             {
                 setting.Web_open.Browser = browserPass;
             }
 
             // urlの登録
-            ListView.ListViewItemCollection listViewWeb = uc.ListViewWeb_Get;
+            ListView.ListViewItemCollection listViewWeb = userControl11.ListViewWeb_Get;
             if (listViewWeb?.Count > 0)
             {
                 List<string> allValues = listViewWeb.Cast<ListViewItem>()
@@ -84,7 +82,7 @@ namespace Open_apps_in_bulk
             }
 
             // アプリの登録
-            ListView.ListViewItemCollection listViewTask = uc.ListViewTask_Get;
+            ListView.ListViewItemCollection listViewTask = userControl11.ListViewTask_Get;
             if (listViewTask?.Count > 0)
             {
                 List<string> allValues = listViewTask.Cast<ListViewItem>()

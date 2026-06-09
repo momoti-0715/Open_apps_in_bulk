@@ -17,9 +17,9 @@ namespace Open_apps_in_bulk
         {
             InitializeComponent();
 
-            listViewWeb.EnableInPlaceEdit();
-            listViewTask.EnableInPlaceEdit();
-            listViewCmd.EnableInPlaceEdit();
+            //listViewWeb.EnableInPlaceEdit();
+            //listViewTask.EnableInPlaceEdit();
+            //listViewCmd.EnableInPlaceEdit();
 
             buttonWebEdit.Enabled = false;
             buttonWebDel.Enabled = false;
@@ -109,16 +109,16 @@ namespace Open_apps_in_bulk
 
         private void ButtonWebEdit_Click(object sender, EventArgs e)
         {
-            listViewWeb.BeginEditSelectedRow();
+            //listViewWeb.BeginEditSelectedRow();
         }
         private void ButtonTaskEdit_Click(object sender, EventArgs e)
         {
-            listViewTask.BeginEditSelectedRow();
+            //listViewTask.BeginEditSelectedRow();
         }
 
         private void ButtonCmdEdit_Click(object sender, EventArgs e)
         {
-            listViewCmd.BeginEditSelectedRow();
+            //listViewCmd.BeginEditSelectedRow();
         }
 
         private void ButtonWebDel_Click(object sender, EventArgs e)
@@ -200,5 +200,6 @@ namespace Open_apps_in_bulk
                 buttonCmdDel.Enabled = false;
             }
         }
+
     }
 }
