@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IWshRuntimeLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Shapes;
+using File = System.IO.File;
 using Path = System.IO.Path;
 
 namespace Open_apps_in_bulk
@@ -63,6 +65,7 @@ namespace Open_apps_in_bulk
 
             buttonEdit.Enabled = false; // 編集と削除ボタンの無効化
             buttonDel.Enabled = false;
+            buttonCreateShortcut.Enabled = false;
             Display_ShortcutList();
         }
 
@@ -76,6 +79,7 @@ namespace Open_apps_in_bulk
 
             buttonEdit.Enabled = false; // 編集と削除ボタンの無効化
             buttonDel.Enabled = false;
+            buttonCreateShortcut.Enabled = false;
             Display_ShortcutList();
         }
 
@@ -85,11 +89,13 @@ namespace Open_apps_in_bulk
             {
                 buttonEdit.Enabled = true;
                 buttonDel.Enabled = true;
+                buttonCreateShortcut.Enabled = true;
             }
             else
             {
                 buttonEdit.Enabled = false;
                 buttonDel.Enabled = false;
+                buttonCreateShortcut.Enabled = false;
             }
         }
 
@@ -101,7 +107,33 @@ namespace Open_apps_in_bulk
 
             buttonEdit.Enabled = false;
             buttonDel.Enabled = false;
+            buttonCreateShortcut.Enabled = false;
             Display_ShortcutList();
+        }
+
+        private void buttonCreateShortcut_Click(object sender, EventArgs e)
+        {
+            CreateShurtcutFile(shortcutList.Text);
+
+            buttonEdit.Enabled = false; // 編集と削除ボタンの無効化
+            buttonDel.Enabled = false;
+            buttonCreateShortcut.Enabled = false;
+        }
+
+        private void CreateShurtcutFile(string sName)
+        {
+            IWshShell shell = new WshShell();   // シェルオブジェクト
+            IWshShortcut sc;    // ショートカットオブジェクト
+
+            string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string fullPath = Path.GetFullPath(@".\Shortcut\" + sName + ".exe");
+            string workingDirPath = Path.GetFullPath(@".\Shortcut");
+            string shortcutPath = sDeskPath + @"\" + sName + ".lnk";
+
+            sc = (IWshShortcut)shell.CreateShortcut(shortcutPath);  // ショートカットのパス
+            sc.TargetPath = fullPath;   // 実行パス
+            sc.WorkingDirectory = workingDirPath;   // 作業フォルダの設定
+            sc.Save();
         }
     }
 }

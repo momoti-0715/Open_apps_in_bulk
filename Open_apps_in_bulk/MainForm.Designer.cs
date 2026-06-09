@@ -32,6 +32,7 @@
             this.shortcutList = new System.Windows.Forms.ListBox();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDel = new System.Windows.Forms.Button();
+            this.buttonCreateShortcut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonNew
@@ -81,11 +82,24 @@
             this.buttonDel.UseVisualStyleBackColor = true;
             this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
             // 
+            // buttonCreateShortcut
+            // 
+            this.buttonCreateShortcut.Enabled = false;
+            this.buttonCreateShortcut.Font = new System.Drawing.Font("Noto Sans JP", 9F);
+            this.buttonCreateShortcut.Location = new System.Drawing.Point(657, 194);
+            this.buttonCreateShortcut.Name = "buttonCreateShortcut";
+            this.buttonCreateShortcut.Size = new System.Drawing.Size(137, 66);
+            this.buttonCreateShortcut.TabIndex = 6;
+            this.buttonCreateShortcut.Text = "デスクトップ上に生成";
+            this.buttonCreateShortcut.UseVisualStyleBackColor = true;
+            this.buttonCreateShortcut.Click += new System.EventHandler(this.buttonCreateShortcut_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 544);
+            this.Controls.Add(this.buttonCreateShortcut);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.shortcutList);
@@ -102,6 +116,7 @@
         private System.Windows.Forms.ListBox shortcutList;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonDel;
+        private System.Windows.Forms.Button buttonCreateShortcut;
     }
 }
 
