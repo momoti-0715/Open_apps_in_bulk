@@ -2,8 +2,11 @@
 using JsonFileIO.Jsons;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using File = System.IO.File;
 using ListView = System.Windows.Forms.ListView;
@@ -103,6 +106,27 @@ namespace Open_apps_in_bulk
             userControl11.ListViewTask_Set = pCList.Task_open.Task_list;
             userControl11.ListViewCmd_Set = pCList.Cmd_open.P_c_list;
 
+            SetListBackgroundColor();
         }
+
+        private void SetListBackgroundColor()   // listViewの行の背景色変更
+        {
+            ListView.ListViewItemCollection listViewWeb = userControl11.ListViewWeb_Get;
+            ListView.ListViewItemCollection listViewTask = userControl11.ListViewTask_Get;
+            ListView.ListViewItemCollection listViewCmd = userControl11.ListViewCmd_Get;
+
+            List<ListView.ListViewItemCollection> listCorections = new List<ListView.ListViewItemCollection>{ listViewWeb, listViewTask, listViewCmd };
+
+            foreach (ListView.ListViewItemCollection listCorection in listCorections) {
+                foreach (ListViewItem item in listCorection)
+                {
+                    if (item.Text != null)
+                    {
+                        item.BackColor = SystemColors.Window; // 背景色を変更
+                    }
+                }
+            }
+        }
+
     }
 }

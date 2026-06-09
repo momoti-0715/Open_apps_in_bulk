@@ -1,6 +1,7 @@
 ﻿using JsonFileIO.Jsons;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Open_apps_in_bulk
@@ -89,12 +90,16 @@ namespace Open_apps_in_bulk
         {
             listViewWeb.Items.Add("");
             listViewWeb.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            SetListBackgroundColor(listViewWeb);
         }
 
-        private void ButtonAppNew_Click(object sender, EventArgs e)
+        private void ButtonTaskNew_Click(object sender, EventArgs e)
         {
             listViewTask.Items.Add("");
             listViewTask.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            SetListBackgroundColor(listViewTask);
         }
 
         private void ButtonCmdNew_Click(object sender, EventArgs e)
@@ -102,6 +107,8 @@ namespace Open_apps_in_bulk
             string[] row = { "", "" };
             listViewCmd.Items.Add(new ListViewItem(row));
             listViewCmd.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            SetListBackgroundColor(listViewCmd);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -135,6 +142,8 @@ namespace Open_apps_in_bulk
                 listViewTask.Items.Add(ofd.FileName);
                 listViewTask.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
+
+            SetListBackgroundColor(listViewTask);
         }
 
         private void ButtonWebEdit_Click(object sender, EventArgs e)
@@ -157,6 +166,7 @@ namespace Open_apps_in_bulk
             {
                 // 選択されたアイテムのインデックスを取得して削除
                 listViewWeb.Items.RemoveAt(listViewWeb.SelectedItems[0].Index);
+                SetListBackgroundColor(listViewWeb);
             }
             else
             {
@@ -170,6 +180,7 @@ namespace Open_apps_in_bulk
             {
                 // 選択されたアイテムのインデックスを取得して削除
                 listViewTask.Items.RemoveAt(listViewTask.SelectedItems[0].Index);
+                SetListBackgroundColor(listViewTask);
             }
             else
             {
@@ -183,10 +194,22 @@ namespace Open_apps_in_bulk
             {
                 // 選択されたアイテムのインデックスを取得して削除
                 listViewCmd.Items.RemoveAt(listViewCmd.SelectedItems[0].Index);
+                SetListBackgroundColor(listViewCmd);
             }
             else
             {
                 MessageBox.Show("削除する行を選択してください。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void SetListBackgroundColor(ListView list)
+        {
+            foreach (ListViewItem item in list.Items)
+            {
+                if (item.Text != null)
+                {
+                    item.BackColor = SystemColors.Window; // 背景色を変更
+                }
             }
         }
 

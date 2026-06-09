@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBoxSName = new System.Windows.Forms.TextBox();
             this.groupBoxCmd = new System.Windows.Forms.GroupBox();
             this.buttonCmdDel = new System.Windows.Forms.Button();
@@ -113,16 +113,16 @@
             // 
             // listViewCmd
             // 
-            this.listViewCmd.BackColor = System.Drawing.SystemColors.Window;
+            this.listViewCmd.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listViewCmd.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
             this.listViewCmd.FullRowSelect = true;
             this.listViewCmd.GridLines = true;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup1";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
             this.listViewCmd.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3});
+            listViewGroup1});
             this.listViewCmd.HideSelection = false;
             this.listViewCmd.LabelEdit = true;
             this.listViewCmd.Location = new System.Drawing.Point(25, 34);
@@ -162,6 +162,7 @@
             // 
             // listViewTask
             // 
+            this.listViewTask.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listViewTask.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4});
             this.listViewTask.FullRowSelect = true;
@@ -218,7 +219,7 @@
             this.buttonTaskNew.TabIndex = 9;
             this.buttonTaskNew.Text = "新規";
             this.buttonTaskNew.UseVisualStyleBackColor = true;
-            this.buttonTaskNew.Click += new System.EventHandler(this.ButtonAppNew_Click);
+            this.buttonTaskNew.Click += new System.EventHandler(this.ButtonTaskNew_Click);
             // 
             // groupBoxWeb
             // 
@@ -239,6 +240,7 @@
             // 
             // listViewWeb
             // 
+            this.listViewWeb.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listViewWeb.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3});
             this.listViewWeb.FullRowSelect = true;
