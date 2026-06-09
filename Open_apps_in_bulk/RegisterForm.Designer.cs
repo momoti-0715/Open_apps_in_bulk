@@ -33,8 +33,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelWarning = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.userControl11 = new Open_apps_in_bulk.UserControl1();
             this.checkBox = new System.Windows.Forms.CheckBox();
+            this.userControl11 = new Open_apps_in_bulk.UserControl1();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,18 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // checkBox
+            // 
+            this.checkBox.AutoSize = true;
+            this.checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.checkBox.Location = new System.Drawing.Point(555, 21);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(178, 21);
+            this.checkBox.TabIndex = 20;
+            this.checkBox.Text = "デスクトップに作成する";
+            this.checkBox.UseVisualStyleBackColor = true;
+            // 
             // userControl11
             // 
             this.userControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -97,18 +109,6 @@
             this.userControl11.TabIndex = 14;
             this.userControl11.TextBoxBrowserPass_InputText = "";
             this.userControl11.TextBoxSName_InputText = "";
-            // 
-            // checkBox
-            // 
-            this.checkBox.AutoSize = true;
-            this.checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.checkBox.Location = new System.Drawing.Point(573, 21);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(178, 21);
-            this.checkBox.TabIndex = 20;
-            this.checkBox.Text = "デスクトップに作成する";
-            this.checkBox.UseVisualStyleBackColor = true;
             // 
             // RegisterForm
             // 
