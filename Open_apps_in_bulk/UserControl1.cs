@@ -128,6 +128,10 @@ namespace Open_apps_in_bulk
                 // 選択されたアイテムのインデックスを取得して削除
                 listViewWeb.Items.RemoveAt(listViewWeb.SelectedItems[0].Index);
             }
+            else
+            {
+                MessageBox.Show("削除する行を選択してください。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ButtonTaskDel_Click(object sender, EventArgs e)
@@ -137,6 +141,10 @@ namespace Open_apps_in_bulk
                 // 選択されたアイテムのインデックスを取得して削除
                 listViewTask.Items.RemoveAt(listViewTask.SelectedItems[0].Index);
             }
+            else
+            {
+                MessageBox.Show("削除する行を選択してください。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ButtonCmdDel_Click(object sender, EventArgs e)
@@ -145,6 +153,10 @@ namespace Open_apps_in_bulk
             {
                 // 選択されたアイテムのインデックスを取得して削除
                 listViewCmd.Items.RemoveAt(listViewCmd.SelectedItems[0].Index);
+            }
+            else
+            {
+                MessageBox.Show("削除する行を選択してください。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
