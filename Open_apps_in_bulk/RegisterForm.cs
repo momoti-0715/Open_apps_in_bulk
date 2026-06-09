@@ -17,6 +17,7 @@ namespace Open_apps_in_bulk
 {
     public partial class RegisterForm : Form
     {
+        JsonControl jsonControl = new JsonControl();
         public RegisterForm()
         {
             InitializeComponent();
@@ -33,30 +34,7 @@ namespace Open_apps_in_bulk
         private void ButtonCreate_Click(object sender, EventArgs e)
         {
             string sName = userControl11.TextBoxSName_InputText;
-            string[] unusableChars = new string[] { "/", "?", "<", ">", "\\", ":", "*", "|", "\"",};
-
-            if (string.IsNullOrWhiteSpace(sName))
-            {
-                PrintWarning("ショートカット名を入力してください");
-                return;
-            }
-            else
-            {
-                foreach (string uChar in unusableChars)
-                {
-                    if (sName.Contains(uChar))
-                    {
-                        PrintWarning("ショートカット名に以下の文字は使用できません ( / ? < > \\ : * | \" )");
-                        return;
-                    }
-                }
-
-                if (File.Exists(@".\Shortcut\" + sName + ".exe"))
-                {
-                    PrintWarning("このショートカット名は既に存在します");
-                    return;
-                }
-            }
+            if (jsonControl.PrintError(labelWarning, sName) != 0) return;   // エラー文を表示するときはそのまま関数を終了する
 
             SettingJson setting = new SettingJson();
             // データ設定
@@ -122,11 +100,6 @@ namespace Open_apps_in_bulk
             File.Copy(@".\origin.exe", @".\Shortcut\" + sName + ".exe");
 
             Close();
-        }
-
-        private void PrintWarning(string message)
-        {
-            labelWarning.Text = message;
         }
     }
 }

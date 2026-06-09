@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace Open_apps_in_bulk
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
+            File.Move("", "");
             this.Close();
         }
     }

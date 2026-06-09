@@ -56,6 +56,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JsonControl.cs" />
     <Compile Include="ListViewEditor.cs" />
     <Compile Include="SettingJson.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
