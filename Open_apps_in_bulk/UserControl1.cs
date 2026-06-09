@@ -47,6 +47,10 @@ namespace Open_apps_in_bulk
         {
             set
             {
+                if (value == null)
+                {
+                    return;
+                }
                 foreach (string item in value)
                 {
                     listViewWeb.Items.Add(new ListViewItem(item));
@@ -57,6 +61,10 @@ namespace Open_apps_in_bulk
         {
             set
             {
+                if(value == null)
+                {
+                    return;
+                }
                 foreach (string item in value)
                 {
                     listViewTask.Items.Add(new ListViewItem(item));
