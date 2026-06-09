@@ -86,6 +86,15 @@ public class ControlJson
                 // サブアイテムの取得
                 string subValue = item.SubItems[1].Text;
 
+                if (string.IsNullOrWhiteSpace(mainValue))
+                {
+                    mainValue = null;
+                }
+                if (string.IsNullOrWhiteSpace(subValue))
+                {
+                    subValue = null;
+                }
+
                 setting.Cmd_open.P_c_list.Add(new PCList
                 {
                     Path = mainValue,
