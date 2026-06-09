@@ -41,7 +41,7 @@ namespace Open_apps_in_bulk
             ListView.ListViewItemCollection listViewTask = userControl11.ListViewTask_Get;
             ListView.ListViewItemCollection listViewCmd = userControl11.ListViewCmd_Get;
 
-            jsonControl.RegisterJson(sName, browserPass, listViewWeb, listViewTask, listViewCmd);
+            jsonControl.RegisterJson(sName, browserPass, listViewWeb, listViewTask, listViewCmd);   // jsonの登録
             jsonControl.ExeCopy(sName);
 
             Close();
