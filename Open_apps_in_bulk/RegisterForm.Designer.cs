@@ -89,6 +89,8 @@
             // 
             this.checkBox.AutoSize = true;
             this.checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox.Checked = true;
+            this.checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.checkBox.Location = new System.Drawing.Point(555, 21);
             this.checkBox.Name = "checkBox";
