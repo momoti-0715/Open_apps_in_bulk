@@ -113,11 +113,7 @@ namespace Open_apps_in_bulk
 
         private void buttonCreateShortcut_Click(object sender, EventArgs e)
         {
-            CreateShurtcutFile(shortcutList.Text);
-
-            buttonEdit.Enabled = false; // 編集と削除ボタンの無効化
-            buttonDel.Enabled = false;
-            buttonCreateShortcut.Enabled = false;
+            CreateShurtcutFile(shortcutList.Text);  // ショートカット生成
         }
 
         private void CreateShurtcutFile(string sName)

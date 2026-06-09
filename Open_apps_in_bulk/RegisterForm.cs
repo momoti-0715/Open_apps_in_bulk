@@ -70,6 +70,5 @@ namespace Open_apps_in_bulk
             sc.WorkingDirectory = workingDirPath;   // 作業フォルダの設定
             sc.Save();
         }
-
     }
 }
