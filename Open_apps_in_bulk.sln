@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Open_apps_in_bulk", "Open_a
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{DBE9999D-346E-CA63-6964-F3B7FC1D42B4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{2022CB0F-8BAF-F49E-0C48-8EF4C96EC109}"
-	ProjectSection(SolutionItems) = preProject
-		license.rtf = license.rtf
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
