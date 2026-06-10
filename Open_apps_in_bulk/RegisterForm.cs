@@ -55,7 +55,7 @@ namespace Open_apps_in_bulk
             IWshShortcut sc;    // ショートカットオブジェクト
 
             string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string fullPath = Path.GetFullPath(shortcutDir + sName + ".exe");
+            string fullPath = Path.Combine(shortcutDir, sName + ".exe");
             string shortcutPath = sDeskPath + @"\" + sName + ".lnk";
 
             sc = (IWshShortcut)shell.CreateShortcut(shortcutPath);  // ショートカットのパス

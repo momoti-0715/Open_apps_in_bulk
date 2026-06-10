@@ -53,10 +53,10 @@ namespace Open_apps_in_bulk
             }
 
             // jsonファイルとexeファイルをリネーム
-            string oriJsonPath = settingDir + originSName + ".json";
-            string jsonPath = settingDir + sName + ".json";
-            string oriExePath = shortcutDir + originSName + ".exe";
-            string exePath = shortcutDir + sName + ".exe";
+            string oriJsonPath = Path.Combine(settingDir, originSName + ".json");
+            string jsonPath = Path.Combine(settingDir, sName + ".json");
+            string oriExePath = Path.Combine(shortcutDir, originSName + ".exe");
+            string exePath = Path.Combine(shortcutDir, sName + ".exe");
 
             File.Move(oriJsonPath, jsonPath);
             File.Move(oriExePath, exePath);
@@ -98,9 +98,9 @@ namespace Open_apps_in_bulk
         {
             SettingJson pCList = new SettingJson();
 
-            if (File.Exists(settingDir + sName + ".json"))
+            if (File.Exists(Path.Combine(settingDir, sName + ".json")))
             {
-                using (var sr = new StreamReader(settingDir + sName + ".json", Encoding.UTF8))
+                using (var sr = new StreamReader(Path.Combine(settingDir, sName + ".json")  , Encoding.UTF8))
                 {
                     // 変数 jsonReadData にファイルの内容を代入 
                     var jsonReadData = sr.ReadToEnd();

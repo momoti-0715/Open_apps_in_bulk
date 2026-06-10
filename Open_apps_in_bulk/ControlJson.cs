@@ -33,7 +33,7 @@ public class ControlJson
                 }
             }
 
-            if (File.Exists(shortcutDir + sName + ".exe"))
+            if (File.Exists(Path.Combine(shortcutDir, sName + ".exe")))
             {
 
                 label.Text = "このショートカット名は既に存在します";
@@ -110,7 +110,9 @@ public class ControlJson
 
         var utf8WithBom = new UTF8Encoding(false); // BOMなし
 
-        using (var sw = new StreamWriter(settingDir + sName + ".json", false, utf8WithBom))
+        string jsonFile = Path.Combine(settingDir, sName + ".json");
+
+        using (var sw = new StreamWriter(jsonFile, false, utf8WithBom))
         {
             // JSON データをファイルに書き込み
             sw.Write(jsonWriteData);
@@ -119,6 +121,7 @@ public class ControlJson
 
     public void ExeCopy(string sName)
     {
-        File.Copy(@".\origin.exe", shortcutDir + sName + ".exe");
+        string exeFile = Path.Combine(shortcutDir, sName + ".exe");
+        File.Copy(@".\origin.exe", exeFile);
     }
 }
