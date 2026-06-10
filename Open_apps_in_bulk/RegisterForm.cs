@@ -7,12 +7,18 @@ namespace Open_apps_in_bulk
 {
     public partial class RegisterForm : Form
     {
+        string appData, settingDir, shortcutDir;
+
         public RegisterForm()
         {
             InitializeComponent();
 
             MaximizeBox = false;    // 最大化を禁止
             FormBorderStyle = FormBorderStyle.FixedSingle;  // サイズ変更禁止
+
+            appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MatometeHirakundesu");
+            settingDir = Path.Combine(appData, "Setting");
+            shortcutDir = Path.Combine(appData, "Shortcut");
         }
 
         private void ButtonCansel_Click(object sender, EventArgs e)
@@ -49,13 +55,12 @@ namespace Open_apps_in_bulk
             IWshShortcut sc;    // ショートカットオブジェクト
 
             string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string fullPath = Path.GetFullPath(@".\Shortcut\" + sName + ".exe");
-            string workingDirPath = Path.GetFullPath(@".\Shortcut");
+            string fullPath = Path.GetFullPath(shortcutDir + sName + ".exe");
             string shortcutPath = sDeskPath + @"\" + sName + ".lnk";
 
             sc = (IWshShortcut)shell.CreateShortcut(shortcutPath);  // ショートカットのパス
             sc.TargetPath = fullPath;   // 実行パス
-            sc.WorkingDirectory = workingDirPath;   // 作業フォルダの設定
+            sc.WorkingDirectory = shortcutDir;   // 作業フォルダの設定
             sc.Save();
         }
     }

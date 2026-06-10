@@ -9,6 +9,10 @@ using System.Windows.Forms;
 
 public class ControlJson
 {
+    static string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MatometeHirakundesu");
+    string settingDir = Path.Combine(appData, "Setting");
+    string shortcutDir = Path.Combine(appData, "Shortcut");
+
     public int PrintError(Label label, string sName)
     {
         string[] unusableChars = new string[] { "/", "?", "<", ">", "\\", ":", "*", "|", "\"", };
@@ -29,7 +33,7 @@ public class ControlJson
                 }
             }
 
-            if (File.Exists(@".\Shortcut\" + sName + ".exe"))
+            if (File.Exists(shortcutDir + sName + ".exe"))
             {
 
                 label.Text = "このショートカット名は既に存在します";
@@ -106,7 +110,7 @@ public class ControlJson
 
         var utf8WithBom = new UTF8Encoding(false); // BOMなし
 
-        using (var sw = new StreamWriter(@".\Setting\" + sName + ".json", false, utf8WithBom))
+        using (var sw = new StreamWriter(settingDir + sName + ".json", false, utf8WithBom))
         {
             // JSON データをファイルに書き込み
             sw.Write(jsonWriteData);
@@ -115,6 +119,6 @@ public class ControlJson
 
     public void ExeCopy(string sName)
     {
-        File.Copy(@".\origin.exe", @".\Shortcut\" + sName + ".exe");
+        File.Copy(@".\origin.exe", shortcutDir + sName + ".exe");
     }
 }
