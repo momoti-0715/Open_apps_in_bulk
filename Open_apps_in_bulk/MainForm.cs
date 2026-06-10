@@ -10,6 +10,8 @@ namespace Open_apps_in_bulk
 {
     public partial class MainForm : Form
     {
+        string appData, settingDir, shortcutDir;
+
         public MainForm()
         {
             InitializeComponent();
@@ -17,24 +19,24 @@ namespace Open_apps_in_bulk
             MaximizeBox = false;    // 最大化を禁止
             FormBorderStyle = FormBorderStyle.FixedSingle;  // サイズ変更禁止
 
-            string folderPath = @".\Shortcut\";
+            appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MatometeHirakundesu");
+            settingDir = Path.Combine(appData, "Setting");
+            shortcutDir = Path.Combine(appData, "Shortcut");
 
-            if (!Directory.Exists(folderPath))   // フォルダがないとき
-            {
-                Directory.CreateDirectory(folderPath);  // フォルダ生成
-            }
-
+            Directory.CreateDirectory(appData);  // フォルダ生成
+            Directory.CreateDirectory(settingDir);
+            Directory.CreateDirectory(shortcutDir);
+            
             Display_ShortcutList();
         }
 
         void Display_ShortcutList()
         {
-            string folderPath = @".\Shortcut\";
             shortcutList.Items.Clear(); // 一度リストの中身をリセット
 
-            if (Directory.EnumerateFiles(folderPath).Any()) // フォルダ内にファイルがあるとき
+            if (Directory.EnumerateFiles(shortcutDir).Any()) // フォルダ内にファイルがあるとき
             {
-                string[] files = Directory.GetFiles(folderPath, "*.exe");   // exeファイルを取得
+                string[] files = Directory.GetFiles(shortcutDir, "*.exe");   // exeファイルを取得
 
                 foreach (string file in files)
                 {
@@ -93,8 +95,8 @@ namespace Open_apps_in_bulk
         private void ButtonDel_Click(object sender, EventArgs e)
         {
             // 実行ファイルと設定ファイルの削除
-            File.Delete(@".\Shortcut\" + shortcutList.Text + ".exe");
-            File.Delete(@".\Setting\" + shortcutList.Text + ".json");
+            File.Delete(shortcutDir + shortcutList.Text + ".exe");
+            File.Delete(settingDir + shortcutList.Text + ".json");
             DeleteShortcutFile(shortcutList.Text);
 
             buttonEdit.Enabled = false;
@@ -114,13 +116,12 @@ namespace Open_apps_in_bulk
             IWshShortcut sc;    // ショートカットオブジェクト
 
             string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string fullPath = Path.GetFullPath(@".\Shortcut\" + sName + ".exe");
-            string workingDirPath = Path.GetFullPath(@".\Shortcut");
+            string fullPath = Path.GetFullPath(shortcutDir + sName + ".exe");
             string shortcutPath = sDeskPath + @"\" + sName + ".lnk";
 
             sc = (IWshShortcut)shell.CreateShortcut(shortcutPath);  // ショートカットのパス
             sc.TargetPath = fullPath;   // 実行パス
-            sc.WorkingDirectory = workingDirPath;   // 作業フォルダの設定
+            sc.WorkingDirectory = shortcutDir;   // 作業フォルダの設定
             sc.Save();
         }
 
@@ -132,7 +133,7 @@ namespace Open_apps_in_bulk
 
             string sDeskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);   // デスクトップの絶対パス
             string[] sFiles = Directory.GetFiles(sDeskPath, "*.lnk");  // デスクトップにあるショートカットファイルを取得
-            string fullPath = Path.GetFullPath(@".\Shortcut\" + sName + ".exe");
+            string fullPath = Path.GetFullPath(shortcutDir + sName + ".exe");
 
             foreach (string sFile in sFiles)
             {

@@ -16,12 +16,18 @@ namespace Open_apps_in_bulk
     public partial class EditForm : Form
     {
         string originSName;
+        string appData, settingDir, shortcutDir;
+
         public EditForm()
         {
             InitializeComponent();
 
             MaximizeBox = false;    // 最大化を禁止
             FormBorderStyle = FormBorderStyle.FixedSingle;  // サイズ変更禁止
+
+            appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MatometeHirakundesu");
+            settingDir = Path.Combine(appData, "Setting");
+            shortcutDir = Path.Combine(appData, "Shortcut");
         }
 
         private void Form_Shown(object sender, EventArgs e) // フォームが表示された直後に動作する
@@ -47,10 +53,10 @@ namespace Open_apps_in_bulk
             }
 
             // jsonファイルとexeファイルをリネーム
-            string oriJsonPath = @".\Setting\" + originSName + ".json";
-            string jsonPath = @".\Setting\" + sName + ".json";
-            string oriExePath = @".\Shortcut\" + originSName + ".exe";
-            string exePath = @".\Shortcut\" + sName + ".exe";
+            string oriJsonPath = settingDir + originSName + ".json";
+            string jsonPath = settingDir + sName + ".json";
+            string oriExePath = shortcutDir + originSName + ".exe";
+            string exePath = shortcutDir + sName + ".exe";
 
             File.Move(oriJsonPath, jsonPath);
             File.Move(oriExePath, exePath);
@@ -92,9 +98,9 @@ namespace Open_apps_in_bulk
         {
             SettingJson pCList = new SettingJson();
 
-            if (File.Exists(@".\Setting\" + sName + ".json"))
+            if (File.Exists(settingDir + sName + ".json"))
             {
-                using (var sr = new StreamReader(@".\Setting\" + sName + ".json", Encoding.UTF8))
+                using (var sr = new StreamReader(settingDir + sName + ".json", Encoding.UTF8))
                 {
                     // 変数 jsonReadData にファイルの内容を代入 
                     var jsonReadData = sr.ReadToEnd();
