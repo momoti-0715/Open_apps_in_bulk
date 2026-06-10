@@ -26,6 +26,12 @@ namespace Open_apps_in_bulk
             Directory.CreateDirectory(appData);  // フォルダ生成
             Directory.CreateDirectory(settingDir);
             Directory.CreateDirectory(shortcutDir);
+
+            string openAllpath = Path.Combine(appData, "open_all_at_once.exe");
+            if (!File.Exists(openAllpath))
+            {
+                File.Copy(@".\open_all_at_once.exe", openAllpath);
+            }
             
             Display_ShortcutList();
         }
