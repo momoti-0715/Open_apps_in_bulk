@@ -62,11 +62,11 @@ namespace Open_apps_in_bulk
             File.Move(oriExePath, exePath);
 
             string browserPass = userControl11.TextBoxBrowserPass_InputText;
-            ListView.ListViewItemCollection listViewWeb = userControl11.ListViewWeb_Get;
-            ListView.ListViewItemCollection listViewTask = userControl11.ListViewTask_Get;
-            ListView.ListViewItemCollection listViewCmd = userControl11.ListViewCmd_Get;
+            DataGridViewRowCollection dataGridViewWeb = userControl11.DataGridViewWeb_Get;
+            DataGridViewRowCollection dataGridViewTask = userControl11.DataGridViewTask_Get;
+            DataGridViewRowCollection dataGridViewCmd = userControl11.DataGridViewCmd_Get;
 
-            jsonControl.RegisterJson(sName, browserPass, listViewWeb, listViewTask, listViewCmd);   // jsonの登録
+            jsonControl.RegisterJson(sName, browserPass, dataGridViewWeb, dataGridViewTask, dataGridViewCmd);   // jsonの登録
 
             // デスクトップにショートカットがあるときに実行パスも変更する
             IWshShell shell = new WshShell();   // シェルオブジェクト
@@ -100,6 +100,7 @@ namespace Open_apps_in_bulk
 
             if (File.Exists(Path.Combine(settingDir, sName + ".json")))
             {
+                // Jsonファイルを開いて中身の取得
                 using (var sr = new StreamReader(Path.Combine(settingDir, sName + ".json")  , Encoding.UTF8))
                 {
                     // 変数 jsonReadData にファイルの内容を代入 
@@ -111,31 +112,9 @@ namespace Open_apps_in_bulk
             }
 
             userControl11.TextBoxBrowserPass_InputText = pCList.Web_open.Browser;
-            userControl11.ListViewWeb_Set = pCList.Web_open.Url_list;
-            userControl11.ListViewTask_Set = pCList.Task_open.Task_list;
-            userControl11.ListViewCmd_Set = pCList.Cmd_open.P_c_list;
-
-            SetListBackgroundColor();
+            userControl11.DataGridViewWeb_Set = pCList.Web_open.Url_list;
+            userControl11.DataGridViewTask_Set = pCList.Task_open.Task_list;
+            userControl11.DataGridViewCmd_Set = pCList.Cmd_open.P_c_list;
         }
-
-        private void SetListBackgroundColor()   // listViewの行の背景色変更
-        {
-            ListView.ListViewItemCollection listViewWeb = userControl11.ListViewWeb_Get;
-            ListView.ListViewItemCollection listViewTask = userControl11.ListViewTask_Get;
-            ListView.ListViewItemCollection listViewCmd = userControl11.ListViewCmd_Get;
-
-            List<ListView.ListViewItemCollection> listCorections = new List<ListView.ListViewItemCollection>{ listViewWeb, listViewTask, listViewCmd };
-
-            foreach (ListView.ListViewItemCollection listCorection in listCorections) {
-                foreach (ListViewItem item in listCorection)
-                {
-                    if (item.Text != null)
-                    {
-                        item.BackColor = SystemColors.Window; // 背景色を変更
-                    }
-                }
-            }
-        }
-
     }
 }

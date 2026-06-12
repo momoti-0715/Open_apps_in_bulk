@@ -7,7 +7,7 @@ namespace Open_apps_in_bulk
 {
     public partial class RegisterForm : Form
     {
-        string appData, settingDir, shortcutDir;
+        private string appData, settingDir, shortcutDir;
 
         public RegisterForm()
         {
@@ -34,11 +34,11 @@ namespace Open_apps_in_bulk
             if (jsonControl.PrintError(labelWarning, sName) != 0) return;   // エラー文を表示するときはそのまま関数を終了する
 
             string browserPass = userControl11.TextBoxBrowserPass_InputText;
-            ListView.ListViewItemCollection listViewWeb = userControl11.ListViewWeb_Get;
-            ListView.ListViewItemCollection listViewTask = userControl11.ListViewTask_Get;
-            ListView.ListViewItemCollection listViewCmd = userControl11.ListViewCmd_Get;
+            DataGridViewRowCollection dataGridViewWeb = userControl11.DataGridViewWeb_Get;
+            DataGridViewRowCollection dataGridViewTask = userControl11.DataGridViewTask_Get;
+            DataGridViewRowCollection dataGridViewCmd = userControl11.DataGridViewCmd_Get;
 
-            jsonControl.RegisterJson(sName, browserPass, listViewWeb, listViewTask, listViewCmd);   // jsonの登録
+            jsonControl.RegisterJson(sName, browserPass, dataGridViewWeb, dataGridViewTask, dataGridViewCmd);   // jsonの登録
             jsonControl.ExeCopy(sName);
 
             if (checkBox.Checked == true)

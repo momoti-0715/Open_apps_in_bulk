@@ -45,9 +45,9 @@ public class ControlJson
 
     public void RegisterJson(string sName,
         string browserPass,
-        ListView.ListViewItemCollection listViewWeb,
-        ListView.ListViewItemCollection listViewTask,
-        ListView.ListViewItemCollection listViewCmd)
+        DataGridViewRowCollection dataGridViewWeb,
+        DataGridViewRowCollection dataGridViewTask,
+        DataGridViewRowCollection dataGridViewCmd)
     {
         SettingJson setting = new SettingJson();
         // データ設定
@@ -58,49 +58,56 @@ public class ControlJson
         }
 
         // urlの登録
-        if (listViewWeb?.Count > 0)
+        if (dataGridViewWeb?.Count > 0)
         {
-            List<string> allValues = listViewWeb.Cast<ListViewItem>()
-                .Select(item => item.Text)
-                .ToList();
+            List<string> allValues = new List<string>();
+
+            foreach (DataGridViewRow item in dataGridViewWeb)
+            {
+                allValues.Add(item.Cells["URL"].Value?.ToString());
+            }
 
             setting.Web_open.Url_list = allValues;
 
         }
 
         // アプリの登録
-        if (listViewTask?.Count > 0)
+        if (dataGridViewTask?.Count > 0)
         {
-            List<string> allValues = listViewTask.Cast<ListViewItem>()
-                .Select(item => item.Text)
-                .ToList();
+            List<string> allValues = new List<string>();
+
+            foreach (DataGridViewRow item in dataGridViewTask)
+            {
+                allValues.Add(item.Cells["Pass"].Value?.ToString());
+            }
 
             setting.Task_open.Task_list = allValues;
         }
 
         // コマンドの登録
-        if (listViewCmd?.Count > 0)
+        if (dataGridViewCmd?.Count > 0)
         {
-            Console.WriteLine(listViewCmd.Cast<ListViewItem>());
-            foreach (ListViewItem item in listViewCmd)
+            foreach (DataGridViewRow item in dataGridViewCmd)
             {
-                string mainValue = item.Text;
-                // サブアイテムの取得
-                string subValue = item.SubItems[1].Text;
+                // DataGridView の各列の値を取得
+                string path = item.Cells["Path"].Value?.ToString();
+                string command = item.Cells["Command"].Value?.ToString();
+                bool close = item.Cells["Close"].Value as bool? ?? false;
 
-                if (string.IsNullOrWhiteSpace(mainValue))
+                if (string.IsNullOrWhiteSpace(path))
                 {
-                    mainValue = null;
+                    path = null;
                 }
-                if (string.IsNullOrWhiteSpace(subValue))
+                if (string.IsNullOrWhiteSpace(command))
                 {
-                    subValue = null;
+                    command = null;
                 }
 
                 setting.Cmd_open.P_c_list.Add(new PCList
                 {
-                    Path = mainValue,
-                    Command = subValue
+                    Path = path,
+                    Command = command,
+                    Close = close
                 });
             }
         }

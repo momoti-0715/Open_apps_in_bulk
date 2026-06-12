@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBoxSName = new System.Windows.Forms.TextBox();
             this.groupBoxCmd = new System.Windows.Forms.GroupBox();
+            this.dataGridViewCmd = new System.Windows.Forms.DataGridView();
             this.buttonCmdDel = new System.Windows.Forms.Button();
-            this.buttonCmdEdit = new System.Windows.Forms.Button();
             this.buttonCmdNew = new System.Windows.Forms.Button();
-            this.listViewCmd = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxTask = new System.Windows.Forms.GroupBox();
-            this.listViewTask = new System.Windows.Forms.ListView();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonTaskRef = new System.Windows.Forms.Button();
             this.buttonTaskDel = new System.Windows.Forms.Button();
-            this.buttonTaskEdit = new System.Windows.Forms.Button();
             this.buttonTaskNew = new System.Windows.Forms.Button();
             this.groupBoxWeb = new System.Windows.Forms.GroupBox();
-            this.listViewWeb = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.textBoxBrowserPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonWebDel = new System.Windows.Forms.Button();
-            this.buttonWebEdit = new System.Windows.Forms.Button();
             this.buttonWebNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewWeb = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTask = new System.Windows.Forms.DataGridView();
+            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Command = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Close = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxCmd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmd)).BeginInit();
             this.groupBoxTask.SuspendLayout();
             this.groupBoxWeb.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxSName
@@ -69,10 +69,9 @@
             // 
             // groupBoxCmd
             // 
+            this.groupBoxCmd.Controls.Add(this.dataGridViewCmd);
             this.groupBoxCmd.Controls.Add(this.buttonCmdDel);
-            this.groupBoxCmd.Controls.Add(this.buttonCmdEdit);
             this.groupBoxCmd.Controls.Add(this.buttonCmdNew);
-            this.groupBoxCmd.Controls.Add(this.listViewCmd);
             this.groupBoxCmd.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBoxCmd.Location = new System.Drawing.Point(20, 810);
             this.groupBoxCmd.Name = "groupBoxCmd";
@@ -80,6 +79,25 @@
             this.groupBoxCmd.TabIndex = 15;
             this.groupBoxCmd.TabStop = false;
             this.groupBoxCmd.Text = "コマンド";
+            // 
+            // dataGridViewCmd
+            // 
+            this.dataGridViewCmd.AllowUserToAddRows = false;
+            this.dataGridViewCmd.AllowUserToDeleteRows = false;
+            this.dataGridViewCmd.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridViewCmd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCmd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Path,
+            this.Command,
+            this.Close});
+            this.dataGridViewCmd.Location = new System.Drawing.Point(26, 34);
+            this.dataGridViewCmd.MultiSelect = false;
+            this.dataGridViewCmd.Name = "dataGridViewCmd";
+            this.dataGridViewCmd.RowHeadersVisible = false;
+            this.dataGridViewCmd.RowHeadersWidth = 51;
+            this.dataGridViewCmd.RowTemplate.Height = 24;
+            this.dataGridViewCmd.Size = new System.Drawing.Size(914, 256);
+            this.dataGridViewCmd.TabIndex = 17;
             // 
             // buttonCmdDel
             // 
@@ -91,19 +109,9 @@
             this.buttonCmdDel.UseVisualStyleBackColor = true;
             this.buttonCmdDel.Click += new System.EventHandler(this.ButtonCmdDel_Click);
             // 
-            // buttonCmdEdit
-            // 
-            this.buttonCmdEdit.Location = new System.Drawing.Point(720, 302);
-            this.buttonCmdEdit.Name = "buttonCmdEdit";
-            this.buttonCmdEdit.Size = new System.Drawing.Size(115, 29);
-            this.buttonCmdEdit.TabIndex = 15;
-            this.buttonCmdEdit.Text = "編集";
-            this.buttonCmdEdit.UseVisualStyleBackColor = true;
-            this.buttonCmdEdit.Click += new System.EventHandler(this.ButtonCmdEdit_Click);
-            // 
             // buttonCmdNew
             // 
-            this.buttonCmdNew.Location = new System.Drawing.Point(599, 302);
+            this.buttonCmdNew.Location = new System.Drawing.Point(720, 302);
             this.buttonCmdNew.Name = "buttonCmdNew";
             this.buttonCmdNew.Size = new System.Drawing.Size(115, 29);
             this.buttonCmdNew.TabIndex = 14;
@@ -111,46 +119,11 @@
             this.buttonCmdNew.UseVisualStyleBackColor = true;
             this.buttonCmdNew.Click += new System.EventHandler(this.ButtonCmdNew_Click);
             // 
-            // listViewCmd
-            // 
-            this.listViewCmd.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.listViewCmd.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listViewCmd.FullRowSelect = true;
-            this.listViewCmd.GridLines = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            this.listViewCmd.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
-            this.listViewCmd.HideSelection = false;
-            this.listViewCmd.LabelEdit = true;
-            this.listViewCmd.Location = new System.Drawing.Point(25, 34);
-            this.listViewCmd.MultiSelect = false;
-            this.listViewCmd.Name = "listViewCmd";
-            this.listViewCmd.ShowGroups = false;
-            this.listViewCmd.Size = new System.Drawing.Size(915, 256);
-            this.listViewCmd.TabIndex = 13;
-            this.listViewCmd.UseCompatibleStateImageBehavior = false;
-            this.listViewCmd.View = System.Windows.Forms.View.Details;
-            this.listViewCmd.SelectedIndexChanged += new System.EventHandler(this.ButtonWebNew_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "カレントディレクトリ　　　　　";
-            this.columnHeader1.Width = 201;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "コマンド";
-            this.columnHeader2.Width = 640;
-            // 
             // groupBoxTask
             // 
-            this.groupBoxTask.Controls.Add(this.listViewTask);
+            this.groupBoxTask.Controls.Add(this.dataGridViewTask);
             this.groupBoxTask.Controls.Add(this.buttonTaskRef);
             this.groupBoxTask.Controls.Add(this.buttonTaskDel);
-            this.groupBoxTask.Controls.Add(this.buttonTaskEdit);
             this.groupBoxTask.Controls.Add(this.buttonTaskNew);
             this.groupBoxTask.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBoxTask.Location = new System.Drawing.Point(20, 454);
@@ -160,30 +133,9 @@
             this.groupBoxTask.TabStop = false;
             this.groupBoxTask.Text = "アプリケーション";
             // 
-            // listViewTask
-            // 
-            this.listViewTask.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.listViewTask.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4});
-            this.listViewTask.FullRowSelect = true;
-            this.listViewTask.GridLines = true;
-            this.listViewTask.HideSelection = false;
-            this.listViewTask.LabelEdit = true;
-            this.listViewTask.Location = new System.Drawing.Point(25, 34);
-            this.listViewTask.Name = "listViewTask";
-            this.listViewTask.Size = new System.Drawing.Size(915, 256);
-            this.listViewTask.TabIndex = 8;
-            this.listViewTask.UseCompatibleStateImageBehavior = false;
-            this.listViewTask.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "PATH";
-            this.columnHeader4.Width = 900;
-            // 
             // buttonTaskRef
             // 
-            this.buttonTaskRef.Location = new System.Drawing.Point(599, 304);
+            this.buttonTaskRef.Location = new System.Drawing.Point(720, 304);
             this.buttonTaskRef.Name = "buttonTaskRef";
             this.buttonTaskRef.Size = new System.Drawing.Size(115, 29);
             this.buttonTaskRef.TabIndex = 11;
@@ -201,19 +153,9 @@
             this.buttonTaskDel.UseVisualStyleBackColor = true;
             this.buttonTaskDel.Click += new System.EventHandler(this.ButtonTaskDel_Click);
             // 
-            // buttonTaskEdit
-            // 
-            this.buttonTaskEdit.Location = new System.Drawing.Point(720, 304);
-            this.buttonTaskEdit.Name = "buttonTaskEdit";
-            this.buttonTaskEdit.Size = new System.Drawing.Size(115, 29);
-            this.buttonTaskEdit.TabIndex = 10;
-            this.buttonTaskEdit.Text = "編集";
-            this.buttonTaskEdit.UseVisualStyleBackColor = true;
-            this.buttonTaskEdit.Click += new System.EventHandler(this.ButtonTaskEdit_Click);
-            // 
             // buttonTaskNew
             // 
-            this.buttonTaskNew.Location = new System.Drawing.Point(478, 304);
+            this.buttonTaskNew.Location = new System.Drawing.Point(599, 304);
             this.buttonTaskNew.Name = "buttonTaskNew";
             this.buttonTaskNew.Size = new System.Drawing.Size(115, 29);
             this.buttonTaskNew.TabIndex = 9;
@@ -223,12 +165,11 @@
             // 
             // groupBoxWeb
             // 
-            this.groupBoxWeb.Controls.Add(this.listViewWeb);
+            this.groupBoxWeb.Controls.Add(this.dataGridViewWeb);
             this.groupBoxWeb.Controls.Add(this.button1);
             this.groupBoxWeb.Controls.Add(this.textBoxBrowserPass);
             this.groupBoxWeb.Controls.Add(this.label2);
             this.groupBoxWeb.Controls.Add(this.buttonWebDel);
-            this.groupBoxWeb.Controls.Add(this.buttonWebEdit);
             this.groupBoxWeb.Controls.Add(this.buttonWebNew);
             this.groupBoxWeb.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBoxWeb.Location = new System.Drawing.Point(20, 60);
@@ -237,27 +178,6 @@
             this.groupBoxWeb.TabIndex = 17;
             this.groupBoxWeb.TabStop = false;
             this.groupBoxWeb.Text = "ウェブサイト";
-            // 
-            // listViewWeb
-            // 
-            this.listViewWeb.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.listViewWeb.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3});
-            this.listViewWeb.FullRowSelect = true;
-            this.listViewWeb.GridLines = true;
-            this.listViewWeb.HideSelection = false;
-            this.listViewWeb.LabelEdit = true;
-            this.listViewWeb.Location = new System.Drawing.Point(25, 69);
-            this.listViewWeb.Name = "listViewWeb";
-            this.listViewWeb.Size = new System.Drawing.Size(915, 256);
-            this.listViewWeb.TabIndex = 4;
-            this.listViewWeb.UseCompatibleStateImageBehavior = false;
-            this.listViewWeb.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "URL";
-            this.columnHeader3.Width = 900;
             // 
             // button1
             // 
@@ -297,19 +217,9 @@
             this.buttonWebDel.UseVisualStyleBackColor = true;
             this.buttonWebDel.Click += new System.EventHandler(this.ButtonWebDel_Click);
             // 
-            // buttonWebEdit
-            // 
-            this.buttonWebEdit.Location = new System.Drawing.Point(720, 340);
-            this.buttonWebEdit.Name = "buttonWebEdit";
-            this.buttonWebEdit.Size = new System.Drawing.Size(115, 29);
-            this.buttonWebEdit.TabIndex = 6;
-            this.buttonWebEdit.Text = "編集";
-            this.buttonWebEdit.UseVisualStyleBackColor = true;
-            this.buttonWebEdit.Click += new System.EventHandler(this.ButtonWebEdit_Click);
-            // 
             // buttonWebNew
             // 
-            this.buttonWebNew.Location = new System.Drawing.Point(599, 340);
+            this.buttonWebNew.Location = new System.Drawing.Point(720, 340);
             this.buttonWebNew.Name = "buttonWebNew";
             this.buttonWebNew.Size = new System.Drawing.Size(115, 29);
             this.buttonWebNew.TabIndex = 5;
@@ -327,6 +237,81 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "ショートカット名";
             // 
+            // dataGridViewWeb
+            // 
+            this.dataGridViewWeb.AllowUserToAddRows = false;
+            this.dataGridViewWeb.AllowUserToDeleteRows = false;
+            this.dataGridViewWeb.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewWeb.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridViewWeb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWeb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.URL});
+            this.dataGridViewWeb.Location = new System.Drawing.Point(26, 73);
+            this.dataGridViewWeb.MultiSelect = false;
+            this.dataGridViewWeb.Name = "dataGridViewWeb";
+            this.dataGridViewWeb.RowHeadersVisible = false;
+            this.dataGridViewWeb.RowHeadersWidth = 51;
+            this.dataGridViewWeb.RowTemplate.Height = 24;
+            this.dataGridViewWeb.Size = new System.Drawing.Size(914, 256);
+            this.dataGridViewWeb.TabIndex = 18;
+            // 
+            // dataGridViewTask
+            // 
+            this.dataGridViewTask.AllowUserToAddRows = false;
+            this.dataGridViewTask.AllowUserToDeleteRows = false;
+            this.dataGridViewTask.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewTask.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridViewTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Pass});
+            this.dataGridViewTask.Location = new System.Drawing.Point(26, 36);
+            this.dataGridViewTask.MultiSelect = false;
+            this.dataGridViewTask.Name = "dataGridViewTask";
+            this.dataGridViewTask.RowHeadersVisible = false;
+            this.dataGridViewTask.RowHeadersWidth = 51;
+            this.dataGridViewTask.RowTemplate.Height = 24;
+            this.dataGridViewTask.Size = new System.Drawing.Size(914, 256);
+            this.dataGridViewTask.TabIndex = 18;
+            // 
+            // Path
+            // 
+            this.Path.FillWeight = 250F;
+            this.Path.HeaderText = "カレントディレクトリ";
+            this.Path.MinimumWidth = 6;
+            this.Path.Name = "Path";
+            this.Path.Width = 250;
+            // 
+            // Command
+            // 
+            this.Command.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Command.FillWeight = 84.46524F;
+            this.Command.HeaderText = "コマンド";
+            this.Command.MinimumWidth = 6;
+            this.Command.Name = "Command";
+            // 
+            // Close
+            // 
+            this.Close.FillWeight = 70F;
+            this.Close.HeaderText = "Close";
+            this.Close.MinimumWidth = 70;
+            this.Close.Name = "Close";
+            this.Close.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Close.Width = 70;
+            // 
+            // URL
+            // 
+            this.URL.FillWeight = 250F;
+            this.URL.HeaderText = "URL";
+            this.URL.MinimumWidth = 6;
+            this.URL.Name = "URL";
+            // 
+            // Pass
+            // 
+            this.Pass.FillWeight = 250F;
+            this.Pass.HeaderText = "PASS";
+            this.Pass.MinimumWidth = 6;
+            this.Pass.Name = "Pass";
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -340,9 +325,12 @@
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(1019, 1175);
             this.groupBoxCmd.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmd)).EndInit();
             this.groupBoxTask.ResumeLayout(false);
             this.groupBoxWeb.ResumeLayout(false);
             this.groupBoxWeb.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,27 +341,25 @@
         private System.Windows.Forms.TextBox textBoxSName;
         private System.Windows.Forms.GroupBox groupBoxCmd;
         private System.Windows.Forms.Button buttonCmdDel;
-        private System.Windows.Forms.Button buttonCmdEdit;
         private System.Windows.Forms.Button buttonCmdNew;
-        private System.Windows.Forms.ListView listViewCmd;
         private System.Windows.Forms.GroupBox groupBoxTask;
         private System.Windows.Forms.Button buttonTaskRef;
         private System.Windows.Forms.Button buttonTaskDel;
-        private System.Windows.Forms.Button buttonTaskEdit;
         private System.Windows.Forms.Button buttonTaskNew;
         private System.Windows.Forms.GroupBox groupBoxWeb;
         private System.Windows.Forms.Button buttonWebDel;
-        private System.Windows.Forms.Button buttonWebEdit;
         private System.Windows.Forms.Button buttonWebNew;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.TextBox textBoxBrowserPass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView listViewTask;
-        private System.Windows.Forms.ListView listViewWeb;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        public System.Windows.Forms.DataGridView dataGridViewCmd;
+        public System.Windows.Forms.DataGridView dataGridViewTask;
+        public System.Windows.Forms.DataGridView dataGridViewWeb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Path;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Command;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Close;
+        private System.Windows.Forms.DataGridViewTextBoxColumn URL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pass;
     }
 }

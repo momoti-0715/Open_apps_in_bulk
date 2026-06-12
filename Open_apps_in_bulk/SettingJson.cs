@@ -39,6 +39,9 @@ namespace JsonFileIO.Jsons
 
         [JsonProperty("command")]
         public string Command { get; set; } = null;
+
+        [JsonProperty("close")]
+        public bool Close { get; set; } = false;
     }
 
     public class TaskOpen
@@ -61,6 +64,7 @@ namespace JsonFileIO.Jsons
 //            {
 //            "path": null,
 //            "command": "ls"
+//            "close": false
 //            }
 //        ]
 //    },
