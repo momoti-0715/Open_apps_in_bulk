@@ -31,32 +31,32 @@
             this.textBoxSName = new System.Windows.Forms.TextBox();
             this.groupBoxCmd = new System.Windows.Forms.GroupBox();
             this.dataGridViewCmd = new System.Windows.Forms.DataGridView();
+            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Command = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Close = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.buttonCmdDel = new System.Windows.Forms.Button();
             this.buttonCmdNew = new System.Windows.Forms.Button();
             this.groupBoxTask = new System.Windows.Forms.GroupBox();
+            this.dataGridViewTask = new System.Windows.Forms.DataGridView();
+            this.Pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonTaskRef = new System.Windows.Forms.Button();
             this.buttonTaskDel = new System.Windows.Forms.Button();
             this.buttonTaskNew = new System.Windows.Forms.Button();
             this.groupBoxWeb = new System.Windows.Forms.GroupBox();
+            this.dataGridViewWeb = new System.Windows.Forms.DataGridView();
+            this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.textBoxBrowserPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonWebDel = new System.Windows.Forms.Button();
             this.buttonWebNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewWeb = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTask = new System.Windows.Forms.DataGridView();
-            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Command = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Close = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxCmd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmd)).BeginInit();
             this.groupBoxTask.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).BeginInit();
             this.groupBoxWeb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeb)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxSName
@@ -96,8 +96,35 @@
             this.dataGridViewCmd.RowHeadersVisible = false;
             this.dataGridViewCmd.RowHeadersWidth = 51;
             this.dataGridViewCmd.RowTemplate.Height = 24;
+            this.dataGridViewCmd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCmd.Size = new System.Drawing.Size(914, 256);
             this.dataGridViewCmd.TabIndex = 17;
+            this.dataGridViewCmd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridViewCmd_MouseDown);
+            // 
+            // Path
+            // 
+            this.Path.FillWeight = 250F;
+            this.Path.HeaderText = "カレントディレクトリ";
+            this.Path.MinimumWidth = 6;
+            this.Path.Name = "Path";
+            this.Path.Width = 250;
+            // 
+            // Command
+            // 
+            this.Command.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Command.FillWeight = 84.46524F;
+            this.Command.HeaderText = "コマンド";
+            this.Command.MinimumWidth = 6;
+            this.Command.Name = "Command";
+            // 
+            // Close
+            // 
+            this.Close.FillWeight = 70F;
+            this.Close.HeaderText = "Close";
+            this.Close.MinimumWidth = 70;
+            this.Close.Name = "Close";
+            this.Close.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Close.Width = 70;
             // 
             // buttonCmdDel
             // 
@@ -132,6 +159,33 @@
             this.groupBoxTask.TabIndex = 16;
             this.groupBoxTask.TabStop = false;
             this.groupBoxTask.Text = "アプリケーション";
+            // 
+            // dataGridViewTask
+            // 
+            this.dataGridViewTask.AllowUserToAddRows = false;
+            this.dataGridViewTask.AllowUserToDeleteRows = false;
+            this.dataGridViewTask.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewTask.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridViewTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Pass});
+            this.dataGridViewTask.Location = new System.Drawing.Point(26, 36);
+            this.dataGridViewTask.MultiSelect = false;
+            this.dataGridViewTask.Name = "dataGridViewTask";
+            this.dataGridViewTask.RowHeadersVisible = false;
+            this.dataGridViewTask.RowHeadersWidth = 51;
+            this.dataGridViewTask.RowTemplate.Height = 24;
+            this.dataGridViewTask.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewTask.Size = new System.Drawing.Size(914, 256);
+            this.dataGridViewTask.TabIndex = 18;
+            this.dataGridViewTask.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridViewTask_MouseDown);
+            // 
+            // Pass
+            // 
+            this.Pass.FillWeight = 250F;
+            this.Pass.HeaderText = "PASS";
+            this.Pass.MinimumWidth = 6;
+            this.Pass.Name = "Pass";
             // 
             // buttonTaskRef
             // 
@@ -178,6 +232,33 @@
             this.groupBoxWeb.TabIndex = 17;
             this.groupBoxWeb.TabStop = false;
             this.groupBoxWeb.Text = "ウェブサイト";
+            // 
+            // dataGridViewWeb
+            // 
+            this.dataGridViewWeb.AllowUserToAddRows = false;
+            this.dataGridViewWeb.AllowUserToDeleteRows = false;
+            this.dataGridViewWeb.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewWeb.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridViewWeb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWeb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.URL});
+            this.dataGridViewWeb.Location = new System.Drawing.Point(26, 73);
+            this.dataGridViewWeb.MultiSelect = false;
+            this.dataGridViewWeb.Name = "dataGridViewWeb";
+            this.dataGridViewWeb.RowHeadersVisible = false;
+            this.dataGridViewWeb.RowHeadersWidth = 51;
+            this.dataGridViewWeb.RowTemplate.Height = 24;
+            this.dataGridViewWeb.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewWeb.Size = new System.Drawing.Size(914, 256);
+            this.dataGridViewWeb.TabIndex = 18;
+            this.dataGridViewWeb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridViewWeb_MouseDown);
+            // 
+            // URL
+            // 
+            this.URL.FillWeight = 250F;
+            this.URL.HeaderText = "URL";
+            this.URL.MinimumWidth = 6;
+            this.URL.Name = "URL";
             // 
             // button1
             // 
@@ -237,81 +318,6 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "ショートカット名";
             // 
-            // dataGridViewWeb
-            // 
-            this.dataGridViewWeb.AllowUserToAddRows = false;
-            this.dataGridViewWeb.AllowUserToDeleteRows = false;
-            this.dataGridViewWeb.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewWeb.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridViewWeb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewWeb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.URL});
-            this.dataGridViewWeb.Location = new System.Drawing.Point(26, 73);
-            this.dataGridViewWeb.MultiSelect = false;
-            this.dataGridViewWeb.Name = "dataGridViewWeb";
-            this.dataGridViewWeb.RowHeadersVisible = false;
-            this.dataGridViewWeb.RowHeadersWidth = 51;
-            this.dataGridViewWeb.RowTemplate.Height = 24;
-            this.dataGridViewWeb.Size = new System.Drawing.Size(914, 256);
-            this.dataGridViewWeb.TabIndex = 18;
-            // 
-            // dataGridViewTask
-            // 
-            this.dataGridViewTask.AllowUserToAddRows = false;
-            this.dataGridViewTask.AllowUserToDeleteRows = false;
-            this.dataGridViewTask.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewTask.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridViewTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Pass});
-            this.dataGridViewTask.Location = new System.Drawing.Point(26, 36);
-            this.dataGridViewTask.MultiSelect = false;
-            this.dataGridViewTask.Name = "dataGridViewTask";
-            this.dataGridViewTask.RowHeadersVisible = false;
-            this.dataGridViewTask.RowHeadersWidth = 51;
-            this.dataGridViewTask.RowTemplate.Height = 24;
-            this.dataGridViewTask.Size = new System.Drawing.Size(914, 256);
-            this.dataGridViewTask.TabIndex = 18;
-            // 
-            // Path
-            // 
-            this.Path.FillWeight = 250F;
-            this.Path.HeaderText = "カレントディレクトリ";
-            this.Path.MinimumWidth = 6;
-            this.Path.Name = "Path";
-            this.Path.Width = 250;
-            // 
-            // Command
-            // 
-            this.Command.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Command.FillWeight = 84.46524F;
-            this.Command.HeaderText = "コマンド";
-            this.Command.MinimumWidth = 6;
-            this.Command.Name = "Command";
-            // 
-            // Close
-            // 
-            this.Close.FillWeight = 70F;
-            this.Close.HeaderText = "Close";
-            this.Close.MinimumWidth = 70;
-            this.Close.Name = "Close";
-            this.Close.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Close.Width = 70;
-            // 
-            // URL
-            // 
-            this.URL.FillWeight = 250F;
-            this.URL.HeaderText = "URL";
-            this.URL.MinimumWidth = 6;
-            this.URL.Name = "URL";
-            // 
-            // Pass
-            // 
-            this.Pass.FillWeight = 250F;
-            this.Pass.HeaderText = "PASS";
-            this.Pass.MinimumWidth = 6;
-            this.Pass.Name = "Pass";
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -327,10 +333,10 @@
             this.groupBoxCmd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmd)).EndInit();
             this.groupBoxTask.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).EndInit();
             this.groupBoxWeb.ResumeLayout(false);
             this.groupBoxWeb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeb)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

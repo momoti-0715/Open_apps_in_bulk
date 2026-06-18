@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using Button = System.Windows.Forms.Button;
+using Control = System.Windows.Forms.Control;
 using UserControl = System.Windows.Forms.UserControl;
 
 namespace Open_apps_in_bulk
@@ -13,6 +15,8 @@ namespace Open_apps_in_bulk
         public UserControl1()
         {
             InitializeComponent();
+
+            RegisterClickEvent(this);
         }
 
         public string TextBoxSName_InputText    // 外部からの入出力用
@@ -74,16 +78,92 @@ namespace Open_apps_in_bulk
         {
             set
             {
+                if (value == null)
+                {
+                    return;
+                }
+
                 foreach (PCList item in value)
                 {
-                    dataGridViewTask.Rows.Add(item.Path, item.Command, item.Close);
+                    dataGridViewCmd.Rows.Add(item.Path, item.Command, item.Close);
                 }
             }
+        }
+
+        private void RegisterClickEvent(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (!(control is DataGridView))
+                {
+                    control.MouseDown += Control_MouseDown;
+                }
+
+                if (control.HasChildren)
+                {
+                    RegisterClickEvent(control);
+                }
+            }
+        }
+
+        private void ClearGridState(DataGridView dgv)
+        {
+            dgv.EndEdit();          // 編集確定
+            dgv.ClearSelection();   // 選択解除
+            dgv.CurrentCell = null; // フォーカス解除
         }
 
         private void ButtonWebNew_Click(object sender, EventArgs e)
         {
             dataGridViewWeb.Rows.Add();
+        }
+
+        private void Control_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                return;
+            }
+
+            ClearGridState(dataGridViewWeb);
+            ClearGridState(dataGridViewTask);
+            ClearGridState(dataGridViewCmd);
+        }
+
+        private void dataGridViewWeb_MouseDown(object sender, MouseEventArgs e)
+        {
+            var hit = dataGridViewWeb.HitTest(e.X, e.Y);
+
+            if (hit.Type == DataGridViewHitTestType.None)
+            {
+                ClearGridState(dataGridViewWeb);
+                ClearGridState(dataGridViewTask);
+                ClearGridState(dataGridViewCmd);
+            }
+        }
+
+        private void dataGridViewTask_MouseDown(object sender, MouseEventArgs e)
+        {
+            var hit = dataGridViewTask.HitTest(e.X, e.Y);
+
+            if (hit.Type == DataGridViewHitTestType.None)
+            {
+                ClearGridState(dataGridViewWeb);
+                ClearGridState(dataGridViewTask);
+                ClearGridState(dataGridViewCmd);
+            }
+        }
+
+        private void dataGridViewCmd_MouseDown(object sender, MouseEventArgs e)
+        {
+            var hit = dataGridViewCmd.HitTest(e.X, e.Y);
+
+            if (hit.Type == DataGridViewHitTestType.None)
+            {
+                ClearGridState(dataGridViewWeb);
+                ClearGridState(dataGridViewTask);
+                ClearGridState(dataGridViewCmd);
+            }
         }
 
         private void ButtonTaskNew_Click(object sender, EventArgs e)

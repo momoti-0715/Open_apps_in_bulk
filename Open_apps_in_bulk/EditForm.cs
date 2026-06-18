@@ -34,6 +34,10 @@ namespace Open_apps_in_bulk
         {
             originSName = userControl11.TextBoxSName_InputText; // 元のショートカット名
             Register(originSName);
+
+            userControl11.dataGridViewWeb.ClearSelection();
+            userControl11.dataGridViewTask.ClearSelection();
+            userControl11.dataGridViewCmd.ClearSelection();
         }
 
         private void ButtonCansel_Click(object sender, EventArgs e)
